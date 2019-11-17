@@ -3,6 +3,6 @@
 
 int main(void)
 {
-
+	ft_printf("bonjour");
 	return (0);
 }

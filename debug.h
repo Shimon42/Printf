@@ -1,3 +1,5 @@
+#define DEBUG  0
+
 // --------------- COLORS --
 #define RST "\033[0m"
 
