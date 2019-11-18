@@ -18,12 +18,12 @@ const char	*detect_param(const char *str)
 int	ft_printf(const char *str, ...)
 {
 	va_list va;
+	char	*res;
 
-	va_start (va, str);
-	char *res = va_arg (va, char *);
+	va_start(va, str);
+	res = va_arg(va, char *);
 	printf("%s\n", res);
 	printf("Found %s\n", detect_param(str));
-	/* traitement des paramètres selon la fonction */ 
-	va_end (va);
+	va_end(va);
 	return (1);
 }
