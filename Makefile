@@ -9,21 +9,17 @@ CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 RM		= rm -f
 OBJS	= ${SRCS:.c=.o}
-INCLUDES =	libftprintf.h
-
+INCPATH = includes/
+INCLUDES =	$(INCPATH)libftprintf.h
 
 all:		$(NAME) $(INCLUDES)
 
 $(NAME): 	$(OBJS) $(INCLUDES)
 	ar rc $(NAME) $(OBJS)
 
-bonus:		$(OBJS) $(OBJSBNS) $(INCLUDES)
-	ar rc $(NAME) $(OBJS) $(OBJSBNS)
-
-
 comp: 	
 			clear
-			$(CC) $(CFLAGS) main.c $(NAME)
+			$(CC) $(CFLAGS) main.c $(NAME) -i $(INCLUDES) libft.a
 
 launch :	re comp
 			./a.out
