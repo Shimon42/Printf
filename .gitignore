@@ -2,4 +2,6 @@
 *.out
 *.DS_Store
 *.a
-
+.vscode
+*.gch
+*.gch

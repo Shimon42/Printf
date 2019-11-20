@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   libftprintf.h                                    .::    .:/ .      .::   */
+/*   per_s.h                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 16:49:16 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/20 22:25:15 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/20 22:47:19 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/20 22:53:10 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "brain.h"
+#ifndef PER_S_H
+# define PER_S_H
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+typedef struct  s_per_s
+{
+    char        *key;
+    void		(*func)(char *);
+	void		*expect;
+    void	    *next;
+}               t_per_s;
 
-int		ft_printf(const char *str, ...);
-
-void	new_s_param(t_brain **b, char *key, void (*f)(char *), void *exp);
-
-char	*per_s_exp(va_list va);
 #endif

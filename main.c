@@ -3,6 +3,6 @@
 
 int main(void)
 {
-	ft_printf("bonjour %shello %ssalut", "couiiiiicou");
+	ft_printf("bonjour %shello %dsalut", "couiiiiicou", 12345);
 	return (0);
 }
