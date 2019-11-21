@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   brain.h                                          .::    .:/ .      .::   */
+/*   per_d.c                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 15:15:38 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/21 17:04:06 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/21 17:13:38 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
+#include <stdarg.h>
 #include <stdio.h>
-#ifndef BRAIN_H
-# define BRAIN_H
+#include "../../includes/brain.h"
+#include "../../includes/libft.h"
 
-typedef void (*funcptr)(void *);
-
-typedef struct  s_param
+void	per_d(va_list va)
 {
-    char		*key;
-    funcptr		treat;
-    struct s_param	*next;
-}               t_param;
-
-typedef struct  s_brain
-{
-    t_param		*params;
-	t_param		*cur_func;
-    long		stri;
-}               t_brain;
-
-void disp_brain(t_brain *b);
-
-#endif
+	ft_putnbr_fd(va_arg(va, unsigned long), 1);
+}

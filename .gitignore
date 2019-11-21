@@ -5,3 +5,5 @@
 .vscode
 *.gch
 *.gch
+*.gch
+includes/libftprintf.h.gch

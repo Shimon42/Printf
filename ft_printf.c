@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/20 23:25:39 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/21 17:36:17 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -79,24 +79,26 @@ void			init_brain(t_brain **b)
 	init_params(b);
 }
 
-void			new_param(t_brain **b, char *key, void *f, void *exp)
+void			new_param(t_brain **b, char *key, void *f)
 {
 	t_param *new;
 
 	new = malloc(sizeof(t_param));
 	new->key = ft_strdup(key);
-	new->func = f;
+	new->treat = f;
 	new->next = (*b)->params;
-	new->expect = &exp;
 	(*b)->params = new;
 }
 
 static void			init_params(t_brain **b)
 {
 	printf(YELO"Init params"RST"\n");
-	new_s_param(b, "%s", &ft_putstr, &per_s_exp);
-	new_param(b, "%d", &ft_putnbr_fd, per_s_exp);
-	new_param(b, "%lu", &ft_putnbr_fd, per_s_exp);
+	new_param(b, "%c", &per_c);
+	new_param(b, "%s", &per_s);
+	new_param(b, "%d", &per_d);
+	new_param(b, "%lu", &per_lu);
+	new_param(b, "%ld", &per_ld);
+	new_param(b, "%u", &per_u);
 	disp_brain(*b);
 	printf(GRN"END Init params"RST"\n");
 }
@@ -113,61 +115,63 @@ t_param				*find_func(t_brain *b, const char *str)
 	first_found = ft_strlen(str);
 	while (*tmp != NULL)
 	{
-		printf("\nSearching for %s\n", (*tmp)->key);
+		//printf("\nSearching for %s\n", (*tmp)->key);
 		if ((found = ft_strstr(str, (*tmp)->key)) > -1)
 		{
-			printf("FOUND\n");
+			//printf("FOUND\n");
 			if (found < first_found)
 			{
-				printf("first of type in str\n");
+				//printf("first of type in str\n");
 				first_found = found;
 				ret = tmp;
-				printf(YELO"Key: %s"RST"\n", (*ret)->key);
+				//printf(YELO"Key: %s"RST"\n", (*ret)->key);
 			}
 		}
-		printf("end for %s\n", (*tmp)->key);
+		//printf("end for %s\n", (*tmp)->key);
 		tmp = &((*tmp)->next);
-		//printf("Key: %s\n", (*ret)->key);
 	}
-	printf("find function for %s\n", "ok");
+	//printf("find function for %s\n", (*ret)->key);
 	return (*ret);
 }
 
 static int			treat_str(t_brain *b, const char *str, va_list va)
 {
 	int		i;
+	void	*cur_va;
 
+	cur_va = NULL;
 	i = 0;
 	while (str[i])
 	{
 		if ((b->stri = ft_findchar("%", str)) != -1)
 		{
-			printf("\nFound at %ld\n", b->stri);
+			//printf("\nFound at %ld\n", b->stri);
 			write(1, str, b->stri);
 			b->cur_func = find_func(b, str);
-			printf("curFunc Key: %s\n", b->cur_func->key);
-			//(b->cur_func->func)("bonjou");
-			va_arg(va, char *);
+			//ft_putstr_fd("OKOKOKOKOKOKOKOKOKOK\n", 1);
+			//printf("\ncurFunc Key: %s", b->cur_func->key);
+			(b->cur_func->treat)(va);
+			//(b->cur_func->func)(cur_va);
+
 			i += b->stri + 1;
-			str += b->stri + 2;
+			str += b->stri + ft_strlen(b->cur_func->key);
 		}
 		else
 			i++;
 	}
-	printf("END TREAT\n");
+	write(1, str, ft_strlen(str));
+	//printf("END TREAT\n");
 	return (1);
 }
 
 int			ft_printf(const char *str, ...)
 {
-	va_list va;
+	va_list	(va);
 	t_brain *b;
-	char	*res;
 
 	b = malloc(sizeof(t_brain));
 	init_brain(&b);
 	va_start(va, str);
-	res = va_arg(va, char *);
 	treat_str(b, str, va);
 	va_end(va);
 	return (1);

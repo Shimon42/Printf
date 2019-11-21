@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   per_s.h                                          .::    .:/ .      .::   */
+/*   per_lu.c                                         .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 22:47:19 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/20 22:53:10 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/21 17:38:53 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef PER_S_H
-# define PER_S_H
+#include <stdarg.h>
+#include <stdio.h>
+#include "../../includes/brain.h"
+#include "../../includes/libft.h"
 
-typedef struct  s_per_s
+void		ft_putlong_u_fd(unsigned long n, int fd)
 {
-    char        *key;
-    void		(*func)(char *);
-	void		*expect;
-    void	    *next;
-}               t_per_s;
+	unsigned long long unb;
 
-#endif
+	unb = n;
+	if (unb <= 9)
+	{
+		ft_putchar_fd(unb + '0', fd);
+	}
+	else
+	{
+		ft_putlong_u_fd(unb / 10, fd);
+		ft_putlong_u_fd(unb % 10, fd);
+	}
+}
+
+void	per_lu(va_list va)
+{
+	ft_putlong_u_fd(va_arg(va, long), 1);
+}

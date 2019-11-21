@@ -1,7 +1,12 @@
 NAME = libftprintf.a
 SRCS    =   debug.c \
 	        ft_printf.c \
-			srcs/percent/per_s.c
+			srcs/percent/per_c.c \
+			srcs/percent/per_s.c \
+			srcs/percent/per_d.c \
+			srcs/percent/per_u.c \
+			srcs/percent/per_lu.c \
+			srcs/percent/per_ld.c 
 RM              = rm -f                                                      
 
 CC		= gcc

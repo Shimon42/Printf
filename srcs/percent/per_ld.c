@@ -1,36 +1,44 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   brain.h                                          .::    .:/ .      .::   */
+/*   per_ld.c                                         .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 15:15:38 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/21 17:04:06 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/21 17:37:17 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
+#include <stdarg.h>
 #include <stdio.h>
-#ifndef BRAIN_H
-# define BRAIN_H
+#include "../../includes/brain.h"
+#include "../../includes/libft.h"
 
-typedef void (*funcptr)(void *);
-
-typedef struct  s_param
+void		ft_putlong_fd(long n, int fd)
 {
-    char		*key;
-    funcptr		treat;
-    struct s_param	*next;
-}               t_param;
+	unsigned long unb;
 
-typedef struct  s_brain
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		unb = n * -1;
+	}
+	else
+		unb = n;
+	if (unb <= 9)
+	{
+		ft_putchar_fd(unb + '0', fd);
+	}
+	else
+	{
+		ft_putlong_fd(unb / 10, fd);
+		ft_putlong_fd(unb % 10, fd);
+	}
+}
+
+void	per_ld(va_list va)
 {
-    t_param		*params;
-	t_param		*cur_func;
-    long		stri;
-}               t_brain;
-
-void disp_brain(t_brain *b);
-
-#endif
+	ft_putlong_fd(va_arg(va, long), 1);
+}

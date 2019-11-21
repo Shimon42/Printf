@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   brain.h                                          .::    .:/ .      .::   */
+/*   per_u.c                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 15:15:38 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/21 17:04:06 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/21 17:25:14 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
+#include <stdarg.h>
 #include <stdio.h>
-#ifndef BRAIN_H
-# define BRAIN_H
+#include "../../includes/brain.h"
+#include "../../includes/libft.h"
 
-typedef void (*funcptr)(void *);
-
-typedef struct  s_param
+void		ft_putnbr_u_fd(unsigned long n, int fd)
 {
-    char		*key;
-    funcptr		treat;
-    struct s_param	*next;
-}               t_param;
+	if (n <= 9)
+		ft_putchar_fd(n + '0', fd);
+	else
+	{
+		ft_putnbr_u_fd(n / 10, fd);
+		ft_putnbr_u_fd(n % 10, fd);
+	}
+}
 
-typedef struct  s_brain
+void	per_u(va_list va)
 {
-    t_param		*params;
-	t_param		*cur_func;
-    long		stri;
-}               t_brain;
-
-void disp_brain(t_brain *b);
-
-#endif
+	ft_putnbr_u_fd(va_arg(va, unsigned int), 1);
+}
