@@ -4,6 +4,5 @@
 *.a
 .vscode
 *.gch
-*.gch
-*.gch
+*/*.gch
 includes/libftprintf.h.gch
