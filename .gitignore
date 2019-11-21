@@ -6,3 +6,4 @@
 *.gch
 */*.gch
 includes/libftprintf.h.gch
+*.dSYM

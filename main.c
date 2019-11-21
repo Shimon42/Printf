@@ -8,16 +8,26 @@ int main(void)
 	per_s:"YELO" %s"CYAN"\n\
 	per_d: "YELO"%d"CYAN"\n\
 	per_ld: "YELO"%ld"CYAN"\n\
-	per_lu:  "YELO"%lu"CYAN"\n\
-	per_c: "YELO"%c"CYAN"\n\
-	salut\n"PINK"[end]"RST,\
+	per_lu: "YELO"%lu"CYAN"\n\
+	per_c('a') -> "GRN"a"RST" vs "YELO"%c"CYAN"\n\
+	per_o(8) -> "GRN"10"RST" vs "YELO"%o"CYAN"\n\
+	per_x(14) -> "GRN"e"RST" vs "YELO"%x"CYAN"\n\
+	salut\n"PINK"[end]\n"RST,\
 
 	"couiiiiicou",\
 	2147483647,\
 	123,\
 	123654654654,\
-	'a');
+	'a',
+	8,
+	14);
 
-	printf("%lu\n", 123654654654);
+	printf("%o\n", 2147483647);
+	printf("%x\n", 14);
+	int number = 12;
+	printf("%*d \n", number, number);
+    printf("%04d \n", number);
+    printf("%-#5x \n", number);  
+    printf("%#12x \n", number);
 	return (0);
 }

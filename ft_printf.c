@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/21 17:36:17 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/21 22:29:26 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -79,6 +79,12 @@ void			init_brain(t_brain **b)
 	init_params(b);
 }
 
+void			meditate(t_brain *b)
+{
+	free(b);
+	//ft_lstclear(b->params, &free);
+}
+
 void			new_param(t_brain **b, char *key, void *f)
 {
 	t_param *new;
@@ -99,6 +105,8 @@ static void			init_params(t_brain **b)
 	new_param(b, "%lu", &per_lu);
 	new_param(b, "%ld", &per_ld);
 	new_param(b, "%u", &per_u);
+	new_param(b, "%o", &per_o);
+	new_param(b, "%x", &per_x);
 	disp_brain(*b);
 	printf(GRN"END Init params"RST"\n");
 }
@@ -148,7 +156,6 @@ static int			treat_str(t_brain *b, const char *str, va_list va)
 			//printf("\nFound at %ld\n", b->stri);
 			write(1, str, b->stri);
 			b->cur_func = find_func(b, str);
-			//ft_putstr_fd("OKOKOKOKOKOKOKOKOKOK\n", 1);
 			//printf("\ncurFunc Key: %s", b->cur_func->key);
 			(b->cur_func->treat)(va);
 			//(b->cur_func->func)(cur_va);
@@ -174,5 +181,6 @@ int			ft_printf(const char *str, ...)
 	va_start(va, str);
 	treat_str(b, str, va);
 	va_end(va);
+	meditate(b);
 	return (1);
 }
