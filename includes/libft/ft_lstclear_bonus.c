@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   per_d.c                                          .::    .:/ .      .::   */
+/*   ft_lstclear_bonus.c                              .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/22 16:31:38 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/23 16:48:59 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/22 17:41:02 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include "../../includes/brain.h"
-#include "../../includes/libft/libft.h"
+#include "libft.h"
 
-void	per_d(va_list va)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	ft_putnbr_fd(va_arg(va, unsigned long), 1);
+	t_list **tmp;
+
+	tmp = NULL;
+	if (*lst)
+	{
+		tmp = lst;
+		while (*tmp)
+		{
+			*tmp = (*tmp)->next;
+			ft_lstdelone(*tmp, del);
+			*tmp = (*tmp)->next;
+		}
+		*tmp = NULL;
+	}
+	*lst = NULL;
 }

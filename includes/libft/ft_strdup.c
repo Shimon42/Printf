@@ -1,22 +1,41 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   per_d.c                                          .::    .:/ .      .::   */
+/*   ft_strdup.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/22 16:31:38 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/09 12:32:31 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/12 17:21:12 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include "../../includes/brain.h"
-#include "../../includes/libft/libft.h"
+#include "libft.h"
 
-void	per_d(va_list va)
+char	*ft_strdup(const char *s1)
 {
-	ft_putnbr_fd(va_arg(va, unsigned long), 1);
+	char	*dup;
+	size_t	length;
+	size_t	i;
+
+	i = 0;
+	length = 0;
+	while (s1 && s1[length] != '\0')
+		length++;
+	if ((dup = malloc((length + 1) * sizeof(char))) != NULL)
+	{
+		if (s1)
+		{
+			if (length == 0)
+				length++;
+			while (i < length && s1[i] != '\0' && s1)
+			{
+				dup[i] = s1[i];
+				i++;
+			}
+		}
+		dup[i] = '\0';
+	}
+	return (dup);
 }

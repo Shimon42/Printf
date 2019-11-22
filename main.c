@@ -4,6 +4,11 @@
 
 int main(void)
 {
+	
+	ft_printf("%d", 1000);
+	ft_printf("%s", "Hello");
+	/*ft_printf("");
+	printf("");
 	ft_printf(PINK"[Start]\n\t"CYAN"bonjour\n\
 	per_s:"YELO" %s"CYAN"\n\
 	per_d: "YELO"%d"CYAN"\n\
@@ -28,6 +33,6 @@ int main(void)
 	printf("%*d \n", number, number);
     printf("%04d \n", number);
     printf("%-#5x \n", number);  
-    printf("%#12x \n", number);
+    printf("%#12x \n", number);*/
 	return (0);
 }

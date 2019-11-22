@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   per_d.c                                          .::    .:/ .      .::   */
+/*   ft_memccpy.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/22 16:31:38 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/09 09:25:36 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/28 15:24:35 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include "../../includes/brain.h"
-#include "../../includes/libft/libft.h"
+#include "libft.h"
 
-void	per_d(va_list va)
+void	*ft_memccpy(void *d, const void *s, int c, size_t n)
 {
-	ft_putnbr_fd(va_arg(va, unsigned long), 1);
+	size_t i;
+
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *)d)[i] = ((unsigned char *)s)[i];
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+			return (&(d[i + 1]));
+		i++;
+	}
+	return (NULL);
 }

@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   per_d.c                                          .::    .:/ .      .::   */
+/*   ft_memcmp.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/22 16:31:38 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/09 11:25:34 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/12 17:12:53 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include "../../includes/brain.h"
-#include "../../includes/libft/libft.h"
+#include "libft.h"
 
-void	per_d(va_list va)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	ft_putnbr_fd(va_arg(va, unsigned long), 1);
+	const unsigned char *ps1;
+	const unsigned char *ps2;
+
+	ps1 = s1;
+	ps2 = s2;
+	if (n > 0)
+		while (n--)
+			if (*ps1++ != *ps2++)
+				return (*--ps1 - *--ps2);
+	return (0);
 }

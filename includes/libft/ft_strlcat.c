@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   per_d.c                                          .::    .:/ .      .::   */
+/*   ft_strlcat.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/22 16:31:38 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/08 10:37:05 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/16 17:57:09 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include "../../includes/brain.h"
-#include "../../includes/libft/libft.h"
+#include "libft.h"
 
-void	per_d(va_list va)
+size_t		ft_strlcat(char *dst, const char *src, size_t size)
 {
-	ft_putnbr_fd(va_arg(va, unsigned long), 1);
+	size_t i;
+	size_t j;
+
+	i = 0;
+	j = 0;
+	while (i < size && dst[i] != '\0')
+		i++;
+	if (size - i == 0)
+		return (i + ft_strlen(src));
+	else
+		while (src[j] != '\0' && i + j < size - 1)
+		{
+			dst[i + j] = src[j];
+			j++;
+		}
+	dst[i + j] = '\0';
+	return (i + ft_strlen((char *)src));
 }

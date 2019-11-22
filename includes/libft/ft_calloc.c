@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   per_d.c                                          .::    .:/ .      .::   */
+/*   ft_calloc.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/22 16:31:38 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/09 12:46:04 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/19 00:49:45 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include "../../includes/brain.h"
-#include "../../includes/libft/libft.h"
+#include "libft.h"
 
-void	per_d(va_list va)
+void	*ft_calloc(size_t count, size_t size)
 {
-	ft_putnbr_fd(va_arg(va, unsigned long), 1);
+	void			*obj;
+	unsigned char	*pobj;
+
+	if ((obj = malloc(count * size)) != NULL)
+	{
+		pobj = obj;
+		count *= size;
+		while (count--)
+			*pobj++ = 0;
+	}
+	return (obj);
 }
