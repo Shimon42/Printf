@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   per_d.c                                          .::    .:/ .      .::   */
+/*   ft_strrchr.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/22 16:31:38 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/07 22:22:17 by shimon       #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/12 17:14:15 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include "../../includes/brain.h"
-#include "../../includes/libft/libft.h"
+#include "libft.h"
 
-void	per_d(va_list va)
+char	*ft_strrchr(const char *s, int c)
 {
-	ft_putnbr_fd(va_arg(va, unsigned long), 1);
+	int	iter;
+
+	if (s)
+	{
+		iter = 0;
+		while (s[iter] != '\0')
+			iter++;
+		if (c == '\0')
+			return ((char*)&s[iter]);
+		while (iter >= 0)
+			if (s[iter--] == c)
+				return ((char*)&s[iter + 1]);
+	}
+	return (NULL);
 }

@@ -13,33 +13,43 @@ RM              = rm -f
 
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
+MAKE	= make
+CLEAR	= clear
 RM		= rm -f
 OBJS	= ${SRCS:.c=.o}
 INCPATH = includes/
+LIBFTPATH = $(INCPATH)libft/
 INCLUDES =	$(INCPATH)libftprintf.h \
 			$(INCPATH)debug.h \
-			$(INCPATH)brain.h
+			$(INCPATH)brain.h \
+			$(LIBFTPATH)libft.h
 
-all:		$(NAME) $(INCLUDES)
+all:		$(NAME) $(OBJS) $(INCLUDES)
 
-$(NAME): 	$(OBJS) $(INCLUDES)
-	ar rc $(NAME) $(OBJS)
+$(NAME):	$(OBJS) $(INCLUDES)
+			$(CLEAR)
+			@echo "\033[0;32m––––––––––––––––––––––––\nMaking Libft\n––––––––––––––––––––––––\033[0;33m"
+			$(MAKE) -C includes/libft bonus
+			@echo "\033[0;32m––––––––––––––––––––––––\nMaking Printf\n––––––––––––––––––––––––\033[0;36m"
+			cp includes/libft/libft.a $(NAME)
+			ar rc $(NAME) $(OBJS)
 
 comp: 	
-			clear
-			$(CC) $(CFLAGS) main.c $(NAME) $(INCLUDES) libft.a
+			$(CLEAR)
+			$(CC) $(CFLAGS) main.c libftprintf.a
 
-launch :	re comp
+launch :	all comp
 			./a.out
 
 $(OBJS):	$(INCLUDES)
 
-$(OBJSBNS):	$(INCLUDES)
-
 clean:		
-	${RM} $(OBJS) $(OBJSBNS)
+	make -C includes/libft clean
+	${RM} $(OBJS)
+	
 
 fclean:		clean
+	make -C includes/libft fclean
 	${RM} $(NAME)
 
 re:			fclean all

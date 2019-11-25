@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/25 23:10:07 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/25 23:12:41 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include "includes/brain.h"
 #include <stdlib.h>
-#include "includes/libft.h"
+#include "includes/libft/libft.h"
 #include "includes/debug.h"
 #include "includes/libftprintf.h"
 
@@ -82,7 +82,7 @@ void			init_brain(t_brain **b)
 void			meditate(t_brain *b)
 {
 	free(b);
-	//ft_lstclear(b->params, &free);
+//	ft_clear_params(&(b->params), &free);
 }
 
 void			new_param(t_brain **b, char *key, void *f)
@@ -98,7 +98,7 @@ void			new_param(t_brain **b, char *key, void *f)
 
 static void			init_params_list(t_brain **b)
 {
-	printf(YELO"Init params"RST"\n");
+	//printf(YELO"Init params"RST"\n");
 	new_param(b, "%c", &per_c);
 	new_param(b, "%s", &per_s);
 	new_param(b, "%d", &per_d);
@@ -107,8 +107,8 @@ static void			init_params_list(t_brain **b)
 	new_param(b, "%u", &per_u);
 	new_param(b, "%o", &per_o);
 	new_param(b, "%x", &per_x);
-	disp_brain(*b);
-	printf(GRN"END Init params"RST"\n");
+	//disp_brain(*b);
+	//printf(GRN"END Init params"RST"\n");
 }
 
 static t_param	*find_func(t_brain *b, const char *str)

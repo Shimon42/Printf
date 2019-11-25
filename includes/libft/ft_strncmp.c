@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   per_d.c                                          .::    .:/ .      .::   */
+/*   ft_strncmp.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/22 16:31:38 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/08 09:29:03 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/12 18:20:55 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include "../../includes/brain.h"
-#include "../../includes/libft/libft.h"
+#include "libft.h"
 
-void	per_d(va_list va)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	ft_putnbr_fd(va_arg(va, unsigned long), 1);
+	const char *ps1;
+	const char *ps2;
+
+	ps1 = s1;
+	ps2 = s2;
+	if (n > 0)
+		while (n--)
+			if ((unsigned char)*ps1++ != (unsigned char)*ps2++
+				|| !(*ps1 || *ps2))
+				return ((unsigned char)*--ps1 - (unsigned char)*--ps2);
+	return (0);
 }

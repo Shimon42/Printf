@@ -7,3 +7,6 @@
 */*.gch
 includes/libftprintf.h.gch
 *.dSYM
+original_output
+result.log
+user_output

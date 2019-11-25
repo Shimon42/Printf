@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   per_d.c                                          .::    .:/ .      .::   */
+/*   ft_memmove.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/22 16:31:38 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/09 09:43:55 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/23 15:53:32 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include "../../includes/brain.h"
-#include "../../includes/libft/libft.h"
+#include "libft.h"
 
-void	per_d(va_list va)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	ft_putnbr_fd(va_arg(va, unsigned long), 1);
+	unsigned char		*pdst;
+	unsigned const char	*psrc;
+	size_t				i;
+
+	i = 0;
+	pdst = (unsigned char*)dst;
+	psrc = (unsigned char*)src;
+	if (psrc && pdst)
+	{
+		if (psrc < pdst)
+			while (++i <= len)
+				pdst[len - i] = psrc[len - i];
+		else
+			while (len-- > 0)
+				*(pdst++) = *(psrc++);
+	}
+	else
+		return (ft_memcpy(pdst, psrc, len));
+	return (dst);
 }
