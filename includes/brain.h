@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:15:38 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/21 17:04:06 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/25 22:02:50 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,12 +17,16 @@
 
 typedef void (*funcptr)(void *);
 
-typedef struct  s_param
+typedef struct  	s_param
 {
-    char		*key;
-    funcptr		treat;
+    char			*key;
+    funcptr			treat;
+	int				justif;
+	int				is_0x_pref;
+	int				show_dot;
+	int				show_dottz;
     struct s_param	*next;
-}               t_param;
+}					t_param;
 
 typedef struct  s_brain
 {
@@ -32,5 +36,6 @@ typedef struct  s_brain
 }               t_brain;
 
 void disp_brain(t_brain *b);
+void disp_param(t_param *p);
 
 #endif

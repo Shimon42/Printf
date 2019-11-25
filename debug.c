@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:53:12 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/21 17:05:11 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/25 22:00:37 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,6 +25,10 @@ void disp_param(t_param *p)
        	printf(", treat: set");
 	else
 		printf(", !treat: null");
+    printf(", justif: %d", p->justif);
+    printf(", 0x: %d", p->is_0x_pref);
+    printf(", dot: %d", p->show_dot);
+    printf(", dotz: %d", p->show_dottz);
 	if (p->next)
        	printf(", next: %s }\n", (char *)(p->next)->key);
 	else

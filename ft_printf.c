@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/21 22:29:26 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/25 23:10:07 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,7 +19,7 @@
 #include "includes/debug.h"
 #include "includes/libftprintf.h"
 
-static void		init_params(t_brain **b);
+static void		init_params_list(t_brain **b);
 
 int		ft_strstr(const char *str, char *tofind)
 {
@@ -76,7 +76,7 @@ void			init_brain(t_brain **b)
 	(*b)->cur_func = malloc(sizeof(t_param));
 	(*b)->params = malloc(2 * sizeof(t_param));
 	(*b)->params = NULL;
-	init_params(b);
+	init_params_list(b);
 }
 
 void			meditate(t_brain *b)
@@ -96,7 +96,7 @@ void			new_param(t_brain **b, char *key, void *f)
 	(*b)->params = new;
 }
 
-static void			init_params(t_brain **b)
+static void			init_params_list(t_brain **b)
 {
 	printf(YELO"Init params"RST"\n");
 	new_param(b, "%c", &per_c);
@@ -111,7 +111,7 @@ static void			init_params(t_brain **b)
 	printf(GRN"END Init params"RST"\n");
 }
 
-t_param				*find_func(t_brain *b, const char *str)
+static t_param	*find_func(t_brain *b, const char *str)
 {
 	t_param **tmp;
 	t_param **ret;
@@ -142,6 +142,30 @@ t_param				*find_func(t_brain *b, const char *str)
 	return (*ret);
 }
 
+static t_param		*get_flags(t_brain *b, const char *str)
+{
+	t_param *ret;
+	int i;
+
+	i = 0;
+	ret = malloc(sizeof(t_param));
+	while (ft_strstr(str, "-+0123456789# ") && str[i])
+	{
+		if (str[i] == '-' || str[i] == '+')
+			ret->justif = ft_atoi(str + i);
+		i++;
+	}
+	if (!(ret = find_func(b, str)))
+	{
+		printf(RED"Error: no func found for %s\n"RST, str);
+		return (NULL);
+	}
+	printf("\n");
+	disp_param(ret);
+	printf("\n");
+	return (ret);
+}
+
 static int			treat_str(t_brain *b, const char *str, va_list va)
 {
 	int		i;
@@ -156,6 +180,7 @@ static int			treat_str(t_brain *b, const char *str, va_list va)
 			//printf("\nFound at %ld\n", b->stri);
 			write(1, str, b->stri);
 			b->cur_func = find_func(b, str);
+		//	get_flags(b, str);
 			//printf("\ncurFunc Key: %s", b->cur_func->key);
 			(b->cur_func->treat)(va);
 			//(b->cur_func->func)(cur_va);

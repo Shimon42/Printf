@@ -21,13 +21,14 @@ int main(void)
 	'a',
 	8,
 	14);
-
+	ft_printf("%%-#5x: %-#5x end\n", 12);
 	printf("%o\n", 2147483647);
 	printf("%x\n", 14);
 	int number = 12;
-	printf("%*d \n", number, number);
-    printf("%04d \n", number);
-    printf("%-#5x \n", number);  
-    printf("%#12x \n", number);
+	printf("%%*d: %*d \n", number, number);
+    printf("%%04d: %04d \n", number);
+    printf("%%-#5x: %-#5x end\n", number);  
+    printf("%%-15x: %-15x end\n", number);  
+    printf("%%#12x: %#12x \n", number);
 	return (0);
 }
