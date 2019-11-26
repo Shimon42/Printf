@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   per_c.c                                          .::    .:/ .      .::   */
+/*   ft_putchar.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/26 22:18:45 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/10 20:42:44 by shimon       #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/26 22:27:07 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include "../../includes/brain.h"
-#include "../../includes/libft/libft.h"
+#include "libft.h"
 
-void	per_c(va_list va)
+void	ft_putchar(int c)
 {
-	ft_putchar(va_arg(va, int));
+	write(1, &c, 1);
 }

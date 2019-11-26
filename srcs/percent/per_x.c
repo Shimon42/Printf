@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/26 19:48:48 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/26 23:11:15 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -48,9 +48,7 @@ void	per_x(va_list va, t_param *p)
 	int tmp;
 
 	tmp = va_arg(va, int);
-	if (p->justif > 0)
-		disp_justif(p->justif - hex_len(tmp));
+	disp_justif(p->justif - hex_len(tmp), 1);
 	ft_puthex_fd(tmp, 1);
-	if (p->justif < 0)
-		disp_justif(p->justif + hex_len(tmp));
+	disp_justif(p->justif + hex_len(tmp), 0);
 }

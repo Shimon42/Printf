@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/26 19:41:17 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/26 23:49:31 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -130,7 +130,7 @@ static void			init_params_list(t_brain **b)
 	add_param(b, "u", &per_u);
 	add_param(b, "o", &per_o);
 	add_param(b, "x", &per_x);
-	disp_brain(*b);
+	//disp_brain(*b);
 	//printf(GRN"END Init params"RST"\n");
 }
 
@@ -215,12 +215,13 @@ static t_param		*get_flags(t_brain *b, const char *str)
 			ret->is_0x_pref = 1;
 		i++;
 	}
+	ret->flags_length = i + 1;
 	//printf("END While - get flags\n");
 	set_treat_func(b, ret, str + i);
 	//disp_param(ret);
 	return (ret);
 }
-
+/*
 static int			calc_skip(t_param *p)
 {
 	int length;
@@ -240,7 +241,7 @@ static int			calc_skip(t_param *p)
 	//printf("skip length: %d\n", length);
 	return (length);
 }
-
+*/
 static int			treat_str(t_brain *b, const char *str, va_list va)
 {
 	int		i;
@@ -257,7 +258,8 @@ static int			treat_str(t_brain *b, const char *str, va_list va)
 			//disp_param(b->cur_param);
 			b->cur_param->treat(va, b->cur_param);
 			i += b->stri + 1;
-			str += b->stri + calc_skip(b->cur_param) + 1;
+			//str += b->stri + calc_skip(b->cur_param) + 1;
+			str += b->stri + b->cur_param->flags_length + 1;
 		}
 		else
 			i++;
@@ -271,7 +273,7 @@ int			ft_printf(const char *str, ...)
 	va_list	(va);
 	t_brain *b;
 
-	printf(CYAN"TRY TO PRINT: "YELO"%s"PINK"[END]\n"RST, str);
+	//printf(CYAN"TRY TO PRINT: "YELO"%s"PINK"[END]\n"RST, str);
 	b = malloc(sizeof(t_brain));
 	init_brain(&b);
 	va_start(va, str);

@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/11 12:00:43 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/26 18:47:38 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/26 23:44:31 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <strings.h>
 
+size_t				ft_abs(int n);
 int					ft_atoi(const char *str);
 void				*ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t count, size_t size);
@@ -34,6 +35,7 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memset(void *b, int c, size_t len);
+void				ft_putchar(int c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);

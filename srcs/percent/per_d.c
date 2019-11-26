@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/26 19:40:18 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/26 23:49:33 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,14 +17,19 @@
 #include "../../includes/libft/libft.h"
 #include "../../includes/libftprintf.h"
 
-void	per_d(va_list va, t_param *p)
+int	per_d(va_list va, t_param *p)
 {
-	unsigned long tmp;
+	unsigned int	nbr_printed;
+	unsigned long	nbr;
 
-	tmp = va_arg(va, unsigned long);
-	if (p->justif > 0)
-		disp_justif(p->justif - ft_ilen(tmp));
-	ft_putnbr_fd(tmp, 1);
-	if (p->justif < 0)
-		disp_justif(p->justif - ft_ilen(tmp) - 1);
+	//disp_param(p);
+	nbr_printed = 0;
+	nbr = va_arg(va, unsigned long);
+	nbr_printed = disp_justif(p->justif - ft_ilen(nbr), 1);
+	if (p->show_sign)
+		(nbr >= 0 ? ft_putchar('+') : ft_putchar('-')); 
+	ft_putnbr_fd(nbr, 1);
+	nbr_printed = disp_justif(p->justif - ft_ilen(nbr), 0);
+	printf("nbr_printed: %d\n", nbr_printed);
+	return (nbr_printed);
 }
