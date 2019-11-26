@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/22 16:31:38 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/26 19:48:48 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include "../../includes/brain.h"
 #include "../../includes/libft/libft.h"
+#include "../../includes/libftprintf.h"
 
 void		ft_puthex_fd(unsigned int n, int fd)
 {
@@ -29,7 +30,27 @@ void		ft_puthex_fd(unsigned int n, int fd)
 	}
 }
 
-void	per_x(va_list va)
+static int hex_len(unsigned int n)
 {
-	ft_puthex_fd(va_arg(va, int), 1);
+	int length;
+
+	length = 0;
+	while (n != 0)
+	{
+		n /= 16;
+		length++;
+	}
+	return (length);
+}
+
+void	per_x(va_list va, t_param *p)
+{
+	int tmp;
+
+	tmp = va_arg(va, int);
+	if (p->justif > 0)
+		disp_justif(p->justif - hex_len(tmp));
+	ft_puthex_fd(tmp, 1);
+	if (p->justif < 0)
+		disp_justif(p->justif + hex_len(tmp));
 }

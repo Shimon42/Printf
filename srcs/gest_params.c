@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   per_d.c                                          .::    .:/ .      .::   */
+/*   gest_params.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/26 19:40:18 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/26 18:57:07 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/26 19:30:50 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include "../../includes/brain.h"
-#include "../../includes/libft/libft.h"
-#include "../../includes/libftprintf.h"
+#include "../includes/libft/libft.h"
 
-void	per_d(va_list va, t_param *p)
+void		disp_justif(int n)
 {
-	unsigned long tmp;
+	unsigned int tmp;
 
-	tmp = va_arg(va, unsigned long);
-	if (p->justif > 0)
-		disp_justif(p->justif - ft_ilen(tmp));
-	ft_putnbr_fd(tmp, 1);
-	if (p->justif < 0)
-		disp_justif(p->justif - ft_ilen(tmp) - 1);
+	tmp = n;
+	if (n < 0)
+		tmp = -n;
+	while (tmp-- > 0)
+		write(1, " ", 1);
 }

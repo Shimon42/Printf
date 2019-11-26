@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/11 12:00:43 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/18 16:06:14 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/26 18:47:38 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -55,6 +55,7 @@ char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+int					ft_ilen(int n);
 typedef struct		s_list
 {
 	void			*content;

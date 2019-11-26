@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:15:38 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/25 22:02:50 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/26 18:53:25 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,13 +15,15 @@
 #ifndef BRAIN_H
 # define BRAIN_H
 
-typedef void (*funcptr)(void *);
+typedef void (*funcptr)(void *, void *);
 
 typedef struct  	s_param
 {
     char			*key;
     funcptr			treat;
 	int				justif;
+	int				show_sign;
+	int				is_sp_pref;
 	int				is_0x_pref;
 	int				show_dot;
 	int				show_dottz;
@@ -31,7 +33,7 @@ typedef struct  	s_param
 typedef struct  s_brain
 {
     t_param		*params;
-	t_param		*cur_func;
+	t_param		*cur_param;
     long		stri;
 }               t_brain;
 

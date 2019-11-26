@@ -1,6 +1,7 @@
 NAME = libftprintf.a
 SRCS    =   debug.c \
 	        ft_printf.c \
+			srcs/gest_params.c \
 			srcs/percent/per_c.c \
 			srcs/percent/per_s.c \
 			srcs/percent/per_d.c \
@@ -29,9 +30,9 @@ all:		$(NAME) $(OBJS) $(INCLUDES)
 $(NAME):	$(OBJS) $(INCLUDES)
 			$(CLEAR)
 			@echo "\033[0;32m––––––––––––––––––––––––\nMaking Libft\n––––––––––––––––––––––––\033[0;33m"
-			$(MAKE) -C includes/libft bonus
+			$(MAKE) -C $(LIBFTPATH) bonus
 			@echo "\033[0;32m––––––––––––––––––––––––\nMaking Printf\n––––––––––––––––––––––––\033[0;36m"
-			cp includes/libft/libft.a $(NAME)
+			cp $(LIBFTPATH)libft.a $(NAME)
 			ar rc $(NAME) $(OBJS)
 
 comp: 	

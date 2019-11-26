@@ -5,8 +5,8 @@
 int main(void)
 {
 	
-	ft_printf("%d", 1000);
-	ft_printf("%s", "Hello");
+	//ft_printf("%d", 1000);
+	//ft_printf("%s", "Hello");
 	/*ft_printf("");
 	printf("");
 	ft_printf(PINK"[Start]\n\t"CYAN"bonjour\n\
@@ -25,13 +25,17 @@ int main(void)
 	123654654654,\
 	'a',
 	8,
-	14);
-	ft_printf("%%-#5x: %-#5x end\n", 12);
-	printf("%o\n", 2147483647);
-	printf("%x\n", 14);
+	14);*/
+	ft_printf("MINEx:%-++-+-+--+5d end\n", 125);
+	printf("REALx:%-++-+-+--+5d end\n", 125);
+
+	ft_printf("MINE:%-175d end\n", 12);
+	printf("REAL:%-175d end\n", 12);
+	//printf("%o\n", 2147483647);
+	//printf("%x\n", 14);
 	int number = 12;
-	printf("%%*d: %*d \n", number, number);
-    printf("%%04d: %04d \n", number);
+	printf(" %%*d: %*d\n", number, number);
+    printf("%%04d: %04d\n", number);
     printf("%%-#5x: %-#5x end\n", number);  
     printf("%%-15x: %-15x end\n", number);  
     printf("%%#12x: %#12x \n", number);
