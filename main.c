@@ -28,22 +28,25 @@ int main(void)
 	8,
 	14);*/
 
-
+	printf("MINE RET->%d\n", ft_printf("-#5X: %10X end\n", 15));
+	printf("REAL RET->%d\n", printf("-#5X: %10X end\n", 15));
+	/*
 	int ok = 0;
-	printf("%d\n", (ok = 13));
+	printf("REAL:%+-15ds\n", (ok = 13));
+	ft_printf("MINE:%+-15ds\n", (ok = 13));
 	ft_printf("MINEx: %+5d end\n", 125);
-	printf("REALx: %+d end\n", 125);
+	printf("REALx: %+5d end\n", 125);
 
 	//ft_putchar(128);
-	ft_printf("MINE:%-175d end\n", 12);
-	printf("REAL:%-175d end\n", 12);
+	ft_printf("MINE:%-15d end\n", 12);
+	printf("REAL:%-15d end\n", 12);
 	//printf("%o\n", 2147483647);
 	//printf("%x\n", 14);
 	int number = 12;
 	printf(" %%*d: %*d\n", number, number);
     printf("%%04d: %04d\n", number);
-    printf("%%-#5x: %-#5x end\n", number);  
+    printf("%%-#5X: %-#5X end\n", number);  
     printf("%%-15x: %-15x end\n", number);  
-    printf("%%#12x: %#12x \n", number);
+    printf("%%#12x: %#12x \n", number);*/
 	return (0);
 }

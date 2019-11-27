@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   gest_params.c                                    .::    .:/ .      .::   */
+/*   ft_strupper.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/26 18:57:07 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/27 18:02:29 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/27 16:01:17 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/27 16:19:35 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/libftprintf.h"
+#include "libft.h"
 
-size_t	disp_justif(int n, int justif, int left_justif)
+char	*ft_strupper(const char *str)
 {
-	int tmp;
+	int		i;
+	char	*ret;
 
-	if ((justif > 0 && !left_justif) || (justif < 0 && left_justif))
+	i = 0;
+	ret = ft_strdup(str);
+	while (ret[i])
 	{
-		tmp = ft_abs(n);
-		while (tmp-- > 0)
-			write(1, " ", 1);
-		return (ft_abs(n));
+		ret[i] = ft_toupper(str[i]);
+		i++;
 	}
-	return (0);
+	return (ret);
 }
