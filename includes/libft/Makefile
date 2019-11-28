@@ -38,7 +38,7 @@ SRCS	=	ft_abs.c \
 			ft_strupper.c \
 			ft_tolower.c \
 			ft_toupper.c \
-			ft_ilen.c
+			ft_nbrslen.c
 
 SRCSBNS	=	ft_lstnew_bonus.c \
 			ft_lstadd_front_bonus.c \

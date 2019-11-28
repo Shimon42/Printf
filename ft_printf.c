@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 16:55:06 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 17:51:40 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -224,13 +224,13 @@ static int			treat_str(t_brain *b, const char *str, va_list va)
 		{
 			n_print += write(1, str, b->stri);
 			b->cur_param = get_flags(b, str + b->stri + 1);
-		//	disp_param(b->cur_param);
 			if (!b->cur_param->key)
 			{
 				printf(RED"END BAD KEY - ARG NOT FOUND"RST"\n");
 				exit(0);
 			}
 			n_print += b->cur_param->treat(va, b->cur_param);
+			free_param(b->cur_param);
 			i += b->stri + 1;
 			str += b->stri + b->cur_param->flags_length + 1;
 		}

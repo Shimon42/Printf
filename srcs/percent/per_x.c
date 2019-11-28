@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 16:57:25 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 17:51:11 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -58,6 +58,5 @@ int		per_x(va_list va, t_param *p)
 	ft_puthex_fd(nbr, 1, (p->key[0] == 'X'));
 	n_print += hex_len(nbr) + (nbr < 0 || p->show_sign);
 	n_print += disp_justif(p->justif + padding, p->justif, 1);
-	free_param(p);
 	return (n_print);
 }

@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/11 12:00:43 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/27 16:11:35 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 17:57:10 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -60,6 +60,7 @@ int					ft_tolower(int c);
 int					ft_toupper(int c);
 
 int					ft_ilen(int n);
+size_t				ft_llen(long n);
 typedef struct		s_list
 {
 	void			*content;

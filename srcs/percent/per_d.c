@@ -6,15 +6,13 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 15:51:46 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 17:51:08 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <stdio.h>
-#include "../../includes/brain.h"
-#include "../../includes/libft/libft.h"
 #include "../../includes/libftprintf.h"
 
 int	per_d(va_list va, t_param *p)

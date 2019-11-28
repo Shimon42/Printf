@@ -6,15 +6,12 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/22 16:31:38 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 18:00:57 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include "../../includes/brain.h"
-#include "../../includes/libft/libft.h"
+#include "../../includes/libftprintf.h"
 
 void		ft_putlong_fd(long n, int fd)
 {
@@ -38,7 +35,22 @@ void		ft_putlong_fd(long n, int fd)
 	}
 }
 
-void	per_ld(va_list va)
+int				per_ld(va_list va, t_param *p)
 {
-	ft_putlong_fd(va_arg(va, long), 1);
+	unsigned int	n_print;
+	long			nbr;
+	int				padding;
+
+	n_print = 0;
+	nbr = va_arg(va, long);
+	padding = ft_llen(nbr) + p->show_sign + ((nbr >= 0) * p->is_sp_pref) + (nbr < 0);
+	n_print += disp_justif(p->justif - padding, p->justif, 0);
+	if (p->is_sp_pref && nbr >= 0)
+		n_print += write(1, " ", 1);
+	if (p->show_sign)
+		(nbr >= 0 ? ft_putchar('+') : ft_putchar('-'));
+	ft_putlong_fd(nbr, 1);
+	n_print += ft_llen(nbr) + (nbr < 0 || p->show_sign);
+	n_print += disp_justif(p->justif + padding, p->justif, 1);
+	return (n_print);
 }
