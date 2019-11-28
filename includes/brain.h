@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:15:38 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/27 17:15:19 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 15:09:19 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,7 +24,7 @@ typedef struct  	s_param
 	int				justif;
 	int				show_sign;
 	int				is_sp_pref;
-	int				is_0x_pref;
+	int				disp_0x;
 	int				show_dot;
 	int				show_dottz;
 	int				flags_length;

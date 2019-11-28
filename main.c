@@ -28,8 +28,11 @@ int main(void)
 	8,
 	14);*/
 
-	printf("MINE RET->%d\n", ft_printf("-#5X: %10X end\n", 15));
-	printf("REAL RET->%d\n", printf("-#5X: %10X end\n", 15));
+	//printf("MINE RET->%d\n", ft_printf("d: % -5d end\n", 15));
+	//printf("REAL RET->%d\n", printf("d: % -5d end\n", 15));
+
+	printf("MINE RET->%d\n", ft_printf("i: % -5i end\n", 033));
+	printf("REAL RET->%d\n", printf("i: % -5i end\n", 033));
 	/*
 	int ok = 0;
 	printf("REAL:%+-15ds\n", (ok = 13));

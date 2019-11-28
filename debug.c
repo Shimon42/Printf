@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:53:12 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/26 17:07:52 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 15:09:19 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,8 +33,8 @@ void disp_param(t_param *p)
 		printf(", sp_pref: %d", p->is_sp_pref);
 	else
 		printf(", sp_pref: 0");
-	if (p->is_0x_pref)
-		printf(", 0x: %d", p->is_0x_pref);
+	if (p->disp_0x)
+		printf(", 0x: %d", p->disp_0x);
 	else
 		printf(", 0x: 0");
     if (p->show_sign)

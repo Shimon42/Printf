@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 18:57:07 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/27 18:02:29 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 15:25:22 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,4 +25,10 @@ size_t	disp_justif(int n, int justif, int left_justif)
 		return (ft_abs(n));
 	}
 	return (0);
+}
+
+void	free_param(t_param *p)
+{
+	free(p->key);
+	free(p);
 }

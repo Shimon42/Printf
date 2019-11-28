@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/27 17:23:44 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 16:55:06 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,29 +19,28 @@
 #include "includes/debug.h"
 #include "includes/libftprintf.h"
 
-int		ft_strstr(const char *str, char *tofind)
+static int		check_key(const char *str, char *tofind)
 {
-	int i;
-	int x;
-	char *upper;
-
-	i = 0;
+	size_t	x;
+	size_t	i;
+	char	*upper;
+	size_t	to_f_len;
+	
+	to_f_len = ft_strlen(tofind);
 	x = 0;
+	i = 0;
 	upper = ft_strupper(str);
 	if (tofind[0] != '\0')
-		while (str[i] != '\0')
+	{
+		while (upper[x] == ft_toupper(tofind[x]) && str[x] && x < to_f_len)
 		{
-			x = 0;
-			while (upper[i + x] == ft_toupper(tofind[x]))
-			{
-				if (tofind[x + 1] == '\0')
-					return (i);
-				else if (upper[i + x] != ft_toupper(tofind[x]))
-					break ;
-				x++;
-			}
-			i++;
+			if (tofind[x + 1] == '\0')
+				return (0);
+			else if (upper[x] != ft_toupper(tofind[x]))
+				break ;
+			x++;
 		}
+	}
 	return (-1);
 }
 
@@ -80,7 +79,7 @@ static t_param	*new_param(void)
 	new->justif = 0;
 	new->show_sign = 0;
 	new->is_sp_pref = 0;
-	new->is_0x_pref = 0;
+	new->disp_0x = 0;
 	new->show_dot = 0;
 	new->show_dottz = 0;
 	return (new);
@@ -96,7 +95,7 @@ void			add_param(t_brain **b, char *key, void *f)
 	new->next = (*b)->params;
 	new->justif = 1;
 	new->show_sign = 0;
-	new->is_0x_pref = 0;
+	new->disp_0x = 0;
 	new->show_dot = 0;
 	new->show_dottz = 0;
 	(*b)->params = new;
@@ -107,6 +106,7 @@ static void			init_params_list(t_brain **b)
 	//printf(YELO"Init params"RST"\n");
 	add_param(b, "c", &per_c);
 	add_param(b, "s", &per_s);
+	add_param(b, "i", &per_d);
 	add_param(b, "d", &per_d);
 	add_param(b, "lu", &per_lu);
 	add_param(b, "ld", &per_ld);
@@ -143,15 +143,12 @@ static t_param	*find_func(t_brain *b, const char *str)
 	first_found = ft_strlen(str);
 	while (*tmp != NULL)
 	{
-		if ((found = ft_strstr(str, (*tmp)->key)) > -1)
+		if ((found = check_key(str, (*tmp)->key)) > -1)
 		{
-			if (found < first_found)
-			{
-				first_found = found;
-				ret = tmp;
-				if (ft_strchr("XEG", str[found]))
-					(*ret)->key[0] = str[found]; 
-			}
+			ret = tmp;
+			if (ft_strchr("XEG", str[found]))
+				(*ret)->key[0] = str[found];
+			break ;
 		}
 		tmp = &((*tmp)->next);
 	}
@@ -168,11 +165,11 @@ static funcptr		set_treat_func(t_brain *b, t_param *cur, const char *str)
 	res = find_func(b, str);
 	if (res)
 	{
-		//printf("FOUND FUNC %s\n", res->key);
 		cur->treat = res->treat;
 		cur->key = ft_strdup(res->key);
 		return (res->treat);
-	}
+	} else
+		printf (RED"NO FUNC FOUND"RST"\n");
 	return (NULL);
 }
 
@@ -204,7 +201,7 @@ static t_param		*get_flags(t_brain *b, const char *str)
 		else if (str[i] == ' ')
 			ret->is_sp_pref = 1;
 		else if (str[i] == '#')
-			ret->is_0x_pref = 1;
+			ret->disp_0x = 1;
 		i++;
 	}
 	ret->flags_length = i + 1;
@@ -213,27 +210,7 @@ static t_param		*get_flags(t_brain *b, const char *str)
 	//disp_param(ret);
 	return (ret);
 }
-/*
-static int			calc_skip(t_param *p)
-{
-	int length;
 
-	//disp_param(p);
-	length = 0;
-	length += ft_strlen(p->key);
-	if (p->justif > 0)
-		length += ft_ilen(p->justif);
-	if (p->justif < 0)
-		length += ft_ilen(p->justif) + 1;
-	length += p->show_sign;
-	length += p->is_sp_pref;
-	length += p->is_0x_pref;
-	length += p->show_dot;
-	length += p->show_dottz;
-	//printf("skip length: %d\n", length);
-	return (length);
-}
-*/
 static int			treat_str(t_brain *b, const char *str, va_list va)
 {
 	int		i;
@@ -247,6 +224,12 @@ static int			treat_str(t_brain *b, const char *str, va_list va)
 		{
 			n_print += write(1, str, b->stri);
 			b->cur_param = get_flags(b, str + b->stri + 1);
+		//	disp_param(b->cur_param);
+			if (!b->cur_param->key)
+			{
+				printf(RED"END BAD KEY - ARG NOT FOUND"RST"\n");
+				exit(0);
+			}
 			n_print += b->cur_param->treat(va, b->cur_param);
 			i += b->stri + 1;
 			str += b->stri + b->cur_param->flags_length + 1;
