@@ -34,8 +34,8 @@ int main(void)
 	//printf("MINE RET->%d\n", ft_printf("i: % -5i end\n", 033));
 	//printf("REAL RET->%d\n", printf("i: % -5i end\n", 033));
 	
-	printf(" -> MINE RET: %d\n", ft_printf("c: %5ld end", 2147483648));
-	printf(" -> REAL RET: %d\n", printf("c: %14ld end", 2147483648));
+	printf(" -> MINE RET: %d\n", ft_printf("c: %3d end", 211));
+	printf(" -> REAL RET: %d\n", printf("c: %5d end", 2111));
 	/*
 	int ok = 0;
 	printf("REAL:%+-15ds\n", (ok = 13));
