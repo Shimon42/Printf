@@ -6,17 +6,11 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 22:00:15 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 17:27:56 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include "includes/brain.h"
-#include <stdlib.h>
-#include "includes/libft/libft.h"
-#include "includes/debug.h"
 #include "includes/libftprintf.h"
 
 static int		check_key(const char *str, char *tofind)
@@ -25,7 +19,7 @@ static int		check_key(const char *str, char *tofind)
 	size_t	i;
 	char	*upper;
 	size_t	to_f_len;
-	
+
 	to_f_len = ft_strlen(tofind);
 	x = 0;
 	i = 0;
@@ -76,12 +70,10 @@ static t_param	*new_param(void)
 	new->key = NULL;
 	new->treat = NULL;
 	new->next = NULL;
-	new->justif = 0;
+	new->min_width = 0;
 	new->show_sign = 0;
 	new->is_sp_pref = 0;
-	new->disp_0x = 0;
-	new->show_dot = 0;
-	new->show_dottz = 0;
+	new->hashtag = 0;
 	return (new);
 }
 
@@ -93,11 +85,9 @@ void			add_param(t_brain **b, char *key, void *f)
 	new->key = ft_strdup(key);
 	new->treat = f;
 	new->next = (*b)->params;
-	new->justif = 1;
+	new->min_width = 0;
 	new->show_sign = 0;
-	new->disp_0x = 0;
-	new->show_dot = 0;
-	new->show_dottz = 0;
+	new->min_width = 0;
 	(*b)->params = new;
 }
 
@@ -183,28 +173,44 @@ static t_param		*get_flags(t_brain *b, const char *str)
 	j = 0;
 	ret = new_param();
 //	printf(GRN"GET FLAGS\n"RST);
-	while ((ft_strchr("-+0123456789#% ", str[i]) != NULL) && str[i])
+	if (str[i] && (ft_strchr("-+0123456789#%.* ", str[i]) != NULL))
 	{
 		//printf("Curchar: %c\n", str[i]);
-		if (str[i] == '+')
-			ret->show_sign = 1;
-		else if (ret->justif == 0
-		&& (str[i] == '-' || (str[i] >= '0' && str[i] <= '9')))
+		while (ft_strchr("-+0 #%", str[i]))
 		{
 			if (str[i] == '-')
-				ret->justif = -1;
-			while (!(str[i + j] >= '0' && str[i + j] <= '9') && str[i + j])
-				j++;
-			ret->justif =
-			(ret->justif == 0 ? 1 : ret->justif) * ft_atoi(str + i + j);
+				ret->left_justif = 1;
+			else if (str[i] == '+')
+				ret->show_sign = 1;
+			else if (str[i] == '0')
+				ret->pref_0 = 1;
+			else if (str[i] == ' ')
+				ret->is_sp_pref = 1;
+			else if (str[i] == '#')
+				ret->hashtag = 1;
+			i++;
 		}
-		else if (str[i] == ' ')
-			ret->is_sp_pref = 1;
-		else if (str[i] == '#')
-			ret->disp_0x = 1;
-		i++;
+		if (str[i] == '*')
+			ret->min_field_as_var = 1;
+		if (str[i] >= '1' && str[i] <= '9')
+		{
+			ret->min_width = ft_atoi(str + i);
+			i += ft_ilen(ret->min_width);
+		}
+		if (str[i] == '.')
+		{
+			i++;
+			if (str[i] >= '1' && str[i] <= '9')
+			{
+				ret->precision = ft_atoi(str + i);
+				i += ft_ilen(ret->precision);
+			}
+			else
+				printf(RED"BAD CHAR AFTER '.'"RST"\n");
+		}
 	}
 	ret->flags_length = i + 1;
+	//disp_param(ret);
 	//printf("END While - get flags\n");
 	set_treat_func(b, ret, str + i);
 	//disp_param(ret);

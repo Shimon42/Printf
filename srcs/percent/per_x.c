@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 17:51:11 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 15:26:42 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -51,12 +51,12 @@ int		per_x(va_list va, t_param *p)
 
 	n_print = 0;
 	nbr = va_arg(va, int);
-	padding = hex_len(nbr) + p->show_sign + (p->disp_0x * 2);
-	n_print += disp_justif(p->justif - padding, p->justif, 0);
-	if (p->disp_0x && nbr != 0)
+	padding = hex_len(nbr) + p->show_sign + (p->hashtag * 2);
+	n_print += disp_justif(p->min_width - padding, p->min_width, 0);
+	if (p->hashtag && nbr != 0)
 		n_print += write(1, "0x", 2);
 	ft_puthex_fd(nbr, 1, (p->key[0] == 'X'));
 	n_print += hex_len(nbr) + (nbr < 0 || p->show_sign);
-	n_print += disp_justif(p->justif + padding, p->justif, 1);
+	n_print += disp_justif(p->min_width + padding, p->min_width, 1);
 	return (n_print);
 }

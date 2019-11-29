@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 17:51:08 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 15:26:22 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,13 +24,13 @@ int	per_d(va_list va, t_param *p)
 	n_print = 0;
 	nbr = va_arg(va, int);
 	padding = ft_ilen(nbr) + p->show_sign + ((nbr >= 0) * p->is_sp_pref) + (nbr < 0);
-	n_print += disp_justif(p->justif - padding, p->justif, 0);
+	n_print += disp_justif(p->min_width - padding, p->min_width, 0);
 	if (p->is_sp_pref && nbr >= 0)
 		n_print += write(1, " ", 1);
 	if (p->show_sign)
 		(nbr >= 0 ? ft_putchar('+') : ft_putchar('-'));
 	ft_putnbr_fd(nbr, 1);
 	n_print += ft_ilen(nbr) + (nbr < 0 || p->show_sign);
-	n_print += disp_justif(p->justif + padding, p->justif, 1);
+	n_print += disp_justif(p->min_width + padding, p->min_width, 1);
 	return (n_print);
 }

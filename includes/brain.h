@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:15:38 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 21:50:49 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 17:19:22 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,13 +21,15 @@ typedef struct  	s_param
 {
     char			*key;
     funcptr			treat;
-	int				justif;
+	int				left_justif;
+	int				min_field_as_var;
+	int				min_width;
+	int				max_width;
 	int				show_sign;
 	int				is_sp_pref;
 	int				pref_0;
-	int				disp_0x;
-	int				show_dot;
-	int				show_dottz;
+	int				hashtag;
+	int				precision;
 	int				flags_length;
     struct s_param	*next;
 }					t_param;

@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:53:12 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 15:09:19 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 17:20:21 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,41 +18,59 @@
 void disp_param(t_param *p)
 {
 	if (p->key)
-       	printf("|\t\t{ key: %s", p->key);
+       	printf("|\t\t{ "GRN"key"RST": %s,\t", p->key);
 	else
-		printf("|\t\t{ !key: null");
+		printf("|\t\t{ "RED"!key"RST": null,\t");
+
 	if (p->treat)
-       	printf(", treat: set");
+       	printf(GRN"treat"RST": set, ");
 	else
-		printf(", !treat: null");
-    if (p->justif)
-		printf(", justif: %d", p->justif);
+		printf(RED"!treat"RST": null, ");
+
+    if (p->left_justif)
+		printf(GRN"left_justif"RST": %d, ", p->left_justif);
 	else
-		printf(", justif: 0");
+		printf(YELO"left_justif"RST": 0, ");
+
+	if (p->min_width)
+		printf(GRN"min_width"RST": %d, ", p->min_width);
+	else
+		printf(YELO"min_width"RST": 0, ");
+
     if (p->is_sp_pref)
-		printf(", sp_pref: %d", p->is_sp_pref);
+		printf(GRN"sp_pref"RST": %d, ", p->is_sp_pref);
 	else
-		printf(", sp_pref: 0");
-	if (p->disp_0x)
-		printf(", 0x: %d", p->disp_0x);
+		printf(YELO"sp_pref"RST": 0, ");
+
+	if (p->is_sp_pref)
+		printf(GRN"0_pref"RST": %d, ", p->pref_0);
 	else
-		printf(", 0x: 0");
+		printf(YELO"0_pref"RST": 0, ");
+	
+	if (p->hashtag)
+		printf(GRN"#"RST": %d, ", p->hashtag);
+	else
+		printf(YELO"#"RST": 0, ");
+
+	if (p->precision)
+		printf(GRN"precision"RST": %d, ", p->precision);
+	else
+		printf(YELO"precision"RST": 0, ");
+
+	if (p->max_width)
+		printf(GRN"max_width"RST": %d, ", p->max_width);
+	else
+		printf(YELO"max_width"RST": 0, ");
+
     if (p->show_sign)
-		printf(", show_sign: %d", p->show_sign);
+		printf(GRN"show_sign"RST": %d, ", p->show_sign);
 	else
-		printf(", show_sign: 0");
-	if (p->show_dot)
-		printf(", dot: %d", p->show_dot);
-	else
-		printf(", dot: 0");
-    if (p->show_dottz)
-		printf(", dotz: %d", p->show_dottz);
-	else
-		printf(", dotz: 0");
+		printf(YELO"show_sign"RST": 0, ");
+		
 	if (p->next)
-       	printf(", next: %s }\n", (char *)(p->next)->key);
+       	printf(GRN"next"RST": %s }\n", (char *)(p->next)->key);
 	else
-		printf(", !next: null }\n");
+		printf(CYAN"!next"RST": null }\n");
 }
 
 void disp_brain(t_brain *b)
@@ -63,7 +81,7 @@ void disp_brain(t_brain *b)
     printf(CYAN"┌────────────────────────────\n");
     printf("|----------- BRAIN ----------\n");
     printf("|\n");
-    printf("|\tParams:\n");
+    printf(YELO"|\tParams:\n");
     while (*params != NULL)
     {
 		disp_param(*params);
