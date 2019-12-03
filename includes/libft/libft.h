@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/11 12:00:43 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 17:57:10 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 22:18:07 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,7 +19,7 @@
 # include <stdlib.h>
 # include <strings.h>
 
-size_t				ft_abs(int n);
+long				ft_abs(int n);
 int					ft_atoi(const char *str);
 void				*ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t count, size_t size);

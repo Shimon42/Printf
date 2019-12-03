@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 18:57:07 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 15:25:22 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 21:12:34 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,12 +17,12 @@ size_t	disp_justif(int n, int justif, int left_justif)
 {
 	int tmp;
 
-	if ((justif > 0 && !left_justif) || (justif < 0 && left_justif))
+	tmp = n;
+	if (justif == left_justif && n > 0)
 	{
-		tmp = ft_abs(n);
-		while (tmp-- > 0)
+		while (n-- > 0)
 			write(1, " ", 1);
-		return (ft_abs(n));
+		return (tmp);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/10 21:17:49 by shimon       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/18 16:04:22 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 22:06:10 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,12 +18,12 @@ void		ft_putnbr_fd(int n, int fd)
 {
     
     
-	unsigned int unb;
+	long unb;
 
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		unb = n * -1;
+		unb = (long)n * -1;
 	}
 	else
 		unb = n;

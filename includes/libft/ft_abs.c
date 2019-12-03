@@ -6,17 +6,18 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 23:29:17 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/26 23:44:14 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 22:20:55 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-size_t ft_abs(int n)
+long ft_abs(int n)
 {
-	size_t ret;
+	long ret;
 
-	ret = (n >= 0 ? n : -n);
+	ret = n;
+	ret = (ret >= 0 ? ret : -ret);
 	return (ret);
 }
