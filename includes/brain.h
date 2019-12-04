@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:15:38 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 17:19:22 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 23:00:32 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,6 +27,7 @@ typedef struct  	s_param
 	int				max_width;
 	int				show_sign;
 	int				is_sp_pref;
+	char			prefix;
 	int				pref_0;
 	int				hashtag;
 	int				precision;

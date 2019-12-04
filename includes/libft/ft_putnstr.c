@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   per_c.c                                          .::    .:/ .      .::   */
+/*   ft_putnstr.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 20:51:48 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/21 16:36:25 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/04 20:14:13 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../includes/libftprintf.h"
+#include "libft.h"
 
-int	per_c(va_list va, t_param *p)
+size_t	ft_putnstr(char *str, size_t maxlen)
 {
-	unsigned int	n_print;
-	int				i;
-	int				padding;
+	size_t len;
 
-	i = 0;
-	n_print = 1;
-	padding = 1 + p->is_sp_pref;
-	if (!p->pref_0)
-		n_print += disp_justif(p->min_width - padding, p, 0);
-	if ((p->pref_0 && !p->left_justif))
-		while ((i < p->min_width - padding))
-		{
-			n_print += write(1, "0", 1);
-			i++;
-		}
-	ft_putchar(va_arg(va, int));
-	n_print += disp_justif(p->min_width - padding, p, 1);
-	return (n_print);
+	len = 0;
+	if (str)
+	{
+		len = ft_strlen(str);
+		if (maxlen && len > maxlen)
+			len = maxlen;
+		write(1, str, len);
+	}
+	return (len);
 }

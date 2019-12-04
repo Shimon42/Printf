@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 17:27:56 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 23:01:09 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -179,13 +179,16 @@ static t_param		*get_flags(t_brain *b, const char *str)
 		while (ft_strchr("-+0 #%", str[i]))
 		{
 			if (str[i] == '-')
+			{
 				ret->left_justif = 1;
+				ret->prefix = ' ';
+			}
 			else if (str[i] == '+')
 				ret->show_sign = 1;
-			else if (str[i] == '0')
-				ret->pref_0 = 1;
 			else if (str[i] == ' ')
-				ret->is_sp_pref = 1;
+				ret->prefix = ' ';
+			else if (str[i] == '0' && !ret->left_justif)
+				ret->prefix = '0';
 			else if (str[i] == '#')
 				ret->hashtag = 1;
 			i++;
@@ -195,6 +198,8 @@ static t_param		*get_flags(t_brain *b, const char *str)
 		if (str[i] >= '1' && str[i] <= '9')
 		{
 			ret->min_width = ft_atoi(str + i);
+			if (!ret->prefix)
+			ret->prefix = ' ';
 			i += ft_ilen(ret->min_width);
 		}
 		if (str[i] == '.')
@@ -206,7 +211,7 @@ static t_param		*get_flags(t_brain *b, const char *str)
 				i += ft_ilen(ret->precision);
 			}
 			else
-				printf(RED"BAD CHAR AFTER '.'"RST"\n");
+				ret->precision = 0;
 		}
 	}
 	ret->flags_length = i + 1;
