@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 17:23:48 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 22:30:21 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 18:01:13 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -37,11 +37,18 @@ int main(void)
 	'a',
 	8,
 	14);*/
-
-	char * str= "d: %08d[end]\n";
-	int nbr = -15;
+	/*
+	char * str= "d: %+010d[end]\n";
+	int nbr = 1565;
 	printf("MINE RET->%d\n", ft_printf(str, nbr));
 	printf("REAL RET->%d\n", printf(str, nbr));
+*/
+	char *str = "d: %-.15c[end]\n";
+	char c = 'a';
+	ft_printf(YELO);
+	printf("MINE RET->%d\n", ft_printf(str, c));
+	ft_printf(GRN);
+	printf("REAL RET->%d"RST"\n", printf(str, c));
 
 	//printf("MINE RET->%d\n", ft_printf("i: % -5i end\n", 033));
 	//printf("REAL RET->%d\n", printf("i: % -5i end\n", 033));
