@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 20:51:48 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/05 21:14:20 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,22 +15,21 @@
 
 int	per_c(va_list va, t_param *p)
 {
-	unsigned int	n_print;
 	int				i;
 	int				padding;
 
 	i = 0;
-	n_print = 1;
+	p->n_print = 1;
 	padding = 1 + p->is_sp_pref;
 	if (!p->pref_0)
-		n_print += disp_justif(p->min_width - padding, p, 0);
+		disp_justif(p->min_width - padding, p, 0);
 	if ((p->pref_0 && !p->left_justif))
 		while ((i < p->min_width - padding))
 		{
-			n_print += write(1, "0", 1);
+			p->n_print += write(1, "0", 1);
 			i++;
 		}
 	ft_putchar(va_arg(va, int));
-	n_print += disp_justif(p->min_width - padding, p, 1);
-	return (n_print);
+	disp_justif(p->min_width - padding, p, 1);
+	return (p->n_print);
 }

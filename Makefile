@@ -6,10 +6,10 @@ SRCS    =   debug.c \
 			srcs/percent/per_s.c \
 			srcs/percent/per_d.c \
 			srcs/percent/per_u.c \
-			srcs/percent/per_lu.c \
-			srcs/percent/per_ld.c \
-			srcs/percent/per_o.c \
-			srcs/percent/per_x.c 
+			#srcs/percent/per_lu.c \
+			#srcs/percent/per_ld.c \
+			#srcs/percent/per_o.c \
+			#srcs/percent/per_x.c 
 RM              = rm -f                                                      
 
 CC		= gcc

@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:15:38 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 23:00:32 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/05 21:01:22 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,6 +32,7 @@ typedef struct  	s_param
 	int				hashtag;
 	int				precision;
 	int				flags_length;
+	int				n_print;
     struct s_param	*next;
 }					t_param;
 

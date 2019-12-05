@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 23:01:09 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/05 22:55:58 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -74,6 +74,7 @@ static t_param	*new_param(void)
 	new->show_sign = 0;
 	new->is_sp_pref = 0;
 	new->hashtag = 0;
+	new->precision = -1;
 	return (new);
 }
 
@@ -85,8 +86,8 @@ void			add_param(t_brain **b, char *key, void *f)
 	new->key = ft_strdup(key);
 	new->treat = f;
 	new->next = (*b)->params;
-	new->min_width = 0;
 	new->show_sign = 0;
+	new->precision = -1;
 	new->min_width = 0;
 	(*b)->params = new;
 }
@@ -98,11 +99,11 @@ static void			init_params_list(t_brain **b)
 	add_param(b, "s", &per_s);
 	add_param(b, "i", &per_d);
 	add_param(b, "d", &per_d);
-	add_param(b, "lu", &per_lu);
-	add_param(b, "ld", &per_ld);
 	add_param(b, "u", &per_u);
-	add_param(b, "o", &per_o);
-	add_param(b, "x", &per_x);
+//	add_param(b, "o", &per_o);
+//	add_param(b, "lu", &per_lu);
+//	add_param(b, "ld", &per_ld);
+//	add_param(b, "x", &per_x);
 	//disp_brain(*b);
 	//printf(GRN"END Init params"RST"\n");
 }

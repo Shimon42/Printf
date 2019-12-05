@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/21 16:36:25 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 20:14:13 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/05 22:30:18 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,7 +18,7 @@ size_t	ft_putnstr(char *str, size_t maxlen)
 	size_t len;
 
 	len = 0;
-	if (str)
+	if (str && maxlen > 0)
 	{
 		len = ft_strlen(str);
 		if (maxlen && len > maxlen)
