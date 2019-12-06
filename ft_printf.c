@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/05 22:55:58 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/06 17:22:25 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -187,7 +187,7 @@ static t_param		*get_flags(t_brain *b, const char *str)
 			else if (str[i] == '+')
 				ret->show_sign = 1;
 			else if (str[i] == ' ')
-				ret->prefix = ' ';
+				ret->is_sp_pref = 1;
 			else if (str[i] == '0' && !ret->left_justif)
 				ret->prefix = '0';
 			else if (str[i] == '#')
@@ -195,12 +195,15 @@ static t_param		*get_flags(t_brain *b, const char *str)
 			i++;
 		}
 		if (str[i] == '*')
+		{
 			ret->min_field_as_var = 1;
-		if (str[i] >= '1' && str[i] <= '9')
+			i++;
+		}
+		else if (str[i] >= '1' && str[i] <= '9' && !ret->min_field_as_var)
 		{
 			ret->min_width = ft_atoi(str + i);
 			if (!ret->prefix)
-			ret->prefix = ' ';
+				ret->prefix = ' ';
 			i += ft_ilen(ret->min_width);
 		}
 		if (str[i] == '.')
@@ -211,6 +214,8 @@ static t_param		*get_flags(t_brain *b, const char *str)
 				ret->precision = ft_atoi(str + i);
 				i += ft_ilen(ret->precision);
 			}
+			else if (str[i] == '*')
+				ret->max_field_as_var = 1;
 			else
 				ret->precision = 0;
 		}

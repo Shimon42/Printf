@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 17:23:48 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/05 23:21:41 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/06 17:52:27 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -43,30 +43,33 @@ int main(void)
 	printf("MINE RET->%d\n", ft_printf(str, nbr));
 	printf("REAL RET->%d\n", printf(str, nbr));
 */
+/*
  //------------- %s ----------
-	char *str = "d: %03.21s[end]\n";
+	char *str = "d: % 0-6.5s[end]\n";
 	char *str2 = "Bonjour comment ça va";
 	ft_printf(YELO);
 	printf("MINE RET->%d\n", ft_printf(str, str2));
 	ft_printf(GRN);
 	printf("REAL RET->%d"RST"\n", printf(str, str2));	
-
-/* //------------- %c ----------
-	char *str = "d: %.1c[end]\n";
+*/
+/*
+ //------------- %c ----------
+	char *str = "d: %+ c[end]\n";
 	char c = 'a';
 	ft_printf(YELO);
 	printf("MINE RET->%d\n", ft_printf(str, c));
 	ft_printf(GRN);
 	printf("REAL RET->%d"RST"\n", printf(str, c));
-*/	
+*/
+
  //------------ %d ------------
-	/*char	*str = "d: %010.2d[end]\n";
+	char	*str = "d: %+ 10d[end]\n";
 	int		nbr = 12;
 	ft_printf(YELO);
 	printf("MINE RET->%d\n", ft_printf(str, nbr));
 	ft_printf(GRN);
 	printf("REAL RET->%d"RST"\n", printf(str, nbr));
-*/
+
 	//printf("MINE RET->%d\n", ft_printf("i: % -5i end\n", 033));
 	//printf("REAL RET->%d\n", printf("i: % -5i end\n", 033));
 	

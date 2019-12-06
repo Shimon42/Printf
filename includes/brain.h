@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:15:38 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/05 21:01:22 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/06 17:17:18 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,6 +23,7 @@ typedef struct  	s_param
     funcptr			treat;
 	int				left_justif;
 	int				min_field_as_var;
+	int				max_field_as_var;
 	int				min_width;
 	int				max_width;
 	int				show_sign;
