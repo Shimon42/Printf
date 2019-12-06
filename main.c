@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 17:23:48 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 17:52:27 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/06 21:52:12 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -63,7 +63,7 @@ int main(void)
 */
 
  //------------ %d ------------
-	char	*str = "d: %+ 10d[end]\n";
+	char	*str = "d: %3.1d[end]\n";
 	int		nbr = 12;
 	ft_printf(YELO);
 	printf("MINE RET->%d\n", ft_printf(str, nbr));

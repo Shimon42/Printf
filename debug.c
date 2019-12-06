@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:53:12 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 23:01:31 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/06 21:45:25 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -47,6 +47,11 @@ void disp_param(t_param *p)
 	else
 		printf(YELO"sp_pref"RST": 0, ");
 	
+	if (p->pref_0)
+		printf(GRN"pref_0"RST": %d, ", p->is_sp_pref);
+	else
+		printf(YELO"pref_0"RST": 0, ");
+
 	if (p->hashtag)
 		printf(GRN"#"RST": %d, ", p->hashtag);
 	else
