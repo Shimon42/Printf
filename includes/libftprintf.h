@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 16:49:16 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 15:59:17 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 19:19:24 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,6 +25,7 @@ int		ft_printf(const char *str, ...);
 void	new_s_param(t_brain **b, char *key, void (*f)(char *), void *exp);
 
 void	disp_justif(int n, t_param *p, int left_justif);
+void	gest_wildcard(va_list va, t_param *p);
 void	free_param(t_param *p);
 int		check_flags(t_param *p);
 

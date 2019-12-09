@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 17:23:48 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 18:34:00 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 22:20:42 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,62 +16,65 @@
 int main(void)
 {
 	ft_putstr(RST);
-	//ft_printf("%d", 1000);
-	//ft_printf("%s", "Hello");
-	/*ft_printf("");
-	printf("");
-	ft_printf(PINK"[Start]\n\t"CYAN"bonjour\n\
-	per_s:"YELO" %s"CYAN"\n\
-	per_d: "YELO"%d"CYAN"\n\
-	per_ld: "YELO"%ld"CYAN"\n\
-	per_lu: "YELO"%lu"CYAN"\n\
-	per_c('a') -> "GRN"a"RST" vs "YELO"%c"CYAN"\n\
-	per_o(8) -> "GRN"10"RST" vs "YELO"%o"CYAN"\n\
-	per_x(14) -> "GRN"e"RST" vs "YELO"%x"CYAN"\n\
-	salut\n"PINK"[end]\n"RST,\
 
-	"couiiiiicou",\
-	2147483647,\
-	123,\
-	123654654654,\
-	'a',
-	8,
-	14);
-	
-	char * str= "d: %+010d[end]\n";
-	int nbr = 1565;
-	printf("MINE RET->%d\n", ft_printf(str, nbr));
-	printf("REAL RET->%d\n", printf(str, nbr));
-*/
-/*
- //------------- %s ----------
-	char *str = "d: % 0-6.5s[end]\n";
+printf(CYAN"------------ %%s ------------"RST"\n");
+	char *str = "d: %035s[end]\n";
 	char *str2 = "Bonjour comment ça va";
+	
+	ft_printf(PINK);
+	ft_putstr(str);
+	ft_printf(YELO);
+	
 	ft_printf(YELO);
 	printf("MINE RET->%d\n", ft_printf(str, str2));
 	ft_printf(GRN);
-	printf("REAL RET->%d"RST"\n", printf(str, str2));	
-*/
+	printf("REAL RET->%d"RST"\n", printf(str, str2));
+	
+	char *str3 = "d: %0*.s[end]\n";
+	int decals = 35;
+
+	ft_printf(PINK);
+	ft_putstr(str3);
+	ft_printf(YELO);
+
+	ft_printf(YELO);
+	printf("MINE RET->%d\n", ft_printf(str3, decals, str2));
+	ft_printf(GRN);
+	printf("REAL RET->%d"RST"\n", printf(str3, decals, str2));
+
 /*
- //------------- %c ----------
-	char *str = "d: %+ c[end]\n";
+printf(CYAN"------------ %%c ------------"RST"\n");
+	char *str = "d: %10c[end]\n";
 	char c = 'a';
+	ft_printf(PINK);
+	ft_putstr(str);
 	ft_printf(YELO);
 	printf("MINE RET->%d\n", ft_printf(str, c));
 	ft_printf(GRN);
 	printf("REAL RET->%d"RST"\n", printf(str, c));
-*/
+	
+	char *str2 = "d: %0*.c[end]\n";
+	int decal = 10;
+	ft_printf(PINK);
+	ft_putstr(str2);
+	ft_printf(YELO);
+	printf("MINE RET->%d\n", ft_printf(str2,decal, c));
+	ft_printf(GRN);
+	printf("REAL RET->%d"RST"\n", printf(str2, decal, c));
 
- //------------ %d ------------
-	char	*str = "d: % -.5d[end]\n";
-	int		nbr = 12;
+*/
+/*
+
+	printf(CYAN"------------ %%d ------------"RST"\n");
+	char	*str = "d: % -00*.*d[end]\n";
+	int		nbr = -12;
 	ft_printf(PINK);
 	ft_putstr(str);
 	ft_printf(YELO);
-	printf("MINE RET->%d\n", ft_printf(str, nbr));
+	printf("MINE RET->%d\n", ft_printf(str, nbr, -10, 12));
 	ft_printf(GRN);
-	printf("REAL RET->%d"RST"\n", printf(str, nbr));
-
+	printf("REAL RET->%d"RST"\n", printf(str, nbr, -10, 12));
+*/
 	//printf("MINE RET->%d\n", ft_printf("i: % -5i end\n", 033));
 	//printf("REAL RET->%d\n", printf("i: % -5i end\n", 033));
 	

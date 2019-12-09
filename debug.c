@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:53:12 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 21:45:25 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 22:25:10 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,64 +18,74 @@
 void disp_param(t_param *p)
 {
 	if (p->key)
-       	printf("|\t\t{ "GRN"key"RST": %s,\t", p->key);
+       	printf(CYAN"\n{\n"TAB GRN"key"RST": %s,\n", p->key);
 	else
-		printf("|\t\t{ "RED"!key"RST": null,\t");
+		printf(CYAN"\n{\n"TAB RED"!key"RST": null,\n");
 
 	if (p->treat)
-       	printf(GRN"treat"RST": set, ");
+       	printf(TAB GRN"treat"RST": set,\n");
 	else
-		printf(RED"!treat"RST": null, ");
+		printf(TAB RED"!treat"RST": null,\n");
 
     if (p->left_justif)
-		printf(GRN"left_justif"RST": %d, ", p->left_justif);
+		printf(TAB GRN"left_justif"RST": %d,\n", p->left_justif);
 	else
-		printf(YELO"left_justif"RST": 0, ");
+		printf(TAB YELO"left_justif"RST": 0,\n");
+	
+	if (p->min_field_as_var)
+		printf(TAB GRN"min_as_var"RST": %d,\n", p->min_field_as_var);
+	else
+		printf(TAB YELO"min_as_var"RST": 0,\n");
 
 	if (p->min_width)
-		printf(GRN"min_width"RST": %d, ", p->min_width);
+		printf(TAB GRN"min_width"RST": %d,\n", p->min_width);
 	else
-		printf(YELO"min_width"RST": 0, ");
+		printf(TAB YELO"min_width"RST": 0,\n");
 
     if (p->prefix)
-		printf(GRN"prefix"RST": '%c', ", p->prefix);
+		printf(TAB GRN"prefix"RST": '%c',\n", p->prefix);
 	else
-		printf(YELO"prefix"RST": null, ");
+		printf(TAB YELO"prefix"RST": null,\n");
 	
 	if (p->is_sp_pref)
-		printf(GRN"sp_pref"RST": %d, ", p->is_sp_pref);
+		printf(TAB GRN"sp_pref"RST": %d,\n", p->is_sp_pref);
 	else
-		printf(YELO"sp_pref"RST": 0, ");
+		printf(TAB YELO"sp_pref"RST": 0,\n");
 	
 	if (p->pref_0)
-		printf(GRN"pref_0"RST": %d, ", p->is_sp_pref);
+		printf(TAB GRN"pref_0"RST": %d,\n", p->is_sp_pref);
 	else
-		printf(YELO"pref_0"RST": 0, ");
+		printf(TAB YELO"pref_0"RST": 0,\n");
 
 	if (p->hashtag)
-		printf(GRN"#"RST": %d, ", p->hashtag);
+		printf(TAB GRN"#"RST": %d,\n", p->hashtag);
 	else
-		printf(YELO"#"RST": 0, ");
+		printf(TAB YELO"#"RST": 0,\n");
 
-	if (p->precision)
-		printf(GRN"precision"RST": %d, ", p->precision);
+	if (p->max_field_as_var)
+		printf(TAB GRN"max_as_var"RST": %d,\n", p->max_field_as_var);
 	else
-		printf(YELO"precision"RST": 0, ");
+		printf(TAB YELO"max_as_var"RST": 0,\n");
+	
+	if (p->precision >= 0)
+		printf(TAB GRN"precision"RST": %d,\n", p->precision);
+	else
+		printf(TAB YELO"precision"RST": -1,\n");
 
 	if (p->max_width)
-		printf(GRN"max_width"RST": %d, ", p->max_width);
+		printf(TAB GRN"max_width"RST": %d,\n", p->max_width);
 	else
-		printf(YELO"max_width"RST": 0, ");
+		printf(TAB YELO"max_width"RST": 0,\n");
 
     if (p->show_sign)
-		printf(GRN"show_sign"RST": %d, ", p->show_sign);
+		printf(TAB GRN"show_sign"RST": %d,\n", p->show_sign);
 	else
-		printf(YELO"show_sign"RST": 0, ");
+		printf(TAB YELO"show_sign"RST": 0,\n");
 		
 	if (p->next)
-       	printf(GRN"next"RST": %s }\n", (char *)(p->next)->key);
+       	printf(TAB GRN"next"RST": %s\n"CYAN"}"RST"\n", (char *)(p->next)->key);
 	else
-		printf(CYAN"!next"RST": null }\n");
+		printf(TAB CYAN"!next"RST": null\n"CYAN"}"RST"\n");
 }
 
 void disp_brain(t_brain *b)

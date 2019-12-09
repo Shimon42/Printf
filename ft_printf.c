@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 18:28:10 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 21:12:42 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -212,7 +212,6 @@ static t_param		*get_flags(t_brain *b, const char *str)
 		if (str[i] == '.')
 		{
 			i++;
-			
 			ret->prefix = ' ';
 			if (str[i] >= '0' && str[i] <= '9')
 			{
@@ -222,13 +221,16 @@ static t_param		*get_flags(t_brain *b, const char *str)
 				i += ft_ilen(ret->precision);
 			}
 			else if (str[i] == '*')
+			{
 				ret->max_field_as_var = 1;
+				i++;
+			}
 			else
 				ret->precision = 0;
 		}
 	}
 	ret->flags_length = i + 1;
-//	disp_param(ret);
+	//disp_param(ret);
 	//printf("END While - get flags\n");
 	set_treat_func(b, ret, str + i);
 	//disp_param(ret);
@@ -253,6 +255,9 @@ static int			treat_str(t_brain *b, const char *str, va_list va)
 				printf(RED"END BAD KEY - ARG NOT FOUND"RST"\n");
 				exit(0);
 			}
+			ft_putstr(RED"\nPARAM SENDED\n"RST);
+			disp_param(b->cur_param);
+			ft_putstr(RED"-------------------\n"RST);
 			n_print += b->cur_param->treat(va, b->cur_param);
 			free_param(b->cur_param);
 			i += b->stri + 1;
