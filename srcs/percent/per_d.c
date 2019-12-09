@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 21:53:45 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 18:33:26 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -43,12 +43,16 @@ void	gest_precision(t_param *p, int nbr, int len)
 	i = 0;
 	padding = 0;
 	if (p->min_width > len)
-		padding += p->min_width - len;
+		padding += p->min_width;
 	padding -= (p->is_sp_pref || p->show_sign || nbr < 0);
-	if (!p->pref_0 && (p->min_width - p->precision - len > 0))
-		disp_justif(p->min_width - p->precision - len, p, 0);
+	if (p->precision > len)
+		padding -= p->precision;
+	else
+		padding -= len;
+	if (padding > 0)
+	disp_justif(padding, p, 0);
 	gest_sign_pref(p, nbr);
-	if (!p->left_justif && (p->precision - len > 0))
+	if ((!p->left_justif || p->precision) && (p->precision - len > 0))
 		print_zeros(p, p->precision - len);
 	ft_putnbr_fd(ft_abs(nbr), 1);
 	p->n_print += len;
@@ -75,14 +79,6 @@ void	gest_no_precision(t_param *p, int nbr, int len)
 	disp_justif(padding, p, 1);
 }
 
-void	disp_per_d(t_param *p, int len, int nbr)
-{
-	if (p->precision >= 0)
-		gest_precision(p, nbr, len);
-	else
-		gest_no_precision(p, nbr, len);
-}
-
 int	per_d(va_list va, t_param *p)
 {
 	long			nbr;
@@ -94,6 +90,9 @@ int	per_d(va_list va, t_param *p)
 	disp_param(p);
 	ft_putstr(YELO"\nd: ");
 	nbr = va_arg(va, int);
-	disp_per_d(p, ft_ilen(nbr), nbr);
+	if (p->precision >= 0)
+		gest_precision(p, nbr, ft_ilen(nbr));
+	else
+		gest_no_precision(p, nbr, ft_ilen(nbr));
 	return (p->n_print);
 }

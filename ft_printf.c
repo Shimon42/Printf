@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 20:58:09 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 18:28:10 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -212,8 +212,12 @@ static t_param		*get_flags(t_brain *b, const char *str)
 		if (str[i] == '.')
 		{
 			i++;
-			if (str[i] >= '1' && str[i] <= '9')
+			
+			ret->prefix = ' ';
+			if (str[i] >= '0' && str[i] <= '9')
 			{
+				while (str[i] == '0')
+					i++;
 				ret->precision = ft_atoi(str + i);
 				i += ft_ilen(ret->precision);
 			}
@@ -224,7 +228,7 @@ static t_param		*get_flags(t_brain *b, const char *str)
 		}
 	}
 	ret->flags_length = i + 1;
-	//disp_param(ret);
+//	disp_param(ret);
 	//printf("END While - get flags\n");
 	set_treat_func(b, ret, str + i);
 	//disp_param(ret);
