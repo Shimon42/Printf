@@ -16,6 +16,7 @@ SRCS	=	ft_abs.c \
 			ft_memcpy.c \
 			ft_memmove.c \
 			ft_memset.c \
+			ft_puthex.c \
 			ft_putchar.c \
 			ft_putchar_fd.c \
 			ft_putendl_fd.c \
@@ -39,7 +40,8 @@ SRCS	=	ft_abs.c \
 			ft_strupper.c \
 			ft_tolower.c \
 			ft_toupper.c \
-			ft_nbrslen.c
+			ft_nbrslen.c \
+			ft_hexlen.c
 
 SRCSBNS	=	ft_lstnew_bonus.c \
 			ft_lstadd_front_bonus.c \

@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 16:49:16 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 19:19:24 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/10 16:06:45 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include "brain.h"
 #include "debug.h"
-#include "libft/libft.h"
+#include "libft/libft.h" 
 
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
@@ -32,9 +32,10 @@ int		check_flags(t_param *p);
 int		per_c(va_list va, t_param *p);
 int		per_s(va_list va, t_param *p);
 int		per_d(va_list va, t_param *p);
+int		per_p(va_list va, t_param *p);
+int		per_u(va_list va, t_param *p);
 //int		per_lu(va_list va, t_param *p);
 //int		per_ld(va_list va, t_param *p);
-int		per_u(va_list va, t_param *p);
 //int		per_o(va_list va, t_param *p);
 //int		per_x(va_list va, t_param *p);
 #endif
