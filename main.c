@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 17:23:48 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 22:20:42 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/10 15:35:12 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,9 +16,9 @@
 int main(void)
 {
 	ft_putstr(RST);
-
+/*
 printf(CYAN"------------ %%s ------------"RST"\n");
-	char *str = "d: %035s[end]\n";
+	char *str = "d: %+ 35.s[end]\n";
 	char *str2 = "Bonjour comment ça va";
 	
 	ft_printf(PINK);
@@ -30,7 +30,7 @@ printf(CYAN"------------ %%s ------------"RST"\n");
 	ft_printf(GRN);
 	printf("REAL RET->%d"RST"\n", printf(str, str2));
 	
-	char *str3 = "d: %0*.s[end]\n";
+	char *str3 = "d: %0+ *.5s[end]\n";
 	int decals = 35;
 
 	ft_printf(PINK);
@@ -41,8 +41,8 @@ printf(CYAN"------------ %%s ------------"RST"\n");
 	printf("MINE RET->%d\n", ft_printf(str3, decals, str2));
 	ft_printf(GRN);
 	printf("REAL RET->%d"RST"\n", printf(str3, decals, str2));
+*/
 
-/*
 printf(CYAN"------------ %%c ------------"RST"\n");
 	char *str = "d: %10c[end]\n";
 	char c = 'a';
@@ -53,16 +53,16 @@ printf(CYAN"------------ %%c ------------"RST"\n");
 	ft_printf(GRN);
 	printf("REAL RET->%d"RST"\n", printf(str, c));
 	
-	char *str2 = "d: %0*.c[end]\n";
+	char *str2 = "d: %0*.*c[end]\n";
 	int decal = 10;
 	ft_printf(PINK);
 	ft_putstr(str2);
 	ft_printf(YELO);
-	printf("MINE RET->%d\n", ft_printf(str2,decal, c));
+	printf("MINE RET->%d\n", ft_printf(str2,decal,10, c));
 	ft_printf(GRN);
-	printf("REAL RET->%d"RST"\n", printf(str2, decal, c));
+	printf("REAL RET->%d"RST"\n", printf(str2, decal,10, c));
 
-*/
+
 /*
 
 	printf(CYAN"------------ %%d ------------"RST"\n");

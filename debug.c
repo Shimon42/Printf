@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:53:12 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 22:25:10 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/10 15:28:24 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -53,7 +53,7 @@ void disp_param(t_param *p)
 		printf(TAB YELO"sp_pref"RST": 0,\n");
 	
 	if (p->pref_0)
-		printf(TAB GRN"pref_0"RST": %d,\n", p->is_sp_pref);
+		printf(TAB GRN"pref_0"RST": %d,\n", p->pref_0);
 	else
 		printf(TAB YELO"pref_0"RST": 0,\n");
 
