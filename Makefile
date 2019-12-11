@@ -2,15 +2,15 @@ NAME = libftprintf.a
 SRCS    =   debug.c \
 	        ft_printf.c \
 			srcs/gest_params.c \
-			srcs/percent/per_c.c \
-			srcs/percent/per_s.c \
-			srcs/percent/per_d.c \
-			srcs/percent/per_u.c \
-			srcs/percent/per_p.c \
-			#srcs/percent/per_lu.c \
-			#srcs/percent/per_ld.c \
-			#srcs/percent/per_o.c \
-			#srcs/percent/per_x.c 
+			srcs/treat/per_c.c \
+			srcs/treat/per_s.c \
+			srcs/treat/per_d.c \
+			srcs/treat/per_u.c \
+			srcs/treat/per_p.c \
+			srcs/treat/per_x.c \
+			#srcs/treat/per_lu.c \
+			#srcs/treat/per_ld.c \
+			#srcs/treat/per_o.c
 RM              = rm -f                                                      
 
 CC		= gcc
@@ -53,6 +53,7 @@ clean:
 fclean:		clean
 	make -C includes/libft fclean
 	${RM} $(NAME)
+	$(RM) a.out
 
 re:			fclean all
 

@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/10 16:28:50 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 16:05:11 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -97,14 +97,14 @@ static void			init_params_list(t_brain **b)
 	//printf(YELO"Init params"RST"\n");
 	add_param(b, "c", &per_c);
 	add_param(b, "s", &per_s);
-	add_param(b, "i", &per_d);
 	add_param(b, "d", &per_d);
-	add_param(b, "u", &per_u);
 	add_param(b, "p", &per_p);
+	add_param(b, "u", &per_u);
+	add_param(b, "i", &per_d);
+	add_param(b, "x", &per_x);
 //	add_param(b, "o", &per_o);
 //	add_param(b, "lu", &per_lu);
 //	add_param(b, "ld", &per_ld);
-//	add_param(b, "x", &per_x);
 	//disp_brain(*b);
 	//printf(GRN"END Init params"RST"\n");
 }
@@ -256,9 +256,9 @@ static int			treat_str(t_brain *b, const char *str, va_list va)
 				printf(RED"END BAD KEY - ARG NOT FOUND"RST"\n");
 				exit(0);
 			}
-			ft_putstr(RED"\nPARAM SENDED\n"RST);
-			disp_param(b->cur_param);
-			ft_putstr(RED"-------------------\n"RST);
+			//ft_putstr(RED"\nPARAM SENDED\n"RST);
+			//disp_param(b->cur_param);
+			//ft_putstr(RED"-------------------\n"RST);
 			n_print += b->cur_param->treat(va, b->cur_param);
 			free_param(b->cur_param);
 			i += b->stri + 1;

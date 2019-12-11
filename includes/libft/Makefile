@@ -10,6 +10,7 @@ SRCS	=	ft_abs.c \
 			ft_isdigit.c \
 			ft_isprint.c \
 			ft_itoa.c \
+			ft_itoab.c \
 			ft_memccpy.c \
 			ft_memchr.c \
 			ft_memcmp.c \

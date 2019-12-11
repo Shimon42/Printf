@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 19:18:59 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 16:10:20 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,17 +22,6 @@ void	gest_sign_pref(t_param *p, int nbr)
 	} 
 	if (p->is_sp_pref && nbr >= 0 && !p->show_sign)
 		p->n_print += write(1, " ", 1);
-}
-
-void	print_zeros(t_param *p, int len)
-{
-	if (len > 0)
-		while (len--)
-		{
-			ft_putstr(PINK);
-			p->n_print += write(1, "0", 1);
-			ft_putstr(YELO);
-		}
 }
 
 void	gest_precision(t_param *p, int nbr, int len)
