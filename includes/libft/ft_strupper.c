@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/27 16:01:17 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/27 16:19:35 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 17:10:42 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,7 +22,7 @@ char	*ft_strupper(const char *str)
 	ret = ft_strdup(str);
 	while (ret[i])
 	{
-		ret[i] = ft_toupper(str[i]);
+		ret[i] = ft_toupper(ret[i]);
 		i++;
 	}
 	return (ret);

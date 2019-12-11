@@ -14,7 +14,7 @@ SRCS    =   debug.c \
 RM              = rm -f                                                      
 
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -g3 -Wall -Wextra -Werror
 MAKE	= make
 CLEAR	= clear
 RM		= rm -f
@@ -36,11 +36,11 @@ $(NAME):	$(OBJS) $(INCLUDES)
 			cp $(LIBFTPATH)libft.a $(NAME)
 			ar rc $(NAME) $(OBJS)
 
-comp: 	
+comp: 		all
 			$(CLEAR)
 			$(CC) $(CFLAGS) main.c libftprintf.a
 
-launch :	all comp
+launch :	comp
 			./a.out
 
 $(OBJS):	$(INCLUDES)

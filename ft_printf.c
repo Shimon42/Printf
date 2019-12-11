@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 16:05:11 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 17:49:29 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,20 +17,20 @@ static int		check_key(const char *str, char *tofind)
 {
 	size_t	x;
 	size_t	i;
-	char	*upper;
+	char	upper;
 	size_t	to_f_len;
 
 	to_f_len = ft_strlen(tofind);
 	x = 0;
 	i = 0;
-	upper = ft_strupper(str);
 	if (tofind[0] != '\0')
 	{
-		while (upper[x] == ft_toupper(tofind[x]) && str[x] && x < to_f_len)
+		upper = ft_toupper(str[x]);
+		while (str[x] && upper == ft_toupper(tofind[x]) && x < to_f_len)
 		{
 			if (tofind[x + 1] == '\0')
 				return (0);
-			else if (upper[x] != ft_toupper(tofind[x]))
+			else if (upper != ft_toupper(tofind[x]))
 				break ;
 			x++;
 		}
@@ -69,16 +69,19 @@ static t_param	*new_param(void)
 		return (NULL);
 	new->key = NULL;
 	new->treat = NULL;
-	new->next = NULL;
 	new->min_width = 0;
 	new->show_sign = 0;
 	new->is_sp_pref = 0;
 	new->hashtag = 0;
 	new->precision = -1;
+	new->left_justif = 0;
+	new->pref_0 = 0;
+	new->max_width = -1;
+	new->next = NULL;
 	return (new);
 }
 
-void			add_param(t_brain **b, char *key, void *f)
+static void		add_param(t_brain **b, char *key, void *f)
 {
 	t_param *new;
 
@@ -86,13 +89,10 @@ void			add_param(t_brain **b, char *key, void *f)
 	new->key = ft_strdup(key);
 	new->treat = f;
 	new->next = (*b)->params;
-	new->show_sign = 0;
-	new->precision = -1;
-	new->min_width = 0;
 	(*b)->params = new;
 }
 
-static void			init_params_list(t_brain **b)
+static void		init_params_list(t_brain **b)
 {
 	//printf(YELO"Init params"RST"\n");
 	add_param(b, "c", &per_c);
@@ -102,25 +102,33 @@ static void			init_params_list(t_brain **b)
 	add_param(b, "u", &per_u);
 	add_param(b, "i", &per_d);
 	add_param(b, "x", &per_x);
-//	add_param(b, "o", &per_o);
-//	add_param(b, "lu", &per_lu);
-//	add_param(b, "ld", &per_ld);
-	//disp_brain(*b);
-	//printf(GRN"END Init params"RST"\n");
+/*
+	add_param(b, "o", &per_o);
+	add_param(b, "lu", &per_lu);
+	add_param(b, "ld", &per_ld);
+	disp_brain(*b);
+	printf(GRN"END Init params"RST"\n");
+*/
 }
 
 void			init_brain(t_brain **b)
 {
 	(*b)->cur_param = NULL;
-	(*b)->params = malloc(2 * sizeof(t_param));
 	(*b)->params = NULL;
 	init_params_list(b);
 }
 
 void			meditate(t_brain *b)
 {
+	t_param *tmp;
+
+	while (b->params)
+	{
+		tmp = b->params;
+		free_param(b->params);
+		b->params = tmp->next;
+	}
 	free(b);
-//	ft_clear_params(&(b->params), &free);
 }
 
 static t_param	*find_func(t_brain *b, const char *str)
@@ -281,6 +289,7 @@ int			ft_printf(const char *str, ...)
 	//printf(CYAN"TRY TO PRINT: "YELO"%s"PINK"[END]\n"RST, str);
 	b = malloc(sizeof(t_brain));
 	init_brain(&b);
+	//disp_brain(b);
 	va_start(va, str);
 	n_print = treat_str(b, str, va);
 	va_end(va);
