@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/11 12:00:43 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 16:43:47 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 23:49:42 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -39,6 +39,7 @@ void				*ft_memset(void *b, int c, size_t len);
 void				ft_putchar(int c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *s, int fd);
+void				ft_putunbr(unsigned int n);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putstr(char *str);
@@ -63,6 +64,7 @@ char				*ft_strupper(const char *str);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 int					ft_ilen(int n);
+size_t				ft_ulen(unsigned int n);
 size_t				ft_llen(long n);
 typedef struct		s_list
 {

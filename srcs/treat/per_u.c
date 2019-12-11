@@ -6,28 +6,70 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/22 16:31:38 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 23:44:28 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include "../../includes/brain.h"
-#include "../../includes/libft/libft.h"
+#include "../../includes/libftprintf.h"
 
-void		ft_putnbr_u_fd(unsigned long n, int fd)
+static void	gest_precision(t_param *p, int nbr, int len)
 {
-	if (n <= 9)
-		ft_putchar_fd(n + '0', fd);
-	else
+	int padding;
+	int i;
+
+	i = 0;
+	padding = 0;
+	if (p->min_width > len)
+		padding += p->min_width;
+	if (p->precision > len)
+		padding -= p->precision;
+	else if (p->precision > 0)
+		padding -= len;
+	disp_justif(padding, p, 0);
+	if ((!p->left_justif || p->precision) && (p->precision - len > 0))
+		print_zeros(p, p->precision - len);
+	if (p->precision || nbr != 0)
 	{
-		ft_putnbr_u_fd(n / 10, fd);
-		ft_putnbr_u_fd(n % 10, fd);
+		ft_putunbr(nbr);
+		p->n_print += len;
 	}
+	disp_justif(padding, p, 1);
 }
 
-void	per_u(va_list va)
+static void	gest_no_precision(t_param *p, int nbr, int len)
 {
-	ft_putnbr_u_fd(va_arg(va, unsigned int), 1);
+	int padding;
+	int i;
+
+	i = 0;
+	padding = 0;
+	if (p->min_width > len)
+		padding += p->min_width - len;
+	if (!p->pref_0)
+		disp_justif(padding, p, 0);
+	if (!p->left_justif && p->pref_0)
+		print_zeros(p, padding);
+	ft_putunbr(nbr);
+	p->n_print += len;
+	disp_justif(padding, p, 1);
+}
+
+
+int		per_u(va_list va, t_param *p)
+{
+	unsigned int	nbr;
+	int		i;
+
+	i = 0;
+	p->n_print = 0;
+	gest_wildcard(va, p);
+	nbr = va_arg(va, unsigned int);
+	disp_param(p);
+	ft_putstr(YELO"\nu: ");
+	if (p->precision >= 0)
+		gest_precision(p, nbr, ft_ulen(nbr));
+	else
+		gest_no_precision(p, nbr, ft_ulen(nbr));
+	return (p->n_print);
 }

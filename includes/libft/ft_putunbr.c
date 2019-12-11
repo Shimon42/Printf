@@ -1,53 +1,27 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_nbrslen.c                                     .::    .:/ .      .::   */
+/*   ft_putunbr.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/26 18:36:40 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 23:34:53 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/11 23:19:46 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/11 23:49:15 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_ulen(unsigned int n)
+void		ft_putunbr(unsigned int n)
 {
-	size_t length;
 
-	length = 0;
-	while (n != 0)
+	if (n <= 9)
+		ft_putchar(n + '0');
+	else
 	{
-		n /= 10;
-		length++;
+		ft_putunbr(n / 10);
+		ft_putunbr(n % 10);
 	}
-	return (length);
-}
-
-int		ft_ilen(int n)
-{
-	int length;
-
-	length = 0;
-	while (n != 0)
-	{
-		n /= 10;
-		length++;
-	}
-	return (length);
-}
-
-size_t	ft_llen(long n)
-{
-	size_t length;
-
-	length = 0;
-	while (n != 0)
-	{
-		n /= 10;
-		length++;
-	}
-	return (length);
+	
 }

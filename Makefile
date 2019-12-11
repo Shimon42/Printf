@@ -36,6 +36,9 @@ $(NAME):	$(OBJS) $(INCLUDES)
 			cp $(LIBFTPATH)libft.a $(NAME)
 			ar rc $(NAME) $(OBJS)
 
+libft:
+			$(MAKE) -C $(LIBFTPATH) bonus
+
 comp: 		all
 			$(CLEAR)
 			$(CC) $(CFLAGS) main.c libftprintf.a

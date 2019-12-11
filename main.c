@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 17:23:48 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 16:41:22 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 23:53:44 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -97,7 +97,7 @@ printf(CYAN"------------ %%p ------------"RST"\n");
 	ft_printf(GRN);
 	printf("REAL RET->%d"RST"\n", printf(str2, c));
 */
-
+/*
 printf(CYAN"------------ %%x ------------"RST"\n");
 	char *str = "x: %0#*.*x[end]\n";
 
@@ -108,6 +108,19 @@ printf(CYAN"------------ %%x ------------"RST"\n");
 	printf("MINE RET->%d\n", ft_printf(str, 5, 2, nbr));
 	ft_printf(GRN);
 	printf("REAL RET->%d"RST"\n", printf(str,5, 2, nbr));
+*/
+
+
+printf(CYAN"------------ %%u ------------"RST"\n");
+	char *str = "u: %.*u[end]\n";
+	unsigned int nbr = 2147483650;
+
+	ft_printf(PINK);
+	ft_putstr(str);
+	ft_printf(YELO);
+	printf("MINE RET->%d\n", ft_printf(str, 12, nbr));
+	ft_printf(GRN);
+	printf("REAL RET->%d"RST"\n", printf(str, 12, nbr));
 
 	return (0);
 }
