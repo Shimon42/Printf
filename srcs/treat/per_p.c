@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 15:54:33 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 15:30:26 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,8 +21,6 @@ int	per_p(va_list va, t_param *p)
 
 	i = 0;
 	gest_wildcard(va, p);
-	disp_param(p);
-	ft_putstr(YELO"\nd: ");
 	nbr = va_arg(va, int);
 	padding = p->is_sp_pref;
 	if (!p->pref_0)

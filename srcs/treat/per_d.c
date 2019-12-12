@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 16:10:20 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 16:50:02 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -43,8 +43,11 @@ void	gest_precision(t_param *p, int nbr, int len)
 	gest_sign_pref(p, nbr);
 	if ((!p->left_justif || p->precision) && (p->precision - len > 0))
 		print_zeros(p, p->precision - len);
-	ft_putnbr_fd(ft_abs(nbr), 1);
-	p->n_print += len;
+	if (!(nbr == 0 && p->precision == 0))
+	{
+		ft_putnbr_fd(nbr, 1);
+		p->n_print += len;
+	}
 	disp_justif(padding, p, 1);
 }
 
@@ -76,9 +79,9 @@ int	per_d(va_list va, t_param *p)
 	i = 0;
 	p->n_print = 0;
 	gest_wildcard(va, p);
+	//disp_param(p);
+	//ft_putstr(YELO"d: ");
 	nbr = va_arg(va, int);
-	disp_param(p);
-	ft_putstr(YELO"\nd: ");
 	if (p->precision >= 0)
 		gest_precision(p, nbr, ft_ilen(nbr));
 	else

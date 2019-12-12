@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 23:08:38 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 17:55:38 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -169,7 +169,7 @@ static funcptr		set_treat_func(t_brain *b, t_param *cur, const char *str)
 		cur->key = ft_strdup(res->key);
 		return (res->treat);
 	} else
-		printf (RED"NO FUNC FOUND"RST"\n");
+		printf (RED"NO FUNC FOUND FOR %s"RST"\n", str);
 	return (NULL);
 }
 
@@ -227,7 +227,8 @@ static t_param		*get_flags(t_brain *b, const char *str)
 				while (str[i] == '0')
 					i++;
 				ret->precision = ft_atoi(str + i);
-				i += ft_ilen(ret->precision);
+				if (ret->precision)
+					i += ft_ilen(ret->precision);
 			}
 			else if (str[i] == '*')
 			{
@@ -262,12 +263,15 @@ static int			treat_str(t_brain *b, const char *str, va_list va)
 			if (!b->cur_param->key)
 			{
 				printf(RED"END BAD KEY - ARG NOT FOUND"RST"\n");
-				exit(0);
+				//exit(0);
 			}
 			//ft_putstr(RED"\nPARAM SENDED\n"RST);
 			//disp_param(b->cur_param);
 			//ft_putstr(RED"-------------------\n"RST);
-			n_print += b->cur_param->treat(va, b->cur_param);
+			if (b->cur_param->treat)
+				n_print += b->cur_param->treat(va, b->cur_param);
+			else
+				printf(RED"END BAD KEY - ARG NOT FOUND IN %s"RST"\n", str);
 			free_param(b->cur_param);
 			i += b->stri + 1;
 			str += b->stri + b->cur_param->flags_length + 1;

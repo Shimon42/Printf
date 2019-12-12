@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/10 15:30:30 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 15:43:14 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -31,9 +31,7 @@ void	disp_per_s(t_param *p, int len, char * str)
 	if ((p->pref_0 && !p->left_justif))
 		while ((i < padding))
 		{
-			ft_putstr(PINK);
 			p->n_print += write(1, "0", 1);
-			ft_putstr(YELO);
 			i++;
 		}
 	p->n_print += ft_putnstr(str, len);
@@ -44,12 +42,19 @@ int		per_s(va_list va, t_param *p)
 {
 	char	*str;
 	int		len;
-	disp_param(p);
+	int		wasnull;
+
+	wasnull = 0;
 	gest_wildcard(va, p);
-	disp_param(p);
-	ft_putstr(YELO"\nd: ");
 	str = va_arg(va, char *);
+	if (str == NULL)
+	{
+		str = ft_strdup("(null)");
+		wasnull = 1;
+	}
 	len = ft_strlen(str);
 	disp_per_s(p, len, str);
+	if (wasnull)
+		free (str);
 	return (p->n_print);
 }

@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 18:36:40 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 23:34:53 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 15:52:26 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -31,6 +31,8 @@ int		ft_ilen(int n)
 	int length;
 
 	length = 0;
+	if (n == 0)
+		length++;
 	while (n != 0)
 	{
 		n /= 10;

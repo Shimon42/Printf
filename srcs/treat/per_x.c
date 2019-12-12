@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 16:39:18 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 15:29:35 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -72,8 +72,6 @@ int	per_x(va_list va, t_param *p)
 	p->n_print = 0;
 	gest_wildcard(va, p);
 	nbr = va_arg(va, int);
-	disp_param(p);
-	ft_putstr(YELO"\nx: ");
 	if (p->precision >= 0)
 		gest_precision(p, nbr, ft_hexlen(nbr));
 	else
