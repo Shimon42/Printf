@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 17:23:48 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 17:50:56 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 17:52:39 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -60,8 +60,11 @@ printf(CYAN"------------ %%c ------------"RST"\n");
 	ft_printf(YELO);
 	printf("MINE RET->%d\n", ft_printf(strd, nbrd));
 	ft_printf(GRN);
-	printf("REAL RET->%d"RST"\n", printf("%**46d", nbrd));
+	printf("REAL RET->%d"RST"\n", printf(strd, nbrd));
 
+	printf("MINE RET->%d\n", ft_printf("%% %% %%"));
+	printf("REAL RET->%d\n", printf("%% %% %%"));
+	printf("%x\n", -1);
 
 /*
 printf(CYAN"------------ %%p ------------"RST"\n");

@@ -2,6 +2,7 @@ NAME = libftprintf.a
 SRCS    =   debug.c \
 	        ft_printf.c \
 			srcs/gest_params.c \
+			srcs/treat/per_per.c \
 			srcs/treat/per_c.c \
 			srcs/treat/per_s.c \
 			srcs/treat/per_d.c \

@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 17:55:38 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 17:57:06 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -103,6 +103,7 @@ static void		init_params_list(t_brain **b)
 	add_param(b, "i", &per_d);
 	add_param(b, "x", &per_x);
 	add_param(b, "u", &per_u);
+	add_param(b, "%", &per_per);
 /*
 	add_param(b, "o", &per_o);
 	add_param(b, "ld", &per_ld);
@@ -186,7 +187,7 @@ static t_param		*get_flags(t_brain *b, const char *str)
 	if (str[i] && (ft_strchr("-+0123456789#%.* ", str[i]) != NULL))
 	{
 		//printf("Curchar: %c\n", str[i]);
-		while (ft_strchr("-+0 #%", str[i]))
+		while (ft_strchr("-+0 #", str[i]))
 		{
 			if (str[i] == '-')
 			{

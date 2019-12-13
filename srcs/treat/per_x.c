@@ -6,12 +6,28 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 15:29:35 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 17:30:39 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/libftprintf.h"
+
+static void	ft_putihex(unsigned int n, int upper)
+{
+	if (n < 16)
+	{
+		if (upper)
+			ft_putchar("0123456789ABCDEF"[n]);
+		else
+			ft_putchar("0123456789abcdef"[n]);
+	}
+	else
+	{
+		ft_puthex(n / 16, upper);
+		ft_puthex(n % 16, upper);
+	}
+}
 
 static void	gest_precision(t_param *p, int nbr, int len)
 {
@@ -35,7 +51,7 @@ static void	gest_precision(t_param *p, int nbr, int len)
 		print_zeros(p, p->precision - len);
 	if (p->precision || nbr != 0)
 	{
-		ft_puthex(ft_abs(nbr), (p->key[0] == 'X'));
+		ft_putihex(ft_abs(nbr), (p->key[0] == 'X'));
 		p->n_print += len;
 	}
 	disp_justif(padding, p, 1);
@@ -58,7 +74,7 @@ static void	gest_no_precision(t_param *p, int nbr, int len)
 		p->n_print += write(1, "0x", 2);
 	if (!p->left_justif && p->pref_0)
 		print_zeros(p, padding);
-	ft_puthex(nbr, (p->key[0] == 'X'));
+	ft_putihex(nbr, (p->key[0] == 'X'));
 	p->n_print += len;
 	disp_justif(padding, p, 1);
 }

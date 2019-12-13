@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 16:49:16 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 15:46:30 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 17:43:50 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,6 +30,7 @@ void	print_zeros(t_param *p, int len);
 void	free_param(t_param *p);
 int		check_flags(t_param *p);
 
+int     per_per(va_list va, t_param *p);
 int		per_c(va_list va, t_param *p);
 int		per_s(va_list va, t_param *p);
 int		per_d(va_list va, t_param *p);
