@@ -1,6 +1,7 @@
 # ft_printf
 
--> make - Compiling only
+-> make - Compile only
+
 -> make launch - Compile changed & launch
 
 Tests in main.c
