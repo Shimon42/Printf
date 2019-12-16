@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 23:29:17 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 22:20:55 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 22:37:49 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,9 +15,7 @@
 
 long ft_abs(int n)
 {
-	long ret;
 
-	ret = n;
-	ret = (ret >= 0 ? ret : -ret);
-	return (ret);
+	n = (n >= 0 ? n : -n);
+	return (n);
 }

@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 17:57:06 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 21:50:48 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -50,11 +50,8 @@ static	int		ft_findchar(const char *needles, const char *str)
 		{
 			j = 0;
 			while (needles[j] != '\0')
-			{
-				if (needles[j] == str[i])
+				if (needles[j++] == str[i])
 					return (i);
-				j++;
-			}
 			i++;
 		}
 	}
@@ -184,7 +181,7 @@ static t_param		*get_flags(t_brain *b, const char *str)
 	j = 0;
 	ret = new_param();
 //	printf(GRN"GET FLAGS\n"RST);
-	if (str[i] && (ft_strchr("-+0123456789#%.* ", str[i]) != NULL))
+	if (str[i] && (ft_strchr("-+0123456789#.* ", str[i]) != NULL))
 	{
 		//printf("Curchar: %c\n", str[i]);
 		while (ft_strchr("-+0 #", str[i]))
@@ -273,9 +270,9 @@ static int			treat_str(t_brain *b, const char *str, va_list va)
 				n_print += b->cur_param->treat(va, b->cur_param);
 			else
 				printf(RED"END BAD KEY - ARG NOT FOUND IN %s"RST"\n", str);
-			free_param(b->cur_param);
 			i += b->stri + 1;
 			str += b->stri + b->cur_param->flags_length + 1;
+			free_param(b->cur_param);
 		}
 		else
 			i++;

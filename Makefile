@@ -36,6 +36,7 @@ $(NAME):	$(OBJS) $(INCLUDES)
 			@echo "\033[0;32m––––––––––––––––––––––––\nMaking Printf\n––––––––––––––––––––––––\033[0;36m"
 			cp $(LIBFTPATH)libft.a $(NAME)
 			ar rc $(NAME) $(OBJS)
+			@echo "\033[0;m"
 
 libft:
 			$(MAKE) -C $(LIBFTPATH) bonus

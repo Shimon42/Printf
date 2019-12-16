@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:53:12 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/10 15:28:24 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 21:09:44 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -81,6 +81,11 @@ void disp_param(t_param *p)
 		printf(TAB GRN"show_sign"RST": %d,\n", p->show_sign);
 	else
 		printf(TAB YELO"show_sign"RST": 0,\n");
+    
+	if (p->flags_length)
+		printf(TAB GRN"flags_length"RST": %d,\n", p->flags_length);
+	else
+		printf(TAB YELO"flags_length"RST": 0,\n");
 		
 	if (p->next)
        	printf(TAB GRN"next"RST": %s\n"CYAN"}"RST"\n", (char *)(p->next)->key);

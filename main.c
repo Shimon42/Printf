@@ -6,28 +6,28 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 17:23:48 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 17:52:39 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 22:25:28 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "includes/libftprintf.h"
-
+#include <limits.h>
 int main(void)
 {
 	ft_putstr(RST);
 
 	printf(PINK"------------ %%s ------------"RST"\n");
 	char *strs = "p3 %s";
-	//char *strs2 = "bonjour";
-	ft_printf(GREY"Testing: %s[END]"YELO"\n", strs);
+	char *strs2 = "bonjour";
+	ft_printf(GREY"Testing: %s[END]"YELO"\n", strs, strs2);
 
 	
 	ft_printf(YELO);
-	printf("\nMINE RET->%d\n", ft_printf(strs, NULL));
+	printf("\nMINE RET->%d\n", ft_printf(strs, strs2));
 	ft_printf(GRN);
 	//printf("\nREAL RET->%d"RST"\n", printf(strs, strs2));
-	printf("\nREAL RET->%d"RST"\n", printf(strs, NULL));
+	printf("\nREAL RET->%d"RST"\n", printf(strs, strs2));
 	
 /*
 printf(CYAN"------------ %%c ------------"RST"\n");
@@ -49,12 +49,14 @@ printf(CYAN"------------ %%c ------------"RST"\n");
 	ft_printf(GRN);
 	printf("REAL RET->%d"RST"\n", printf(str2, decal,10, c));
 */
+ft_printf("%d\n", INT_MAX + 1);
+printf("%d", INT_MAX + 1);
 
-
-
+ft_printf("%.2x sss\n", -1);
+printf("%.2x sss\n", -1);
 	printf(CYAN"------------ %%d ------------"RST"\n");
-	char	*strd = "d: %46d[end]\n";
-	int		nbrd = 0;
+	char	*strd = "d: %46d";
+	int		nbrd = 56;
 	ft_printf(PINK);
 	ft_putstr(strd);
 	ft_printf(YELO);
@@ -62,8 +64,12 @@ printf(CYAN"------------ %%c ------------"RST"\n");
 	ft_printf(GRN);
 	printf("REAL RET->%d"RST"\n", printf(strd, nbrd));
 
-	printf("MINE RET->%d\n", ft_printf("%% %% %%"));
-	printf("REAL RET->%d\n", printf("%% %% %%"));
+	//printf("\nMINE RET->%d\n", ft_printf("%%%%%%"));
+	//printf("\nREAL RET->%d\n", printf("%%%%%%"));
+	//
+	//printf("\nMINE RET->%d\n", ft_printf("%-1.0d", -1));
+	//printf("\nREAL RET->%d\n", printf("%-1.0d", -1));
+	
 	printf("%x\n", -1);
 
 /*
