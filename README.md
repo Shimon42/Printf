@@ -15,13 +15,17 @@ run "sh test-printf/test-printf.sh" for @Chinimala tester
 
 
 ————————————————————————————————————
+
 Changes:
+
 ————————————————————————————————————
 - Merged ft_printf & Libft
 - Libft re-organized!
 
 ————————————————————————————————————
+
 Cur State:
+
 ————————————————————————————————————
 - %s, %c, %d, %x, %u Seems OK with flags "+-*0 .#"
 
