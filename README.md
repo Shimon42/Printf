@@ -1,20 +1,23 @@
-# ft_printf - V0.5
+# Libft - ft_printf - V0.5
 
 -> make - Compile only
 
 -> make launch - Compile changed & launch
 
-Tests in main.c
+Units tests in main.c 
 
+or 
+
+run "sh test-printf/test-printf.sh" for @Chinimala tester
+(More details: https://github.com/Chinimala/42-tests)
 
 
 
 ————————————————————————————————————
 Changes:
 ————————————————————————————————————
-- Fix bad results with negative numbers and no precision (%d and %i)
-- Add gest precision for %%
-- rm "long ret" in libft->ft_abs()
+- Merged ft_printf & Libft
+- Libft re-organized!
 
 ————————————————————————————————————
 Cur State:

@@ -6,12 +6,12 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 17:23:48 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 22:25:28 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 23:58:05 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "includes/libftprintf.h"
+#include "includes/libft.h"
 #include <limits.h>
 int main(void)
 {
@@ -49,8 +49,6 @@ printf(CYAN"------------ %%c ------------"RST"\n");
 	ft_printf(GRN);
 	printf("REAL RET->%d"RST"\n", printf(str2, decal,10, c));
 */
-ft_printf("%d\n", INT_MAX + 1);
-printf("%d", INT_MAX + 1);
 
 ft_printf("%.2x sss\n", -1);
 printf("%.2x sss\n", -1);
