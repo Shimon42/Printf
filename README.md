@@ -12,20 +12,21 @@ run "sh test-printf/test-printf.sh" for @Chinimala tester
 (More details: https://github.com/Chinimala/42-tests)
 
 
-	Tester Result [944/1749]
-
     ————————————————————————————————————
-                  Changes:
+    	Changes:
     ————————————————————————————————————
     - Split Libft & Printf to respect subject:
 		"one Makefile for Libt & one for Printf"
 
     ————————————————————————————————————
-                Cur State:
-    ————————————————————————————————————
+		Cur State:
+	————————————————————————————————————
     - %s, %c, %d, %x, %u, %% Seems OK with flags "+-*0 .#"
-    
-    Bugs:
+	- Tester Result [944/1749]
+
+	————————————————————————————————————
+    	Known Bugs:
+	————————————————————————————————————
     - Try to gest %p, miss begining of address
     - %p doesn't display beginning of address
     - Need to find a way to make one function from functions gest_precision and no_precision
