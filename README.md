@@ -1,4 +1,4 @@
-# Libft - ft_printf - V0.5.1
+# ft_printf - V0.5.1
 
 -> make - Compile only
 
