@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 23:56:42 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 21:03:27 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -74,6 +74,8 @@ static t_param	*new_param(void)
 	new->left_justif = 0;
 	new->pref_0 = 0;
 	new->max_width = -1;
+	new->min_field_as_var = 0;
+	new->max_field_as_var = 0;
 	new->next = NULL;
 	return (new);
 }
@@ -258,21 +260,13 @@ static int			treat_str(t_brain *b, const char *str, va_list va)
 		{
 			n_print += write(1, str, b->stri);
 			b->cur_param = get_flags(b, str + b->stri + 1);
-			if (!b->cur_param->key)
-			{
-				printf(RED"END BAD KEY - ARG NOT FOUND"RST"\n");
-				//exit(0);
-			}
-			//ft_putstr(RED"\nPARAM SENDED\n"RST);
-			//disp_param(b->cur_param);
-			//ft_putstr(RED"-------------------\n"RST);
-			if (b->cur_param->treat)
+			if (b->cur_param->key && b->cur_param->treat)
 				n_print += b->cur_param->treat(va, b->cur_param);
 			else
 				printf(RED"END BAD KEY - ARG NOT FOUND IN %s"RST"\n", str);
-			i += b->stri + 1;
 			str += b->stri + b->cur_param->flags_length + 1;
 			free_param(b->cur_param);
+			i = 0;
 		}
 		else
 			i++;

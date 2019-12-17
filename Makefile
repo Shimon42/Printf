@@ -106,6 +106,9 @@ comp: 		all
 launch :	comp
 			./a.out
 
+test:		comp
+			sh test-printf/test-printf.sh
+
 $(OBJS):	$(INCLUDES)
 
 clean:		

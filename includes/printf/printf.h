@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 16:49:16 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 23:51:39 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 20:38:15 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,7 +20,7 @@
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 
-int		ft_printf(const char *str, ...);
+extern int	ft_printf(const char *str, ...) __attribute__((format(printf,1,2)));
 
 void	new_s_param(t_brain **b, char *key, void (*f)(char *), void *exp);
 
