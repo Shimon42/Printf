@@ -6,12 +6,12 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 23:53:32 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 21:50:14 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../../../includes/printf/printf.h"
+#include "../../../includes/printf.h"
 
 int	per_c(va_list va, t_param *p)
 {

@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 16:49:16 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 20:38:15 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 21:45:47 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include "brain.h"
 #include "debug.h"
-#include "../libft.h" 
+#include "../srcs/Libft/includes/libft.h" 
 
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H

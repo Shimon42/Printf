@@ -6,14 +6,14 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:53:12 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 23:48:51 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 21:46:24 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../../includes/printf/brain.h"
-#include <stdio.h>
-#include "../../../includes/printf/debug.h"
+#include "../../includes/debug.h"
+#include "../../includes/brain.h"
+
 
 void disp_param(t_param *p)
 {

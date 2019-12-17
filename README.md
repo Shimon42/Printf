@@ -1,4 +1,4 @@
-# Libft - ft_printf - V0.5.1
+# ft_printf - V0.5.2
 
 -> make - Compile only
 
@@ -17,9 +17,9 @@ run "sh test-printf/test-printf.sh" for @Chinimala tester
     ————————————————————————————————————
                   Changes:
     ————————————————————————————————————
-    - Fix "Bad results when %% at end of string"
-    - Fix bad return for libft->ft_ulen when nbr == 0
-    
+    - Split Libft & Printf to respect subject:
+		"one Makefile for Libt & one for Printf"
+
     ————————————————————————————————————
                 Cur State:
     ————————————————————————————————————
@@ -30,5 +30,3 @@ run "sh test-printf/test-printf.sh" for @Chinimala tester
     - %p doesn't display beginning of address
     - Need to find a way to make one function from functions gest_precision and no_precision
     - No errors gest
-
-

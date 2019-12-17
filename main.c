@@ -6,12 +6,12 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 17:23:48 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 21:00:02 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 21:50:51 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "includes/printf.h"
 #include <limits.h>
 int main(void)
 {

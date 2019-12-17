@@ -6,12 +6,12 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 21:03:27 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 21:46:44 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../../includes/printf/printf.h"
+#include "../../includes/printf.h"
 
 static int		check_key(const char *str, char *tofind)
 {
