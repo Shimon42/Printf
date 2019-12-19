@@ -25,7 +25,7 @@ SRCS	=	$(MATHLIB)ft_abs.c \
 			$(PRINTLIB)ft_putchar_fd.c \
 			$(PRINTLIB)ft_putendl_fd.c \
 			$(PRINTLIB)ft_putunbr.c \
-			$(PRINTLIB)ft_putnbr_fd.c \
+			$(PRINTLIB)ft_putnbr.c \
 			$(PRINTLIB)ft_putstr_fd.c \
 			$(PRINTLIB)ft_putstr.c \
 			$(PRINTLIB)ft_putnstr.c \

@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 17:23:48 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 21:50:51 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 16:13:25 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,6 +20,7 @@ int main(void)
 	ft_printf("%*c", -1000, 'a');
 	ft_putchar('\n');
 	ft_printf("%*c", -1000, 'a');
+
 /*
 	printf(PINK"------------ %%%% ------------"RST"\n");
 	ft_printf(YELO);

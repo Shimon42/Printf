@@ -1,4 +1,4 @@
-# ft_printf - V0.5.2
+# ft_printf - V0.5.3
 
 -> make - Compile only
 
@@ -15,14 +15,15 @@ run "sh test-printf/test-printf.sh" for @Chinimala tester
     ————————————————————————————————————
     	Changes:
     ————————————————————————————————————
-    - Split Libft & Printf to respect subject:
-		"one Makefile for Libt & one for Printf"
+    - Fix bad results for p->precision == 0 with %d
+	- Add Libft->ft_putnbr (long)
+	- Skip tester's test after "[K - Tests with f]"
 
     ————————————————————————————————————
 		Cur State:
 	————————————————————————————————————
     - %s, %c, %d, %x, %u, %% Seems OK with flags "+-*0 .#"
-	- Tester Result [944/1749]
+	- Tester Result (skipping bonus) [1670/1749]
 
 	————————————————————————————————————
     	Known Bugs:

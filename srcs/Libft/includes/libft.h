@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/11 12:00:43 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 21:54:42 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 17:34:21 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,8 +19,7 @@
 # include <stdlib.h>
 # include <strings.h>
 
-long				ft_abs(int n);
-
+long				ft_abs(long n);
 int					ft_atoi(const char *str);
 void				*ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t count, size_t size);
@@ -41,6 +40,7 @@ void				ft_putchar(int c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putunbr(unsigned int n);
+void				ft_putnbr(long n);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putstr(char *str);

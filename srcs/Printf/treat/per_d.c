@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 21:50:14 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 17:54:02 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -14,10 +14,12 @@
 
 void	gest_sign_pref(t_param *p, int nbr)
 {
-	
 	if (p->show_sign || nbr < 0)
 	{
-		(nbr >= 0 ? ft_putchar('+') : ft_putchar('-'));
+		if (nbr >= 0)
+			ft_putchar('+');
+		else if (ft_abs(nbr) >= 0)
+			ft_putchar('-');
 		p->n_print++;
 	} 
 	if (p->is_sp_pref && nbr >= 0 && !p->show_sign)
@@ -31,21 +33,21 @@ void	gest_precision(t_param *p, int nbr, int len)
 
 	i = 0;
 	padding = 0;
-	if (p->min_width > len)
+	if (p->min_width >= len)
 		padding += p->min_width;
 	padding -= (p->is_sp_pref || p->show_sign || nbr < 0);
 	if (p->precision > len)
 		padding -= p->precision;
-	else
+	else if (p->precision > 0)
 		padding -= len;
 	if (padding > 0)
-	disp_justif(padding, p, 0);
+		disp_justif(padding, p, 0);
 	gest_sign_pref(p, nbr);
 	if ((!p->left_justif || p->precision) && (p->precision - len > 0))
 		print_zeros(p, p->precision - len);
 	if (!(nbr == 0 && p->precision == 0))
 	{
-		ft_putnbr_fd(ft_abs(nbr), 1);
+		ft_putnbr(ft_abs(nbr));
 		p->n_print += len;
 	}
 	disp_justif(padding, p, 1);
@@ -66,7 +68,7 @@ void	gest_no_precision(t_param *p, int nbr, int len)
 	gest_sign_pref(p, nbr);
 	if (!p->left_justif && p->pref_0)
 		print_zeros(p, padding);
-	ft_putnbr_fd(ft_abs(nbr), 1);
+	ft_putnbr(ft_abs(nbr));
 	p->n_print += len;
 	disp_justif(padding, p, 1);
 }
