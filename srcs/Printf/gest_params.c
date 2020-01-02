@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 18:57:07 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 21:49:33 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/02 19:19:09 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,9 @@
 
 void	disp_justif(int n, t_param *p, int left_justif)
 {
+//	ft_putstr("Padding: ");
+//	ft_putnbr(n);
+//	ft_putchar('\n');
 	if (p)
 		if (p->left_justif == left_justif && n > 0)
 		{

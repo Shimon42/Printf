@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/19 17:54:02 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/02 20:03:03 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,7 +33,7 @@ void	gest_precision(t_param *p, int nbr, int len)
 
 	i = 0;
 	padding = 0;
-	if (p->min_width >= len)
+	if (p->min_width >= len && (p->precision != 0 || nbr == 0))
 		padding += p->min_width;
 	padding -= (p->is_sp_pref || p->show_sign || nbr < 0);
 	if (p->precision > len)

@@ -1,8 +1,10 @@
-# ft_printf - V0.5.3
+# ft_printf - V0.5.4
 
 -> make - Compile only
 
--> make launch - Compile changed & launch
+-> make launch - Compile changes & launch
+
+-> make test - Compile changes & launch @Chinimala tester
 
 Units tests in main.c 
 
@@ -15,15 +17,14 @@ run "sh test-printf/test-printf.sh" for @Chinimala tester
     ————————————————————————————————————
     	Changes:
     ————————————————————————————————————
-    - Fix bad results for p->precision == 0 with %d
-	- Add Libft->ft_putnbr (long)
-	- Skip tester's test after "[K - Tests with f]"
+    - Better result for %d
 
     ————————————————————————————————————
 		Cur State:
 	————————————————————————————————————
-    - %s, %c, %d, %x, %u, %% Seems OK with flags "+-*0 .#"
-	- Tester Result (skipping bonus) [1670/1749]
+    - %s, %c, %d, %x, %u, %% Seems OK with basics flags "+-0 "
+	- Tester Result (skipping bonus) [1682/1749] (+12)
+
 
 	————————————————————————————————————
     	Known Bugs:
