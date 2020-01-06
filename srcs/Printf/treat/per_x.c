@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 21:50:14 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 21:32:51 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,10 @@
 
 static void	ft_putihex(unsigned int n, int upper)
 {
+	if (n < 0)
+	{
+		n = -n;
+	}
 	if (n < 16)
 	{
 		if (upper)
@@ -36,15 +40,19 @@ static void	gest_precision(t_param *p, int nbr, int len)
 
 	i = 0;
 	padding = 0;
-	if (p->min_width > len)
+	if (p->min_width >= len && (p->precision != 0 || nbr == 0))
 		padding += p->min_width;
+	padding -= (p->is_sp_pref || p->show_sign );
 	if (p->precision > len)
 		padding -= p->precision;
 	else if (p->precision > 0)
 		padding -= len;
+	else if (nbr != 0)
+		padding += p->min_width - len;
 	if (p->hashtag && nbr != 0)
 		padding -= 2;
-	disp_justif(padding, p, 0);
+	if (padding > 0)
+		disp_justif(padding, p, 0);
 	if (p->hashtag && nbr != 0)
 		p->n_print += write(1, "0x", 2);
 	if ((!p->left_justif || p->precision) && (p->precision - len > 0))

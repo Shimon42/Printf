@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 18:57:07 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/02 19:19:09 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 21:46:59 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,7 +30,15 @@ void	disp_justif(int n, t_param *p, int left_justif)
 void	gest_wildcard(va_list va, t_param *p)
 {
 	if (p->min_field_as_var)
+	{
 		p->min_width = va_arg(va, int);
+		if (p->min_width < 0)
+		{
+			p->left_justif = 1;
+			p->prefix = ' ';
+			p->min_width = ft_abs(p->min_width);
+		}
+	}
 	if (p->max_field_as_var)
 		p->precision = va_arg(va, int);
 	if (!p->prefix)

@@ -1054,7 +1054,7 @@ test "$i - (\"size = %%d\", t2) : ${NC}" $i
 test "$i - (\"size = %%d\", t2) : ${NC}" $i 
 test "$i - (\"size = %%d\", t2) : ${NC}" $i 
 test "$i - (\"size = %%d ; size = %%d\", t2, t2bis) : ${NC}" $i 
-printf "\n\n${BLUE}[K - Tests with f]${NC}\n" && error=0
+/*printf "\n\n${BLUE}[K - Tests with f]${NC}\n" && error=0
 test "$i - (\"%%f\", 0) : ${NC}" $i 
 test "$i - (\"%%.f\", 42.0) : ${NC}" $i 
 test "$i - (\"%%.1f\", 42.0) : ${NC}" $i 
