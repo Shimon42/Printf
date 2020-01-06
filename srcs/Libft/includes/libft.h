@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/11 12:00:43 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/19 17:34:21 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 20:31:23 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -36,11 +36,11 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memset(void *b, int c, size_t len);
-void				ft_putchar(int c);
+int					ft_putchar(int c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putunbr(unsigned int n);
-void				ft_putnbr(long n);
+size_t				ft_putnbr(long n);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putstr(char *str);

@@ -6,14 +6,14 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/10 20:42:44 by shimon       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 23:44:00 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 20:30:15 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-void	ft_putchar(int c)
+int	ft_putchar(int c)
 {
-	write(1, &c, 1);
+	return (write(1, &c, 1));
 }

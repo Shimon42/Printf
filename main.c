@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 17:23:48 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/19 16:13:25 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 21:21:55 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,11 +16,6 @@
 int main(void)
 {
 	ft_putstr(RST);
-
-	ft_printf("%*c", -1000, 'a');
-	ft_putchar('\n');
-	ft_printf("%*c", -1000, 'a');
-
 /*
 	printf(PINK"------------ %%%% ------------"RST"\n");
 	ft_printf(YELO);
@@ -38,7 +33,7 @@ int main(void)
 	ft_printf(GRN);
 	printf("\nREAL RET->%d"RST"\n", printf(strs, strs2));
 */	
-
+/*
 printf(CYAN"------------ %%c ------------"RST"\n");
 	char *str = "d: %10c[end]\n";
 	char c = 'a';
@@ -49,15 +44,15 @@ printf(CYAN"------------ %%c ------------"RST"\n");
 	ft_printf(GRN);
 	printf("REAL RET->%d"RST"\n", printf(str, c));
 	
-	char *str2 = "d: %0*.*c[end]\n";
+	
 	int decal = 10;
 	ft_printf(PINK);
-	ft_putstr(str2);
+	ft_putstr("d: %*c[end]\n");
 	ft_printf(YELO);
-	printf("MINE RET->%d\n", ft_printf(str2,decal,10, c));
+	printf("MINE RET->%d\n", ft_printf("d: %*c[end]\n",decal, c));
 	ft_printf(GRN);
-	printf("REAL RET->%d"RST"\n", printf(str2, decal,10, c));
-
+	printf("REAL RET->%d"RST"\n", printf("d: %*c[end]\n", decal, c));
+*/
 
 	printf(CYAN"------------ %%d ------------"RST"\n");
 	char	*strd = "d: %46d\n";
@@ -97,7 +92,7 @@ printf(CYAN"------------ %%p ------------"RST"\n");
 	ft_printf(GRN);
 	printf("REAL RET->%d"RST"\n", printf(str2, c));
 */
-
+/*
 printf(CYAN"------------ %%x ------------"RST"\n");
 	char *strx = "x: %0#*.*x[end]\n";
 
@@ -121,6 +116,6 @@ printf(CYAN"------------ %%u ------------"RST"\n");
 	printf("MINE RET->%d\n", ft_printf(stru, 12, nbru));
 	ft_printf(GRN);
 	printf("REAL RET->%d"RST"\n", printf(stru, 12, nbru));
-
+*/
 	return (0);
 }

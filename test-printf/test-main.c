@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/23 16:54:40 by aalleman     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/19 17:55:51 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 21:51:12 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -2086,8 +2086,9 @@ int		main(int ac, char **av)
 			ft_printf("%10.2s %n %s %n", "Hello", &t2, "Hello2", &t2bis);
 		return(ac == 2 ? printf("size = %d ; size = %d", t1, t1bis) : ft_printf("size = %d ; size = %d", t2, t2bis));
 	}
-/*
-	// [K - Tests with f].
+
+
+	/*// [K - Tests with f].
 	if (nb == count++)
 		return(ac == 2 ? printf("%f", 0) : ft_printf("%f", 0));
 	if (nb == count++)
