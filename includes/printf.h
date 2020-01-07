@@ -6,38 +6,44 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 16:49:16 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 21:45:47 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 18:05:31 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include "brain.h"
-#include "debug.h"
-#include "../srcs/Libft/includes/libft.h" 
+#ifndef PRINTF_H
+# define PRINTF_H
+# include <stdarg.h>
+# include <stdio.h>
+# include "brain.h"
+# include "debug.h"
+# include "../srcs/Libft/includes/libft.h"
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+int			ft_printf(const char *str, ...) __attribute__((format(printf,1,2)));
 
-extern int	ft_printf(const char *str, ...) __attribute__((format(printf,1,2)));
+t_param		*find_func(t_brain *b, const char *str);
+funcptr		set_treat_func(t_brain *b, t_param *cur, const char *str);
+int			get_flags(t_param *ret, const char *str, int i);
+int			get_min_width(t_param *ret, const char *str, int i);
+int			get_precision(t_param *ret, const char *str, int i);
+int			check_key(const char *str, char *tofind);
 
-void	new_s_param(t_brain **b, char *key, void (*f)(char *), void *exp);
+void		init_params_list(t_brain **b);
+t_param		*new_param(void);
+void		add_param(t_brain **b, char *key, void *f);
+int			check_key(const char *str, char *tofind);
+void		free_param(t_param *p);
 
-void	disp_justif(int n, t_param *p, int left_justif);
-void	gest_wildcard(va_list va, t_param *p);
-void	print_zeros(t_param *p, int len);
-void	free_param(t_param *p);
-int		check_flags(t_param *p);
+void		disp_justif(int n, t_param *p, int left_justif);
+void		gest_wildcard(va_list va, t_param *p);
+void		print_zeros(t_param *p, int len);
+int			check_flags(t_param *p);
 
-int     per_per(va_list va, t_param *p);
-int		per_c(va_list va, t_param *p);
-int		per_s(va_list va, t_param *p);
-int		per_d(va_list va, t_param *p);
-int		per_p(va_list va, t_param *p);
-int		per_u(va_list va, t_param *p);
-int		per_x(va_list va, t_param *p);
-//int		per_lu(va_list va, t_param *p);
-//int		per_ld(va_list va, t_param *p);
-//int		per_o(va_list va, t_param *p);
+int			per_per(va_list va, t_param *p);
+int			per_c(va_list va, t_param *p);
+int			per_s(va_list va, t_param *p);
+int			per_d(va_list va, t_param *p);
+int			per_p(va_list va, t_param *p);
+int			per_u(va_list va, t_param *p);
+int			per_x(va_list va, t_param *p);
 #endif

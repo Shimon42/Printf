@@ -6,16 +6,31 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 17:23:48 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 21:21:55 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 19:17:17 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "includes/printf.h"
 #include <limits.h>
 int main(void)
 {
 	ft_putstr(RST);
+	
+	printf(PINK"------------ %%p ------------"RST"\n");
+	ft_printf(YELO);
+	printf("\nMINE RET->%d\n", ft_printf("%.s", (char *)42));
+	ft_printf(GRN);
+//	printf("\nREAL RET->%d"RST"\n", printf("%.s", nbr));
+
+/*
+	printf(PINK"------------ %%p ------------"RST"\n");
+	ft_printf(YELO);
+	printf("\nMINE RET->%d\n", ft_printf("%p"));
+	ft_printf(GRN);
+	printf("\nREAL RET->%d"RST"\n", printf("%p"));
+*/
 /*
 	printf(PINK"------------ %%%% ------------"RST"\n");
 	ft_printf(YELO);

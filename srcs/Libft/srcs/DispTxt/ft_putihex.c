@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_puthex.c                                      .::    .:/ .      .::   */
+/*   ft_putihex.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/10 20:42:44 by shimon       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/07 18:20:52 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/07 18:14:22 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/07 18:15:03 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-size_t	ft_puthex(uintptr_t n, int upper)
+size_t	ft_putihex(unsigned int n, int upper)
 {
 	size_t count;
 
@@ -27,8 +27,8 @@ size_t	ft_puthex(uintptr_t n, int upper)
 	}
 	else
 	{
-		count += ft_puthex(n / 16, upper);
-		count += ft_puthex(n % 16, upper);
+		count += ft_putihex(n / 16, upper);
+		count += ft_putihex(n % 16, upper);
 	}
 	return (count);
 }

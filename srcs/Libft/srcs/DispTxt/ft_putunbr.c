@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 23:19:46 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 23:44:00 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 17:09:00 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,6 @@
 
 void		ft_putunbr(unsigned int n)
 {
-
 	if (n <= 9)
 		ft_putchar(n + '0');
 	else
@@ -23,5 +22,4 @@ void		ft_putunbr(unsigned int n)
 		ft_putunbr(n / 10);
 		ft_putunbr(n % 10);
 	}
-	
 }

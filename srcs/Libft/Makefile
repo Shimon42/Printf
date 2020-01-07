@@ -21,6 +21,7 @@ SRCS	=	$(MATHLIB)ft_abs.c \
 			$(MEMLIB)ft_memset.c \
 			\
 			$(PRINTLIB)ft_puthex.c \
+			$(PRINTLIB)ft_putihex.c \
 			$(PRINTLIB)ft_putchar.c \
 			$(PRINTLIB)ft_putchar_fd.c \
 			$(PRINTLIB)ft_putendl_fd.c \
@@ -40,6 +41,7 @@ SRCS	=	$(MATHLIB)ft_abs.c \
 			$(STRLIB)ft_strmapi.c \
 			$(STRLIB)ft_strncmp.c \
 			$(STRLIB)ft_strnstr.c \
+			$(STRLIB)ft_findchar.c \
 			$(STRLIB)ft_strrchr.c \
 			$(STRLIB)ft_strtrim.c \
 			$(STRLIB)ft_substr.c \

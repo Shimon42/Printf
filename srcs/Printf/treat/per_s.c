@@ -6,14 +6,14 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 21:46:19 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 19:17:54 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../../includes/printf.h"
 
-void	disp_per_s(t_param *p, int len, char * str)
+void	disp_per_s(t_param *p, int len, char *str)
 {
 	int padding;
 	int i;
@@ -45,6 +45,7 @@ int		per_s(va_list va, t_param *p)
 	int		wasnull;
 
 	wasnull = 0;
+//	disp_param(p);
 	gest_wildcard(va, p);
 	str = va_arg(va, char *);
 	if (!str)
@@ -55,6 +56,6 @@ int		per_s(va_list va, t_param *p)
 	len = ft_strlen(str);
 	disp_per_s(p, len, str);
 	if (wasnull)
-		free (str);
+		free(str);
 	return (p->n_print);
 }

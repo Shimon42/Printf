@@ -7,6 +7,8 @@ FOLDNAME = Printf/
 SRCS	=	$(SRCSPATH)$(FOLDNAME)debug.c \
 			$(SRCSPATH)$(FOLDNAME)ft_printf.c \
 			$(SRCSPATH)$(FOLDNAME)gest_params.c \
+			$(SRCSPATH)$(FOLDNAME)gest_flags.c \
+			$(SRCSPATH)$(FOLDNAME)gest_flags_disp.c \
 			$(SRCSPATH)$(FOLDNAME)treat/per_per.c \
 			$(SRCSPATH)$(FOLDNAME)treat/per_c.c \
 			$(SRCSPATH)$(FOLDNAME)treat/per_s.c \
@@ -49,9 +51,11 @@ $(OBJS):	$(INCLUDES)
 
 clean:		
 			${RM} $(OBJS)
+			$(MAKE) -C $(LIBFTPATH) clean
 
 fclean:		clean
 			${RM} $(NAME)
+			$(MAKE) -C $(LIBFTPATH) fclean
 			
 re:			fclean all
 

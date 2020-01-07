@@ -6,34 +6,25 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 21:32:51 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 19:28:19 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../../includes/printf.h"
 
-static void	ft_putihex(unsigned int n, int upper)
+static void		print_0x(t_param *p, int nbr)
 {
-	if (n < 0)
+	if (p->hashtag && nbr != 0)
 	{
-		n = -n;
-	}
-	if (n < 16)
-	{
-		if (upper)
-			ft_putchar("0123456789ABCDEF"[n]);
+		if (p->key[0] == 'X')
+			p->n_print += write(1, "0X", 2);
 		else
-			ft_putchar("0123456789abcdef"[n]);
-	}
-	else
-	{
-		ft_puthex(n / 16, upper);
-		ft_puthex(n % 16, upper);
+			p->n_print += write(1, "0x", 2);
 	}
 }
 
-static void	gest_precision(t_param *p, int nbr, int len)
+static void		gest_precision(t_param *p, int nbr, int len)
 {
 	int padding;
 	int i;
@@ -42,7 +33,7 @@ static void	gest_precision(t_param *p, int nbr, int len)
 	padding = 0;
 	if (p->min_width >= len && (p->precision != 0 || nbr == 0))
 		padding += p->min_width;
-	padding -= (p->is_sp_pref || p->show_sign );
+	padding -= (p->is_sp_pref || p->show_sign);
 	if (p->precision > len)
 		padding -= p->precision;
 	else if (p->precision > 0)
@@ -53,19 +44,15 @@ static void	gest_precision(t_param *p, int nbr, int len)
 		padding -= 2;
 	if (padding > 0)
 		disp_justif(padding, p, 0);
-	if (p->hashtag && nbr != 0)
-		p->n_print += write(1, "0x", 2);
+	print_0x(p, nbr);
 	if ((!p->left_justif || p->precision) && (p->precision - len > 0))
 		print_zeros(p, p->precision - len);
 	if (p->precision || nbr != 0)
-	{
-		ft_putihex(nbr, (p->key[0] == 'X'));
-		p->n_print += len;
-	}
+		p->n_print += ft_putihex(nbr, (p->key[0] == 'X'));
 	disp_justif(padding, p, 1);
 }
 
-static void	gest_no_precision(t_param *p, int nbr, int len)
+static void		gest_no_precision(t_param *p, int nbr, int len)
 {
 	int padding;
 	int i;
@@ -78,8 +65,7 @@ static void	gest_no_precision(t_param *p, int nbr, int len)
 		padding -= 2;
 	if (!p->pref_0)
 		disp_justif(padding, p, 0);
-	if (p->hashtag && nbr != 0)
-		p->n_print += write(1, "0x", 2);
+	print_0x(p, nbr);
 	if (!p->left_justif && p->pref_0)
 		print_zeros(p, padding);
 	ft_putihex(nbr, (p->key[0] == 'X'));
@@ -87,7 +73,7 @@ static void	gest_no_precision(t_param *p, int nbr, int len)
 	disp_justif(padding, p, 1);
 }
 
-int	per_x(va_list va, t_param *p)
+int				per_x(va_list va, t_param *p)
 {
 	long	nbr;
 	int		i;

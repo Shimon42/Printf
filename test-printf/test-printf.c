@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/23 16:54:40 by aalleman     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 21:51:12 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 19:30:50 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -2030,7 +2030,7 @@ int		main(int ac, char **av)
 		return(ac == 2 ? printf("%*.*s", -5, 0, "Hello") : ft_printf("%*.*s", -5, 0, "Hello"));
 	if (nb == count++)
 		return(ac == 2 ? printf("%*.*s", 5, 5, "Hello") : ft_printf("%*.*s", 5, 5, "Hello"));
-	
+	/*
 	// [J - Tests with n].
 	int		t1 = -1;
 	int		t2 = -1;
@@ -2088,7 +2088,7 @@ int		main(int ac, char **av)
 	}
 
 
-	/*// [K - Tests with f].
+	// [K - Tests with f].
 	if (nb == count++)
 		return(ac == 2 ? printf("%f", 0) : ft_printf("%f", 0));
 	if (nb == count++)

@@ -1,4 +1,4 @@
-# ft_printf - V0.5.6
+# ft_printf - V0.5.7
 
 -> make - Compile only
 
@@ -17,16 +17,17 @@ run "sh test-printf/test-printf.sh" for @Chinimala tester
     ————————————————————————————————————
     	Changes:
     ————————————————————————————————————
-    - Renamed get_flags() to analyse()
-	- Decomposition of analyse() to respect the norme
-	- Add get_flags(), get_min_width(), get_precision()
+	- All normed except brain.h
+	- Fixed %p, %x
+	- Changes in Libft
 
     ————————————————————————————————————
 		Cur State:
 	————————————————————————————————————
-    - %s, %c, %d, %x, %u, %% Seems OK with basics flags "+-0 "
-	- Remain 6 bugs for %p and 1 for %s
-	- Tester Result (skipping bonus) [1742/1749]
+    - %s, %c, %d, %i, %p, %xX, %u, %% Seems OK with all flags "# +-0.*"
+	- Remain 1 bug for ("%.s", 42) -> SEGFAULT
+	- Brain.h not normed (func ptr)
+	- Tester Result (skipping bonus) [1748/1749] (+6)
 
 
 	————————————————————————————————————

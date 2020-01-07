@@ -6,14 +6,14 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 18:36:40 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 19:34:19 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 17:11:30 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-size_t		ft_ulen(unsigned int n)
+size_t	ft_ulen(unsigned int n)
 {
 	size_t length;
 

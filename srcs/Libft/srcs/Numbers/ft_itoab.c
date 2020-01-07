@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 15:31:39 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 23:44:00 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 17:12:50 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,12 +15,13 @@
 
 char	*ft_itoab(long value, int base)
 {
-	char *nbr;
-  	char fullbase[17] = "0123456789ABCDEF";
-	int i;
-	char temp;
-	int sign;
+	char	*nbr;
+	char	*fullbase;
+	int		i;
+	char	temp;
+	int		sign;
 
+	fullbase = ft_strdup("0123456789ABCDEF");
 	nbr = malloc(255 * sizeof(char));
 	if (nbr == NULL || base < 2 || base > 16)
 		return (NULL);

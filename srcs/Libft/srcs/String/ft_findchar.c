@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_puthex.c                                      .::    .:/ .      .::   */
+/*   ft_findchar.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/10 20:42:44 by shimon       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/07 18:20:52 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/07 16:46:48 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/07 17:10:52 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-size_t	ft_puthex(uintptr_t n, int upper)
+int		ft_findchar(const char *needles, const char *str)
 {
-	size_t count;
+	size_t i;
+	size_t j;
 
-	count = 0;
-	if (n < 16)
+	if (str && needles)
 	{
-		if (upper)
-			count += ft_putchar("0123456789ABCDEF"[n]);
-		else
-			count += ft_putchar("0123456789abcdef"[n]);
+		i = 0;
+		while (str[i])
+		{
+			j = 0;
+			while (needles[j] != '\0')
+				if (needles[j++] == str[i])
+					return (i);
+			i++;
+		}
 	}
-	else
-	{
-		count += ft_puthex(n / 16, upper);
-		count += ft_puthex(n % 16, upper);
-	}
-	return (count);
+	return (-1);
 }
