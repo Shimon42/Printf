@@ -1,4 +1,4 @@
-# ft_printf - V0.5.5
+# ft_printf - V0.5.6
 
 -> make - Compile only
 
@@ -17,16 +17,16 @@ run "sh test-printf/test-printf.sh" for @Chinimala tester
     ————————————————————————————————————
     	Changes:
     ————————————————————————————————————
-    - %d, %u, %x fixed !
-	- Better gest_wildcrad()
-	- Changes for libft
+    - Renamed get_flags() to analyse()
+	- Decomposition of analyse() to respect the norme
+	- Add get_flags(), get_min_width(), get_precision()
 
     ————————————————————————————————————
 		Cur State:
 	————————————————————————————————————
     - %s, %c, %d, %x, %u, %% Seems OK with basics flags "+-0 "
 	- Remain 6 bugs for %p and 1 for %s
-	- Tester Result (skipping bonus) [1742/1749] (+60)
+	- Tester Result (skipping bonus) [1742/1749]
 
 
 	————————————————————————————————————

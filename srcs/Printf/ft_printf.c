@@ -93,7 +93,6 @@ static void		add_param(t_brain **b, char *key, void *f)
 
 static void		init_params_list(t_brain **b)
 {
-	//printf(YELO"Init params"RST"\n");
 	add_param(b, "c", &per_c);
 	add_param(b, "s", &per_s);
 	add_param(b, "d", &per_d);
@@ -103,12 +102,6 @@ static void		init_params_list(t_brain **b)
 	add_param(b, "x", &per_x);
 	add_param(b, "u", &per_u);
 	add_param(b, "%", &per_per);
-/*
-	add_param(b, "o", &per_o);
-	add_param(b, "ld", &per_ld);
-	disp_brain(*b);
-	printf(GRN"END Init params"RST"\n");
-*/
 }
 
 void			init_brain(t_brain **b)
@@ -161,7 +154,6 @@ static funcptr		set_treat_func(t_brain *b, t_param *cur, const char *str)
 {
 	t_param *res;
 
-	//printf("str find func: %s\n", str);
 	res = find_func(b, str);
 	if (res)
 	{
@@ -173,7 +165,74 @@ static funcptr		set_treat_func(t_brain *b, t_param *cur, const char *str)
 	return (NULL);
 }
 
-static t_param		*get_flags(t_brain *b, const char *str)
+static int			get_flags(t_param *ret, const char *str, int i)
+{
+	while (ft_strchr("-+0 #", str[i]))
+	{
+		if (str[i] == '-')
+		{
+			ret->left_justif = 1;
+			ret->prefix = ' ';
+		}
+		else if (str[i] == '+')
+			ret->show_sign = 1;
+		else if (str[i] == ' ')
+			ret->is_sp_pref = 1;
+		else if (str[i] == '0' && !ret->left_justif)
+		{
+			ret->prefix = '0';
+			ret->pref_0 = 1;
+		}
+		else if (str[i] == '#')
+			ret->hashtag = 1;
+		i++;
+	}
+	return (i);
+}
+
+static int			get_min_width(t_param *ret, const char *str, int i)
+{
+	if (str[i] == '*')
+	{
+		ret->min_field_as_var = 1;
+		i++;
+	}
+	else if (str[i] >= '1' && str[i] <= '9' && !ret->min_field_as_var)
+	{
+		ret->min_width = ft_atoi(str + i);
+		if (!ret->prefix)
+			ret->prefix = ' ';
+		i += ft_ilen(ret->min_width);
+	}
+	return (i);
+}
+
+static int			get_precision(t_param *ret, const char *str, int i)
+{
+	if (str[i] == '.')
+	{
+		i++;
+		ret->prefix = ' ';
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			while (str[i] == '0')
+				i++;
+			ret->precision = ft_atoi(str + i);
+			if (ret->precision)
+				i += ft_ilen(ret->precision);
+		}
+		else if (str[i] == '*')
+		{
+			ret->max_field_as_var = 1;
+			i++;
+		}
+		else
+			ret->precision = 0;
+	}
+	return (i);
+}
+
+static t_param		*analyse(t_brain *b, const char *str)
 {
 	t_param *ret;
 	int i;
@@ -182,68 +241,14 @@ static t_param		*get_flags(t_brain *b, const char *str)
 	i = 0;
 	j = 0;
 	ret = new_param();
-//	printf(GRN"GET FLAGS\n"RST);
 	if (str[i] && (ft_strchr("-+0123456789#.* ", str[i]) != NULL))
 	{
-		//printf("Curchar: %c\n", str[i]);
-		while (ft_strchr("-+0 #", str[i]))
-		{
-			if (str[i] == '-')
-			{
-				ret->left_justif = 1;
-				ret->prefix = ' ';
-			}
-			else if (str[i] == '+')
-				ret->show_sign = 1;
-			else if (str[i] == ' ')
-				ret->is_sp_pref = 1;
-			else if (str[i] == '0' && !ret->left_justif)
-			{
-				ret->prefix = '0';
-				ret->pref_0 = 1;
-			}
-			else if (str[i] == '#')
-				ret->hashtag = 1;
-			i++;
-		}
-		if (str[i] == '*')
-		{
-			ret->min_field_as_var = 1;
-			i++;
-		}
-		else if (str[i] >= '1' && str[i] <= '9' && !ret->min_field_as_var)
-		{
-			ret->min_width = ft_atoi(str + i);
-			if (!ret->prefix)
-				ret->prefix = ' ';
-			i += ft_ilen(ret->min_width);
-		}
-		if (str[i] == '.')
-		{
-			i++;
-			ret->prefix = ' ';
-			if (str[i] >= '0' && str[i] <= '9')
-			{
-				while (str[i] == '0')
-					i++;
-				ret->precision = ft_atoi(str + i);
-				if (ret->precision)
-					i += ft_ilen(ret->precision);
-			}
-			else if (str[i] == '*')
-			{
-				ret->max_field_as_var = 1;
-				i++;
-			}
-			else
-				ret->precision = 0;
-		}
+		i = get_flags(ret, str, i);
+		i = get_min_width(ret, str, i);
+		i = get_precision(ret, str, i);
 	}
 	ret->flags_length = i + 1;
-	//disp_param(ret);
-	//printf("END While - get flags\n");
 	set_treat_func(b, ret, str + i);
-	//disp_param(ret);
 	return (ret);
 }
 
@@ -259,7 +264,7 @@ static int			treat_str(t_brain *b, const char *str, va_list va)
 		if ((b->stri = ft_findchar("%", str)) != -1)
 		{
 			n_print += write(1, str, b->stri);
-			b->cur_param = get_flags(b, str + b->stri + 1);
+			b->cur_param = analyse(b, str + b->stri + 1);
 			if (b->cur_param->key && b->cur_param->treat)
 				n_print += b->cur_param->treat(va, b->cur_param);
 			else
@@ -282,10 +287,8 @@ int			ft_printf(const char *str, ...)
 	int		n_print;
 
 	n_print = 0;
-	//printf(CYAN"TRY TO PRINT: "YELO"%s"PINK"[END]\n"RST, str);
 	b = malloc(sizeof(t_brain));
 	init_brain(&b);
-	//disp_brain(b);
 	va_start(va, str);
 	n_print = treat_str(b, str, va);
 	va_end(va);
