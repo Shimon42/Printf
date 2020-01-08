@@ -1,4 +1,4 @@
-# ft_printf - V0.5.8
+# ft_printf - V0.5.9
 
 -> make - Compile only
 
@@ -17,7 +17,9 @@ run "sh test-printf/test-printf.sh" for @Chinimala tester
     ————————————————————————————————————
     	Changes:
     ————————————————————————————————————
-	- Add %n gest
+	- %f (Not working)
+	- %s return "(null)" if str is NULL
+	- Changes in Libft
 
     ————————————————————————————————————
 		Cur State:

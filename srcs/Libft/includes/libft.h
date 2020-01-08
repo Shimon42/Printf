@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/11 12:00:43 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/07 18:20:56 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/08 19:43:26 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,6 +29,7 @@ int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
 char				*ft_itoa(int n);
+char				*ft_ftoa(float n, int dec);
 char				*ft_itoab(long value, int base);
 void				*ft_memccpy(void *d, const void *s, int c, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);

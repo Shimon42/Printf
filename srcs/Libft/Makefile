@@ -5,6 +5,7 @@ SRCSPATH = srcs/
 MEMLIB = $(SRCSPATH)Memory/
 LISTSLIB = $(SRCSPATH)Lists/
 MATHLIB = $(SRCSPATH)Math/
+CONVLIB = $(SRCSPATH)Conv/
 NUMLIB = $(SRCSPATH)Numbers/
 STRLIB = $(SRCSPATH)String/
 PRINTLIB = $(SRCSPATH)DispTxt/
@@ -54,9 +55,11 @@ SRCS	=	$(MATHLIB)ft_abs.c \
 			$(STRLIB)ft_isdigit.c \
 			$(STRLIB)ft_isprint.c \
 			\
-			$(NUMLIB)ft_atoi.c \
-			$(NUMLIB)ft_itoa.c \
-			$(NUMLIB)ft_itoab.c \
+			$(CONVLIB)ft_ftoa.c \
+			$(CONVLIB)ft_atoi.c \
+			$(CONVLIB)ft_itoa.c \
+			$(CONVLIB)ft_itoab.c \
+			\
 			$(NUMLIB)ft_nbrslen.c \
 			$(NUMLIB)ft_hexlen.c \
 			\

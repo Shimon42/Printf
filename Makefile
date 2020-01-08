@@ -20,7 +20,8 @@ SRCS	=	$(SRCSPATH)$(FOLDNAME)debug.c \
 			$(SRCSPATH)$(FOLDNAME)treat/per_f.c \
 
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGSF	= -Wall -Wextra -Werror
+CFLAGS	= 
 CLEAR	= clear
 RM		= rm -f
 OBJS	= ${SRCS:.c=.o}

@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 17:23:48 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 16:47:48 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/08 20:24:28 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,15 +17,22 @@
 int main(void)
 {
 	ft_putstr(RST);
-
+/*
 printf(PINK"------------ %%f ------------"RST"\n");
-	double nbr = 3.14;
+	double nbr = 789.1415;
 	
 	ft_printf(YELO);
 	printf("\nMINE RET->%d\n", ft_printf("%f", nbr));
 	ft_printf(GRN);
 	printf("\nREAL RET->%d\n", printf("%f", nbr));
+*/
 
+	printf(PINK"------------ %%s 42 ------------"RST"\n");
+	
+	ft_printf(YELO);
+	printf("\nMINE RET->%d\n", ft_printf("%.46s", NULL));
+	ft_printf(GRN);
+	printf("\nREAL RET->%d\n", printf("%.46s", NULL));
 
 	/*
 	printf(PINK"------------ %%n ------------"RST"\n");
@@ -60,7 +67,7 @@ printf(PINK"------------ %%f ------------"RST"\n");
 	printf("\nMINE RET->%d\n", ft_printf(strs, strs2));
 	ft_printf(GRN);
 	printf("\nREAL RET->%d"RST"\n", printf(strs, strs2));
-*/	
+	*/
 /*
 printf(CYAN"------------ %%c ------------"RST"\n");
 	char *str = "d: %10c[end]\n";

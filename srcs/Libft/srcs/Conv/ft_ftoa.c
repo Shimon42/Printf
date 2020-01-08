@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   per_f.c                                          .::    .:/ .      .::   */
+/*   ft_ftoa.c                                        .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 19:48:48 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/08 19:26:58 by siferrar     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/08 19:59:46 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../../includes/printf.h"
+#include "../../includes/libft.h"
 
-
-
-size_t ft_putfloat(double n, int dec)
+char	*ft_ftoa(float n, int dec)
 {
-	size_t count;
 	int i;
+	int neg;
 	double temp;
+	char *str;
+	int strlen;
 
+	strlen = ft_llen((double)n + dec + 2);
+
+	str = ft_calloc(strlen, sizeof(char));
+	printf("len: %d\n", strlen);
 	i = 0;
+	neg = 0;
 	printf("\n%f\n", n);
-
-	ft_ftoa(n, 5);
-
 	ft_putnbr((long)n);
 	n = n - (long)n;
-	count = 0;
 	if (n < 0)
 	{
-		count += ft_putchar('-');
+		ft_putchar('-');
 		n = -n;
 	}
 	ft_putchar('.');
@@ -45,16 +46,7 @@ size_t ft_putfloat(double n, int dec)
 		printf("n:%f\n", n);
 		i++;
 	}
-	
-	
-	return (count);
-}
 
-int	per_f(va_list va, t_param *p)
-{
-	int				padding;
-
-	padding = 0;
-	ft_putfloat(va_arg(va, double), 5);
-	return (p->n_print);
+	ft_putstr("\n-------------------------------------------\n");
+	return (str);
 }

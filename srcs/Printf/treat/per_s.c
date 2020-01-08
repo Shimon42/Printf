@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/07 19:17:54 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/08 20:31:09 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -50,10 +50,10 @@ int		per_s(va_list va, t_param *p)
 	str = va_arg(va, char *);
 	if (!str)
 	{
-		str = ft_strdup("");
+		str = ft_strdup("(null)");
 		wasnull = 1;
 	}
-	len = ft_strlen(str);
+	len = strlen(str);
 	disp_per_s(p, len, str);
 	if (wasnull)
 		free(str);
