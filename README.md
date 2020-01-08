@@ -30,7 +30,6 @@ run "sh test-printf/test-printf.sh" for @Chinimala tester
 	- Tester Result: [1029/1749]
 		Skipping bonus: [1748/1749]
 
-
 	————————————————————————————————————
     	Known Bugs:
 	————————————————————————————————————
