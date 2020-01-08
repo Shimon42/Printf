@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:15:38 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/07 18:01:48 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/08 16:09:15 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,12 +34,14 @@ typedef struct		s_param
 	int				flags_length;
 	int				n_print;
 	struct s_param	*next;
+	struct s_brain	*parent;
 }					t_param;
 
 typedef	struct		s_brain
 {
 	t_param			*params;
 	t_param			*cur_param;
+	int				n_print;
 	long			stri;
 }					t_brain;
 

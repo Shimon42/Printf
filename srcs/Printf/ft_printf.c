@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/07 17:07:39 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/08 16:16:44 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,6 +17,7 @@ void				init_brain(t_brain **b)
 {
 	(*b)->cur_param = NULL;
 	(*b)->params = NULL;
+	(*b)->n_print = 0;
 	init_params_list(b);
 }
 
@@ -41,7 +42,7 @@ static t_param		*analyse(t_brain *b, const char *str)
 
 	i = 0;
 	j = 0;
-	ret = new_param();
+	ret = new_param(b);
 	if (str[i] && (ft_strchr("-+0123456789#.* ", str[i]) != NULL))
 	{
 		i = get_flags(ret, str, i);
@@ -56,18 +57,17 @@ static t_param		*analyse(t_brain *b, const char *str)
 static int			treat_str(t_brain *b, const char *str, va_list va)
 {
 	int		i;
-	int		n_print;
 
 	i = 0;
-	n_print = 0;
+	b->n_print = 0;
 	while (str[i])
 	{
 		if ((b->stri = ft_findchar("%", str)) != -1)
 		{
-			n_print += write(1, str, b->stri);
+			b->n_print += write(1, str, b->stri);
 			b->cur_param = analyse(b, str + b->stri + 1);
 			if (b->cur_param->key && b->cur_param->treat)
-				n_print += b->cur_param->treat(va, b->cur_param);
+				b->n_print += b->cur_param->treat(va, b->cur_param);
 			else
 				printf(RED"END BAD KEY - ARG NOT FOUND IN %s"RST"\n", str);
 			str += b->stri + b->cur_param->flags_length + 1;
@@ -77,8 +77,8 @@ static int			treat_str(t_brain *b, const char *str, va_list va)
 		else
 			i++;
 	}
-	n_print += write(1, str, ft_strlen(str));
-	return (n_print);
+	b->n_print += write(1, str, ft_strlen(str));
+	return (b->n_print);
 }
 
 int					ft_printf(const char *str, ...)

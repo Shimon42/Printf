@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/07 17:01:30 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/07 18:23:37 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/08 16:46:31 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,9 +24,11 @@ void		init_params_list(t_brain **b)
 	add_param(b, "x", &per_x);
 	add_param(b, "u", &per_u);
 	add_param(b, "%", &per_per);
+	add_param(b, "n", &per_n);
+	add_param(b, "f", &per_f);
 }
 
-t_param		*new_param(void)
+t_param		*new_param(t_brain *b)
 {
 	t_param *new;
 
@@ -46,6 +48,7 @@ t_param		*new_param(void)
 	new->max_field_as_var = 0;
 	new->n_print = 0;
 	new->next = NULL;
+	new->parent = b;
 	return (new);
 }
 
@@ -53,7 +56,7 @@ void		add_param(t_brain **b, char *key, void *f)
 {
 	t_param *new;
 
-	new = new_param();
+	new = new_param(*b);
 	new->key = ft_strdup(key);
 	new->treat = f;
 	new->next = (*b)->params;

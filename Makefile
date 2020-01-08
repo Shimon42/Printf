@@ -16,6 +16,8 @@ SRCS	=	$(SRCSPATH)$(FOLDNAME)debug.c \
 			$(SRCSPATH)$(FOLDNAME)treat/per_u.c \
 			$(SRCSPATH)$(FOLDNAME)treat/per_p.c \
 			$(SRCSPATH)$(FOLDNAME)treat/per_x.c \
+			$(SRCSPATH)$(FOLDNAME)treat/per_n.c \
+			$(SRCSPATH)$(FOLDNAME)treat/per_f.c \
 
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror

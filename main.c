@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 17:23:48 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/07 19:17:17 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/08 16:47:48 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,13 +17,26 @@
 int main(void)
 {
 	ft_putstr(RST);
-	
-	printf(PINK"------------ %%p ------------"RST"\n");
-	ft_printf(YELO);
-	printf("\nMINE RET->%d\n", ft_printf("%.s", (char *)42));
-	ft_printf(GRN);
-//	printf("\nREAL RET->%d"RST"\n", printf("%.s", nbr));
 
+printf(PINK"------------ %%f ------------"RST"\n");
+	double nbr = 3.14;
+	
+	ft_printf(YELO);
+	printf("\nMINE RET->%d\n", ft_printf("%f", nbr));
+	ft_printf(GRN);
+	printf("\nREAL RET->%d\n", printf("%f", nbr));
+
+
+	/*
+	printf(PINK"------------ %%n ------------"RST"\n");
+	int nbr = 0;
+	int nbr2 = 0;
+	
+	ft_printf(YELO);
+	printf("\nMINE RET->%d - NBR: %d\n", ft_printf("hlkjhd dsfmjhf  dsf fdqsdf qsdf sqdf %n qsdfsdf qsdf", &nbr), nbr);
+	ft_printf(GRN);
+	printf("\nREAL RET->%d - NBR: %d\n", printf("hlkjhd dsfmjhf  dsf fdqsdf qsdf sqdf %n qsdfsdf qsdf", &nbr2), nbr2);
+*/
 /*
 	printf(PINK"------------ %%p ------------"RST"\n");
 	ft_printf(YELO);

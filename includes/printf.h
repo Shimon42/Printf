@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 16:49:16 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/07 18:05:31 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/08 16:46:52 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,7 +29,7 @@ int			get_precision(t_param *ret, const char *str, int i);
 int			check_key(const char *str, char *tofind);
 
 void		init_params_list(t_brain **b);
-t_param		*new_param(void);
+t_param		*new_param(t_brain *b);
 void		add_param(t_brain **b, char *key, void *f);
 int			check_key(const char *str, char *tofind);
 void		free_param(t_param *p);
@@ -46,4 +46,6 @@ int			per_d(va_list va, t_param *p);
 int			per_p(va_list va, t_param *p);
 int			per_u(va_list va, t_param *p);
 int			per_x(va_list va, t_param *p);
+int			per_n(va_list va, t_param *p);
+int			per_f(va_list va, t_param *p);
 #endif

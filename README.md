@@ -1,4 +1,4 @@
-# ft_printf - V0.5.7
+# ft_printf - V0.5.8
 
 -> make - Compile only
 
@@ -17,14 +17,12 @@ run "sh test-printf/test-printf.sh" for @Chinimala tester
     ————————————————————————————————————
     	Changes:
     ————————————————————————————————————
-	- All normed except brain.h
-	- Fixed %p, %x
-	- Changes in Libft
+	- Add %n gest
 
     ————————————————————————————————————
 		Cur State:
 	————————————————————————————————————
-    - %s, %c, %d, %i, %p, %xX, %u, %% Seems OK with all flags "# +-0.*"
+    - %s, %c, %d, %i, %p, %xX, %u, %%, %n Seems OK with all flags "# +-0.*"
 	- Remain 1 bug for ("%.s", 42) -> SEGFAULT
 	- Brain.h not normed (func ptr)
 	- Tester Result (skipping bonus) [1748/1749] (+6)

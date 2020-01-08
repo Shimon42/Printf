@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/23 16:54:40 by aalleman     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/07 19:30:50 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/08 16:33:32 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -2030,7 +2030,7 @@ int		main(int ac, char **av)
 		return(ac == 2 ? printf("%*.*s", -5, 0, "Hello") : ft_printf("%*.*s", -5, 0, "Hello"));
 	if (nb == count++)
 		return(ac == 2 ? printf("%*.*s", 5, 5, "Hello") : ft_printf("%*.*s", 5, 5, "Hello"));
-	/*
+	
 	// [J - Tests with n].
 	int		t1 = -1;
 	int		t2 = -1;
@@ -3626,7 +3626,7 @@ int		main(int ac, char **av)
 		return(ac == 2 ? printf("|%+- +-0#+ -0 +0 -+ +0+ -+-+# 0+0-0+0-#0+ 0+ 15.6o| : %%+- +-0#+ -0 +0 -+ +0+ -+-+# 0+0-0+0-#0+ 0+ 15.6o\n", nbr) : ft_printf("|%+- +-0#+ -0 +0 -+ +0+ -+-+# 0+0-0+0-#0+ 0+ 15.6o| : %%+- +-0#+ -0 +0 -+ +0+ -+-+# 0+0-0+0-#0+ 0+ 15.6o\n", nbr));
 	if (nb == count++)
 		return(ac == 2 ? printf("|%+- #0 - 0 + -0# - + - 0-+ - #+- 7o| : %%+- #0 - 0 + -0# - + - 0-+ - #+- 7o\n", nbr) : ft_printf("|%+- #0 - 0 + -0# - + - 0-+ - #+- 7o| : %%+- #0 - 0 + -0# - + - 0-+ - #+- 7o\n", nbr));
-*/
+
 	// [Z - MIX (good test for leaks)].
 	int		z;
 	wchar_t	y[10];
