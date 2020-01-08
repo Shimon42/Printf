@@ -25,7 +25,8 @@ run "sh test-printf/test-printf.sh" for @Chinimala tester
     - %s, %c, %d, %i, %p, %xX, %u, %%, %n Seems OK with all flags "# +-0.*"
 	- Remain 1 bug for ("%.s", 42) -> SEGFAULT
 	- Brain.h not normed (func ptr)
-	- Tester Result (skipping bonus) [1748/1749] (+6)
+	- Tester Result: [1029/1749]
+		Skipping bonus: [1748/1749]
 
 
 	————————————————————————————————————
