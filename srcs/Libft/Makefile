@@ -55,10 +55,8 @@ SRCS	=	$(MATHLIB)ft_abs.c \
 			$(STRLIB)ft_isdigit.c \
 			$(STRLIB)ft_isprint.c \
 			\
-			$(CONVLIB)ft_ftoa.c \
 			$(CONVLIB)ft_atoi.c \
 			$(CONVLIB)ft_itoa.c \
-			$(CONVLIB)ft_itoab.c \
 			\
 			$(NUMLIB)ft_nbrslen.c \
 			$(NUMLIB)ft_hexlen.c \

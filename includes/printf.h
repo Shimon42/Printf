@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 16:49:16 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 17:27:09 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 17:56:33 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,7 +16,6 @@
 # include <stdarg.h>
 # include <stdio.h>
 # include "brain.h"
-# include "debug.h"
 # include "../srcs/Libft/includes/libft.h"
 
 int			ft_printf(const char *str, ...) __attribute__((format(printf,1,2)));

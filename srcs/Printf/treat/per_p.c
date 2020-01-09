@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 15:38:02 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 17:53:44 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,10 +28,10 @@ size_t	ft_llhexlen(long long n)
 	return (length);
 }
 
-int	per_p(va_list va, t_param *p)
+int		per_p(va_list va, t_param *p)
 {
-	int			i;
-	int			padding;
+	int				i;
+	int				padding;
 	unsigned long	nbr;
 
 	i = 0;

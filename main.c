@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 17:23:48 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 17:27:42 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 17:57:57 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,6 +16,7 @@
 #include <limits.h>
 int main(void)
 {
+	/*
 	ft_putstr(RST);
 
 printf(PINK"------------ %%f ------------"RST"\n");
@@ -25,7 +26,7 @@ printf(PINK"------------ %%f ------------"RST"\n");
 	printf("\nMINE RET->%d\n", ft_printf("%f", nbr));
 	ft_printf(GRN);
 	printf("\nREAL RET->%d\n", printf("%f", nbr));
-
+*/
 /*
 	printf(PINK"------------ %%s 42 ------------"RST"\n");
 	

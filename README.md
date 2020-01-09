@@ -1,4 +1,4 @@
-# ft_printf - V0.6
+# ft_printf - V0.6.1
 
 -> make - Compile only
 
@@ -17,13 +17,13 @@ run "sh test-printf/test-printf.sh" for @Chinimala tester
     ————————————————————————————————————
     	Changes:
     ————————————————————————————————————
-	- Fixed ("%.s", 42)
-	- Fixed %p bad display
-	- All Normed
+	- RM Useless files
+	- All normed
 
     ————————————————————————————————————
 		Cur State:
 	————————————————————————————————————
+	- 100% working without bonus (%e, %f, %g and ' flag)
     - %s, %c, %d, %i, %p, %xX, %u, %%, %n Seems OK with all flags "# +-0.*"
 	- Tester Result: [1030/1749]
 		Skipping bonus: [1749/1749]

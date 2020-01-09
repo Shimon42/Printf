@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/07 17:01:30 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 16:46:31 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 17:58:48 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,7 +25,6 @@ void		init_params_list(t_brain **b)
 	add_param(b, "u", &per_u);
 	add_param(b, "%", &per_per);
 	add_param(b, "n", &per_n);
-	add_param(b, "f", &per_f);
 }
 
 t_param		*new_param(t_brain *b)

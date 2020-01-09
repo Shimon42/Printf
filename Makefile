@@ -4,8 +4,7 @@ SRCSPATH = srcs/
 LIBFTPATH = $(SRCSPATH)Libft
 FOLDNAME = Printf/
 
-SRCS	=	$(SRCSPATH)$(FOLDNAME)debug.c \
-			$(SRCSPATH)$(FOLDNAME)ft_printf.c \
+SRCS	=	$(SRCSPATH)$(FOLDNAME)ft_printf.c \
 			$(SRCSPATH)$(FOLDNAME)gest_params.c \
 			$(SRCSPATH)$(FOLDNAME)gest_flags.c \
 			$(SRCSPATH)$(FOLDNAME)gest_flags_disp.c \
@@ -16,18 +15,15 @@ SRCS	=	$(SRCSPATH)$(FOLDNAME)debug.c \
 			$(SRCSPATH)$(FOLDNAME)treat/per_u.c \
 			$(SRCSPATH)$(FOLDNAME)treat/per_p.c \
 			$(SRCSPATH)$(FOLDNAME)treat/per_x.c \
-			$(SRCSPATH)$(FOLDNAME)treat/per_n.c \
-			$(SRCSPATH)$(FOLDNAME)treat/per_f.c \
+			$(SRCSPATH)$(FOLDNAME)treat/per_n.c
 
 CC		= gcc
-CFLAGSF	= -Wall -Wextra -Werror
-CFLAGS	= 
+CFLAGS	= -Wall -Wextra -Werror
 CLEAR	= clear
 RM		= rm -f
 OBJS	= ${SRCS:.c=.o}
 
 INCLUDES =	$(INCPATH)/brain.h \
-			$(INCPATH)/debug.h \
 			$(INCPATH)/printf.h
 
 all:		$(NAME) $(OBJS) $(INCLUDES)

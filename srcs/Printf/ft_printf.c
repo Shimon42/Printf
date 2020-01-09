@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 17:27:27 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 17:56:50 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -69,7 +69,7 @@ static int			treat_str(t_brain *b, const char *str, va_list va)
 			if (b->cur_param->key && b->cur_param->treat)
 				b->n_print += b->cur_param->treat(va, b->cur_param);
 			else
-				printf(RED"END BAD KEY - ARG NOT FOUND IN %s"RST"\n", str);
+				printf("END BAD KEY - ARG NOT FOUND IN %s\n", str);
 			str += b->stri + b->cur_param->flags_length + 1;
 			free_param(b->cur_param);
 			i = 0;
