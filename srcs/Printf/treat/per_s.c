@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 20:31:09 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 16:31:41 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -45,7 +45,6 @@ int		per_s(va_list va, t_param *p)
 	int		wasnull;
 
 	wasnull = 0;
-//	disp_param(p);
 	gest_wildcard(va, p);
 	str = va_arg(va, char *);
 	if (!str)
@@ -53,7 +52,10 @@ int		per_s(va_list va, t_param *p)
 		str = ft_strdup("(null)");
 		wasnull = 1;
 	}
-	len = strlen(str);
+	if (p->precision != 0)
+		len = strlen(str);
+	else
+		len = 0;
 	disp_per_s(p, len, str);
 	if (wasnull)
 		free(str);

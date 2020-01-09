@@ -1,4 +1,4 @@
-# ft_printf - V0.5.9
+# ft_printf - V0.6
 
 -> make - Compile only
 
@@ -17,23 +17,19 @@ run "sh test-printf/test-printf.sh" for @Chinimala tester
     ————————————————————————————————————
     	Changes:
     ————————————————————————————————————
-	- %f (Not working)
-	- %s return "(null)" if str is NULL
-	- Changes in Libft
+	- Fixed ("%.s", 42)
+	- Fixed %p bad display
+	- All Normed
 
     ————————————————————————————————————
 		Cur State:
 	————————————————————————————————————
     - %s, %c, %d, %i, %p, %xX, %u, %%, %n Seems OK with all flags "# +-0.*"
-	- Remain 1 bug for ("%.s", 42) -> SEGFAULT
-	- Brain.h not normed (func ptr)
-	- Tester Result: [1029/1749]
-		Skipping bonus: [1748/1749]
+	- Tester Result: [1030/1749]
+		Skipping bonus: [1749/1749]
 
 	————————————————————————————————————
     	Known Bugs:
 	————————————————————————————————————
-    - Try to gest %p, miss begining of address
-    - %p doesn't display beginning of address
     - Need to find a way to make one function from functions gest_precision and no_precision
     - No errors gest

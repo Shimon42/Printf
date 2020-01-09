@@ -6,28 +6,50 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 19:48:48 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 16:02:53 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../../includes/printf.h"
 
+long	ft_floor(double n)
+{
+	double left;
 
+	left = n - (long)n;
+	return ((int)n);
+}
+
+double ft_get_decimals(double n)
+{
+	double left;
+
+	left = n - (long)n;
+	return (left);
+}
+
+long	ft_round(double n)
+{
+	double left;
+
+	left = n - (long)n;
+	if (left < 0.5)
+		return ((long)n);
+	else
+		return ((long)n + 1);
+}
 
 size_t ft_putfloat(double n, int dec)
 {
 	size_t count;
 	int i;
-	double temp;
+	//int temp;
 
 	i = 0;
 	printf("\n%f\n", n);
-
-	ft_ftoa(n, 5);
-
 	ft_putnbr((long)n);
-	n = n - (long)n;
+	n = ft_get_decimals(n);
 	count = 0;
 	if (n < 0)
 	{
@@ -38,11 +60,11 @@ size_t ft_putfloat(double n, int dec)
 	n *= 10;
 	while (i < 10 && i < dec)
 	{
-		ft_putnbr(n);
-		temp = n - (int)n;
-		printf("\ntemp:%f\n", temp);
-		n = (temp * 10);
-		printf("n:%f\n", n);
+		ft_putnbr(ft_round(n));
+		n = ft_get_decimals(n);
+		//printf("\ntemp:%f\n", n);
+		n *= 10;
+		//printf("\nn:%f\n", n);
 		i++;
 	}
 	

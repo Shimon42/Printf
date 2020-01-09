@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 16:49:16 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 16:46:52 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 17:27:09 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,7 +22,7 @@
 int			ft_printf(const char *str, ...) __attribute__((format(printf,1,2)));
 
 t_param		*find_func(t_brain *b, const char *str);
-funcptr		set_treat_func(t_brain *b, t_param *cur, const char *str);
+void		set_treat_func(t_brain *b, t_param *cur, const char *str);
 int			get_flags(t_param *ret, const char *str, int i);
 int			get_min_width(t_param *ret, const char *str, int i);
 int			get_precision(t_param *ret, const char *str, int i);
