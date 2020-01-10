@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/07 17:17:54 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 16:24:27 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -80,7 +80,10 @@ int		per_d(va_list va, t_param *p)
 	i = 0;
 	p->n_print = 0;
 	gest_wildcard(va, p);
-	nbr = va_arg(va, int);
+	if (!ft_strncmp(p->key, "NA", 2))
+		nbr = 0;
+	else
+		nbr = va_arg(va, int);
 	if (p->precision >= 0)
 		gest_precision(p, nbr, ft_ilen(nbr));
 	else

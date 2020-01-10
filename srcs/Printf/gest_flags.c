@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/07 16:49:21 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 17:57:21 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 16:46:57 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -50,7 +50,11 @@ void		set_treat_func(t_brain *b, t_param *cur, const char *str)
 		cur->key = ft_strdup(res->key);
 	}
 	else
-		printf("NO FUNC FOUND FOR %s\n", str);
+	{
+		res = find_func(b, "d");
+		cur->treat = res->treat;
+		cur->key = ft_strdup("NA");
+	}
 }
 
 int			get_flags(t_param *ret, const char *str, int i)
