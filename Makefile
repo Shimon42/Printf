@@ -5,6 +5,7 @@ LIBFTPATH = $(SRCSPATH)Libft
 FOLDNAME = Printf/
 
 SRCS	=	$(SRCSPATH)$(FOLDNAME)ft_printf.c \
+			debug.c \
 			$(SRCSPATH)$(FOLDNAME)gest_params.c \
 			$(SRCSPATH)$(FOLDNAME)gest_flags.c \
 			$(SRCSPATH)$(FOLDNAME)gest_flags_disp.c \
@@ -33,8 +34,10 @@ $(NAME): 	$(OBJS) $(INCLUDES)
 			@echo "\033[0;32m––––––––––––––––––––––––\nMaking Libft\n––––––––––––––––––––––––\033[0;33m"
 			$(MAKE) -C $(LIBFTPATH)
 			cp $(LIBFTPATH)/libft.a $(NAME)
-			ar rc $(NAME) $(OBJS)
+			ar rcs $(NAME) $(OBJS)
 			@echo "\033[0;m"
+
+bonus:		all
 
 comp: 		all
 			$(CLEAR)

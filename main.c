@@ -6,27 +6,26 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 17:23:48 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 17:57:57 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 17:46:07 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "includes/printf.h"
+#include "debug.h"
 #include <limits.h>
 int main(void)
 {
-	/*
-	ft_putstr(RST);
+	unsigned long nbr = 12;
+	printf("\n RET->%d\n", ft_printf("%.lu",nbr));
+	printf("\n RET->%d\n", ft_printf("%.p",NULL));
+	printf("\n RET->%d\n", printf("%.p",NULL));
+	printf("\n RET->%d\n", ft_printf("%.p",&nbr));
+	printf("\n RET->%d\n", printf("%.p",&nbr));
+	printf("\n RET->%d\n", ft_printf("[%u %X %x %s %p %s %d %u %x %X %s]", 2987, 2978123, 982374, "ah", NULL, "bon", 28763, 82763, 376482, 387936, "hello"));
+	printf("\n RET->%d\n",    printf("[%u %X %x %s %p %s %d %u %x %X %s]", 2987, 2978123, 982374, "ah", NULL, "bon", 28763, 82763, 376482, 387936, "hello"));
 
-printf(PINK"------------ %%f ------------"RST"\n");
-	double nbr = 789.1415;
-	
-	ft_printf(YELO);
-	printf("\nMINE RET->%d\n", ft_printf("%f", nbr));
-	ft_printf(GRN);
-	printf("\nREAL RET->%d\n", printf("%f", nbr));
-*/
 /*
 	printf(PINK"------------ %%s 42 ------------"RST"\n");
 	

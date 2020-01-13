@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 17:56:50 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 17:48:04 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -66,6 +66,7 @@ static int			treat_str(t_brain *b, const char *str, va_list va)
 		{
 			b->n_print += write(1, str, b->stri);
 			b->cur_param = analyse(b, str + b->stri + 1);
+			//disp_param(b->cur_param);
 			if (b->cur_param->key && b->cur_param->treat)
 				b->n_print += b->cur_param->treat(va, b->cur_param);
 			else
@@ -90,9 +91,11 @@ int					ft_printf(const char *str, ...)
 	n_print = 0;
 	b = malloc(sizeof(t_brain));
 	init_brain(&b);
+	disp_brain(b);
 	va_start(va, str);
 	n_print = treat_str(b, str, va);
 	va_end(va);
+	disp_brain(b);
 	meditate(b);
 	return (n_print);
 }

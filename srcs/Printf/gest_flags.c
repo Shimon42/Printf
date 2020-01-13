@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/07 16:49:21 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 16:46:57 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 17:51:59 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,8 +28,7 @@ t_param		*find_func(t_brain *b, const char *str)
 		if ((found = check_key(str, (*tmp)->key)) > -1)
 		{
 			ret = tmp;
-			if (ft_strchr("XEG", str[found]))
-				(*ret)->key[0] = str[found];
+			(*ret)->key[0] = str[found];
 			break ;
 		}
 		tmp = &((*tmp)->next);
@@ -51,6 +50,7 @@ void		set_treat_func(t_brain *b, t_param *cur, const char *str)
 	}
 	else
 	{
+		ft_putstr("NOT FOUND");
 		res = find_func(b, "d");
 		cur->treat = res->treat;
 		cur->key = ft_strdup("NA");

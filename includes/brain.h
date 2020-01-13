@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:15:38 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 17:25:16 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 17:51:06 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -31,6 +31,7 @@ typedef struct		s_param
 	int				precision;
 	int				flags_length;
 	int				n_print;
+	int				upper;
 	struct s_param	*next;
 	struct s_brain	*parent;
 }					t_param;
