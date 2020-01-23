@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 22:01:41 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/07 17:15:27 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/21 15:04:09 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,7 +32,6 @@ static void	gest_no_precision(t_param *p)
 
 int			per_per(va_list va, t_param *p)
 {
-	va = 0;
 	p->n_print = 0;
 	gest_wildcard(va, p);
 	gest_no_precision(p);

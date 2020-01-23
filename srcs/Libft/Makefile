@@ -84,7 +84,7 @@ all:		$(NAME) $(OBJS) $(INCLUDES)
 $(NAME): 	$(OBJS) $(INCLUDES)
 			$(CLEAR)
 			@echo "\033[0;32m––––––––––––––––––––––––\nMaking Libft\n––––––––––––––––––––––––\033[0;33m"
-			ar rc $(NAME) $(OBJS)
+			ar rcs $(NAME) $(OBJS)
 			@echo "\033[0;m"
 
 $(OBJS):	$(INCLUDES)

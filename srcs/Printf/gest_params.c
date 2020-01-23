@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/07 17:01:30 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 17:58:48 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/23 16:13:25 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -42,6 +42,7 @@ t_param		*new_param(t_brain *b)
 	new->precision = -1;
 	new->left_justif = 0;
 	new->pref_0 = 0;
+	new->prefix = ' ';
 	new->max_width = -1;
 	new->min_field_as_var = 0;
 	new->max_field_as_var = 0;
@@ -56,10 +57,13 @@ void		add_param(t_brain **b, char *key, void *f)
 	t_param *new;
 
 	new = new_param(*b);
-	new->key = ft_strdup(key);
-	new->treat = f;
-	new->next = (*b)->params;
-	(*b)->params = new;
+	if (new != NULL)
+	{
+		new->key = ft_strdup(key);
+		new->treat = f;
+		new->next = (*b)->params;
+		(*b)->params = new;
+	}
 }
 
 int			check_key(const char *str, char *tofind)

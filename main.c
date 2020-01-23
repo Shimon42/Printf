@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 17:23:48 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 17:46:07 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/21 15:02:29 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,16 +17,18 @@
 #include <limits.h>
 int main(void)
 {
-	unsigned long nbr = 12;
-	printf("\n RET->%d\n", ft_printf("%.lu",nbr));
+//	unsigned long nbr = 12;
+	//ft_printf("|%-*%|\n", 45);
+	printf("%*%\n", 45);
+
+	/*printf("\n RET->%d\n", ft_printf("%.lu",nbr));
 	printf("\n RET->%d\n", ft_printf("%.p",NULL));
 	printf("\n RET->%d\n", printf("%.p",NULL));
 	printf("\n RET->%d\n", ft_printf("%.p",&nbr));
 	printf("\n RET->%d\n", printf("%.p",&nbr));
-	printf("\n RET->%d\n", ft_printf("[%u %X %x %s %p %s %d %u %x %X %s]", 2987, 2978123, 982374, "ah", NULL, "bon", 28763, 82763, 376482, 387936, "hello"));
-	printf("\n RET->%d\n",    printf("[%u %X %x %s %p %s %d %u %x %X %s]", 2987, 2978123, 982374, "ah", NULL, "bon", 28763, 82763, 376482, 387936, "hello"));
-
-/*
+	printf("\n RET->%d\n",    printf("[%u %X %x %5.10d %6s %p %.4s %d %u %x %X %s]", 2987, 2978123, 982374, 1456, "ah", NULL, "bonjour", 28763, 82763, 376482, 387936, "hello"));
+	printf("\n RET->%d\n", ft_printf("[%u %X %x %5.10d %6s %p %.4s %d %u %x %X %s]", 2987, 2978123, 982374, 1456, "ah", NULL, "bonjour", 28763, 82763, 376482, 387936, "hello"));
+*//*
 	printf(PINK"------------ %%s 42 ------------"RST"\n");
 	
 	ft_printf(YELO);

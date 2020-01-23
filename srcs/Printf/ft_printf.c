@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 17:48:04 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/23 16:06:29 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -66,11 +66,10 @@ static int			treat_str(t_brain *b, const char *str, va_list va)
 		{
 			b->n_print += write(1, str, b->stri);
 			b->cur_param = analyse(b, str + b->stri + 1);
-			//disp_param(b->cur_param);
 			if (b->cur_param->key && b->cur_param->treat)
 				b->n_print += b->cur_param->treat(va, b->cur_param);
 			else
-				printf("END BAD KEY - ARG NOT FOUND IN %s\n", str);
+				ft_printf("END BAD KEY - ARG NOT FOUND IN %s\n", str);
 			str += b->stri + b->cur_param->flags_length + 1;
 			free_param(b->cur_param);
 			i = 0;
@@ -89,13 +88,12 @@ int					ft_printf(const char *str, ...)
 	int		n_print;
 
 	n_print = 0;
-	b = malloc(sizeof(t_brain));
+	if ((b = malloc(sizeof(t_brain))) == NULL)
+		return (0);
 	init_brain(&b);
-	disp_brain(b);
 	va_start(va, str);
 	n_print = treat_str(b, str, va);
 	va_end(va);
-	disp_brain(b);
 	meditate(b);
 	return (n_print);
 }
