@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 15:11:47 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/23 16:06:29 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/04 16:55:15 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,11 +27,22 @@ void				meditate(t_brain *b)
 
 	while (b->params)
 	{
-		tmp = b->params;
-		free_param(b->params);
-		b->params = tmp->next;
+		if (b->params != NULL)
+			tmp = b->params;
+		free(b->params->key);
+		if (tmp->next != NULL)
+		{
+			b->params = tmp->next;
+			free(tmp);
+		}
+		else
+		{
+			free(tmp);
+			break ;
+		}
 	}
-	free(b);
+	if (b != NULL)
+		free(b);
 }
 
 static t_param		*analyse(t_brain *b, const char *str)

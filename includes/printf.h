@@ -6,7 +6,7 @@
 /*   By: siferrar <siferrar@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 16:49:16 by siferrar     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 17:56:33 by siferrar    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/04 16:33:42 by siferrar    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,7 +30,6 @@ int			check_key(const char *str, char *tofind);
 void		init_params_list(t_brain **b);
 t_param		*new_param(t_brain *b);
 void		add_param(t_brain **b, char *key, void *f);
-int			check_key(const char *str, char *tofind);
 void		free_param(t_param *p);
 
 void		disp_justif(int n, t_param *p, int left_justif);
