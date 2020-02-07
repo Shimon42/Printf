@@ -19,7 +19,6 @@ SRCS	=	$(SRCSPATH)$(FOLDNAME)ft_printf.c \
 
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
-CLEAR	= clear
 RM		= rm -f
 OBJS	= ${SRCS:.c=.o}
 
@@ -29,7 +28,6 @@ INCLUDES =	$(INCPATH)/brain.h \
 all:		$(NAME) $(OBJS) $(INCLUDES)
 
 $(NAME): 	$(OBJS) $(INCLUDES)
-			$(CLEAR)
 			@echo "\033[0;32m––––––––––––––––––––––––\nCompiling Libft\n––––––––––––––––––––––––\033[0;33m"
 			@$(MAKE) -C $(LIBFTPATH)
 			@cp $(LIBFTPATH)/libft.a $(NAME)
@@ -40,7 +38,6 @@ $(NAME): 	$(OBJS) $(INCLUDES)
 bonus:		all
 
 comp: 		all
-			$(CLEAR)
 			$(CC) $(CFLAGS) main.c libftprintf.a
 
 $(OBJS):	$(INCLUDES)

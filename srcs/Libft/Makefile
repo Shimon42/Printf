@@ -73,7 +73,6 @@ SRCS	=	$(MATHLIB)ft_abs.c \
 
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
-CLEAR	= clear
 RM		= rm -f
 OBJS	= ${SRCS:.c=.o}
 
@@ -82,7 +81,6 @@ INCLUDES =	$(INCPATH)libft.h
 all:		$(NAME) $(OBJS) $(INCLUDES)
 
 $(NAME): 	$(OBJS) $(INCLUDES)
-			$(CLEAR)
 			@echo "\033[0;32m––––––––––––––––––––––––\nMaking Libft\n––––––––––––––––––––––––\033[0;33m"
 			ar rcs $(NAME) $(OBJS)
 			@echo "\033[0;m"
